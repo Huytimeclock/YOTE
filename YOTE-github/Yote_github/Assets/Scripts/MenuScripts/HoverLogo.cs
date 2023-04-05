@@ -11,11 +11,17 @@ public class HoverLogo : MonoBehaviour
 
     private void OnMouseOver()
     {
-        logo1.transform.localScale = new Vector3(5f, 5f, 5f);
+        logo1.transform.localScale = new Vector3(55f, 55f, 55f);
+        logo2.transform.localScale = new Vector3(55f, 55f, 55f);
+        logo3.transform.localScale = new Vector3(55f, 55f, 55f);
+        logo4.transform.localScale = new Vector3(55f, 55f, 55f);
     }
 
     private void OnMouseExit()
     {
-        logo1.transform.localScale = new Vector3(3f, 3f, 3f);
+        logo1.transform.localScale = new Vector3(50f, 50f, 50f);
+        logo2.transform.localScale = new Vector3(50f, 50f, 50f);
+        logo3.transform.localScale = new Vector3(50f, 50f, 50f);
+        logo4.transform.localScale = new Vector3(50f, 50f, 50f);
     }
 }
