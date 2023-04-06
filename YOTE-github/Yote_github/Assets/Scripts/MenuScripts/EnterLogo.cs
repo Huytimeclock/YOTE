@@ -23,5 +23,9 @@ public class EnterLogo : MonoBehaviour
         Button2.SetActive(true);
         Button3.SetActive(true);
         Button4.SetActive(true);
+        Button1.transform.Translate(-3.4f, 0, 0);
+        Button2.transform.Translate(3.4f, 0, 0);
+        Button3.transform.Translate(-3.4f, 0, 0);
+        Button4.transform.Translate(3.4f, 0, 0);
     }
 }
