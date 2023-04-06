@@ -1132,6 +1132,7 @@ GameObject:
   - component: {fileID: 1442745154}
   - component: {fileID: 1442745155}
   - component: {fileID: 1442745156}
+  - component: {fileID: 1442745157}
   m_Layer: 0
   m_Name: bar-play
   m_TagString: Untagged
@@ -1222,6 +1223,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000011920929, y: -0.00000011920929}
   m_Size: {x: 11.399999, y: 2.5199997}
   m_Direction: 1
+--- !u!114 &1442745157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442745153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a845221f342377c49a6c5db7dc47a71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1603582371
 GameObject:
   m_ObjectHideFlags: 0
