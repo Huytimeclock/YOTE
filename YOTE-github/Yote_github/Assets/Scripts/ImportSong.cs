@@ -7,7 +7,10 @@ using UnityEngine.Networking;
 public class ImportSong : MonoBehaviour
 {
     AudioSource m_AudioSource;
-    
+
+   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +42,20 @@ public class ImportSong : MonoBehaviour
             onComplete?.Invoke(clip);
         }
     }
-    
+
+   // private double lastLogTime;
+   // private const double logInterval = 1.0; // write every log each second
+
+//    private void OnAudioFilterRead(float[] data, int channels)
+  //  {
+    //    double currentTime = AudioSettings.dspTime;
+      //  double elapsedTime = currentTime - lastLogTime;
+
+        //if (elapsedTime >= logInterval)
+        //{
+          //  Debug.Log("Audio is playing...");
+            //lastLogTime = currentTime;
+        //}
+    //}
+
 }
