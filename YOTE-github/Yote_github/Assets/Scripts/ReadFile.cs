@@ -6,6 +6,8 @@ public class ReadFile : MonoBehaviour
 {
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
+    [SerializeField] GameObject CreateObjectH;
+    [SerializeField] GameObject CreateObjectJ;
 
     void Start()
     {
