@@ -5,11 +5,16 @@ using System;
 using System.Diagnostics;
 using System.Xml.Linq;
 using System.Threading;
+using System.Collections;
 
 public class ReadFile : MonoBehaviour
 {
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
+
+    public float enlargeTime = 3.0f; // Time to enlarge the object
+    public float enlargeRate = 33f; // Rate of enlargement per second
+
 
     [SerializeField] GameObject CreateObjectH;
     
@@ -65,7 +70,10 @@ public class ReadFile : MonoBehaviour
                         {
                             if (key[i] == ',')
                             {
+
+                                StartCoroutine(EnlargeObject());
                                 callDebug(logTime, getkey);
+                                
                                 getkey = "";//reset
                                 continue;
                             }
@@ -73,7 +81,9 @@ public class ReadFile : MonoBehaviour
                             UnityEngine.Debug.Log(getkey);
                             if (i == key.Length - 1)
                             {
+                                StartCoroutine(EnlargeObject());
                                 callDebug(logTime, getkey);
+                                
                             }
 
 
@@ -88,6 +98,7 @@ public class ReadFile : MonoBehaviour
                     }
                 }
             }
+
         }
         isStarted = true;
 
@@ -99,30 +110,29 @@ public class ReadFile : MonoBehaviour
             yield return null;
         }
 
-        EnlargeObject(time, message);// enlarge object
+        
         UnityEngine.Debug.Log(message + " " + time);
     }
 
 
 
-    void EnlargeObject(float time, string message)
+    IEnumerator EnlargeObject()
     {
-        int numscale = 0;
-        int numofloop = 0;
-        for (int i=0;i<100;i++)
+        float startTime = Time.time;
+        while (Time.time - startTime < enlargeTime)
         {
-            numscale++;
-            CreateObjectH.transform.localScale = new Vector3(numscale, numscale, numscale);
-            UnityEngine.Debug.Log(numscale);
-            numofloop++;
-            Thread.Sleep(30);
+            float scale = (Time.time - startTime) * enlargeRate;
+            CreateObjectH.transform.localScale = new Vector3(scale, scale, scale);
+            yield return null; // Wait for the next frame
         }
-
-            
-        
-        
-        
-
-
+        // Make sure the object is fully enlarged at the end of the loop
+        CreateObjectH.transform.localScale = new Vector3(enlargeRate * enlargeTime, enlargeRate * enlargeTime, enlargeRate * enlargeTime);
     }
+
+
+
+
+
+
 }
+
