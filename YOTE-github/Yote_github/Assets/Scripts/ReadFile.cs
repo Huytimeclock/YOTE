@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using JetBrains.Annotations;
 
 public class ReadFile : MonoBehaviour
 {
@@ -41,8 +42,34 @@ public class ReadFile : MonoBehaviour
                     {
                         
                         string key = splitLine[2].TrimEnd(']'); // get the key from the third part
+                        string getkey =""; // get key from different element in key
                         float logTime = startTime + time; // calculate the time when the log should be written
-                        StartCoroutine(LogAtTime(logTime, key)); // start the coroutine to write the log at the specified time
+
+
+                        for (int i=0;i<key.Length;i++) // used to help when there is so many input ( exp [h,i,j] )
+                        {
+                            if (key[i] == ',')
+                            {
+                                callDebug(logTime,getkey);
+                                getkey= "";//reset
+                                continue;
+                            }
+                            getkey += key[i];   //lay cac bien
+                            Debug.Log(getkey);
+                            if (i==key.Length-1)
+                            {
+                                callDebug(logTime, getkey);
+                            }
+                            
+
+                        }
+                        
+
+                        void callDebug (float xdtime, string xdkey)
+                        {
+                            StartCoroutine(LogAtTime(logTime, xdkey)); // start the coroutine to write the log at the specified time
+                        }
+                        
                     }
                 }
             }
