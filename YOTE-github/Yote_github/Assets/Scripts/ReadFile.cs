@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using System;
 using System.Diagnostics;
 using System.Xml.Linq;
+using System.Threading;
 
 public class ReadFile : MonoBehaviour
 {
@@ -108,14 +109,20 @@ public class ReadFile : MonoBehaviour
     {
         int numscale = 0;
         int numofloop = 0;
-        while(true)
+        for (int i=0;i<100;i++)
         {
-            CreateObjectH.transform.localScale = new Vector3(numscale, numscale, numscale);
             numscale++;
-            
+            CreateObjectH.transform.localScale = new Vector3(numscale, numscale, numscale);
+            UnityEngine.Debug.Log(numscale);
+            numofloop++;
+            Thread.Sleep(30);
         }
+
+            
+        
+        
         
 
-        
+
     }
 }
