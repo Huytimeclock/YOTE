@@ -1694,6 +1694,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 852583647}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &852583650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 852583647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &853692095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2293,7 +2298,32 @@ MonoBehaviour:
   CreateObjectB: {fileID: 552090706}
   CreateObjectN: {fileID: 1458790386}
   CreateObjectM: {fileID: 1605796583}
-  CreateObjectH_prefab: {fileID: 852583649}
+  CreateObjectAirQ: {fileID: 0}
+  CreateObjectAirW: {fileID: 0}
+  CreateObjectAirE: {fileID: 0}
+  CreateObjectAirR: {fileID: 0}
+  CreateObjectAirT: {fileID: 0}
+  CreateObjectAirY: {fileID: 0}
+  CreateObjectAirU: {fileID: 0}
+  CreateObjectAirI: {fileID: 0}
+  CreateObjectAirO: {fileID: 0}
+  CreateObjectAirP: {fileID: 0}
+  CreateObjectAirA: {fileID: 0}
+  CreateObjectAirS: {fileID: 0}
+  CreateObjectAirD: {fileID: 0}
+  CreateObjectAirF: {fileID: 0}
+  CreateObjectAirG: {fileID: 0}
+  CreateObjectAirH: {fileID: 852583650}
+  CreateObjectAirJ: {fileID: 0}
+  CreateObjectAirK: {fileID: 0}
+  CreateObjectAirL: {fileID: 0}
+  CreateObjectAirZ: {fileID: 0}
+  CreateObjectAirX: {fileID: 0}
+  CreateObjectAirC: {fileID: 0}
+  CreateObjectAirV: {fileID: 0}
+  CreateObjectAirB: {fileID: 0}
+  CreateObjectAirN: {fileID: 0}
+  CreateObjectAirM: {fileID: 0}
 --- !u!1001 &1049087315
 PrefabInstance:
   m_ObjectHideFlags: 0

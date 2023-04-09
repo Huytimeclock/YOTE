@@ -26,7 +26,7 @@ public class ReadFile : MonoBehaviour
     
 
 
-    //Row 1
+    //Row 1 default
     [SerializeField] GameObject CreateObjectQ;
     [SerializeField] GameObject CreateObjectW;
     [SerializeField] GameObject CreateObjectE;
@@ -39,7 +39,7 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectP;
 
 
-    //Row 2
+    //Row 2 default
     [SerializeField] GameObject CreateObjectA;
     [SerializeField] GameObject CreateObjectS;
     [SerializeField] GameObject CreateObjectD;
@@ -51,7 +51,7 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectL;
 
 
-    //Row 3
+    //Row 3 default
     [SerializeField] GameObject CreateObjectZ;
     [SerializeField] GameObject CreateObjectX;
     [SerializeField] GameObject CreateObjectC;
@@ -61,7 +61,39 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectM;
 
 
+    //Row 1 default
+    [SerializeField] GameObject CreateObjectAirQ;
+    [SerializeField] GameObject CreateObjectAirW;
+    [SerializeField] GameObject CreateObjectAirE;
+    [SerializeField] GameObject CreateObjectAirR;
+    [SerializeField] GameObject CreateObjectAirT;
+    [SerializeField] GameObject CreateObjectAirY;
+    [SerializeField] GameObject CreateObjectAirU;
+    [SerializeField] GameObject CreateObjectAirI;
+    [SerializeField] GameObject CreateObjectAirO;
+    [SerializeField] GameObject CreateObjectAirP;
 
+
+    //Row 2 default
+    [SerializeField] GameObject CreateObjectAirA;
+    [SerializeField] GameObject CreateObjectAirS;
+    [SerializeField] GameObject CreateObjectAirD;
+    [SerializeField] GameObject CreateObjectAirF;
+    [SerializeField] GameObject CreateObjectAirG;
+    [SerializeField] GameObject CreateObjectAirH;
+    [SerializeField] GameObject CreateObjectAirJ;
+    [SerializeField] GameObject CreateObjectAirK;
+    [SerializeField] GameObject CreateObjectAirL;
+
+
+    //Row 3 default
+    [SerializeField] GameObject CreateObjectAirZ;
+    [SerializeField] GameObject CreateObjectAirX;
+    [SerializeField] GameObject CreateObjectAirC;
+    [SerializeField] GameObject CreateObjectAirV;
+    [SerializeField] GameObject CreateObjectAirB;
+    [SerializeField] GameObject CreateObjectAirN;
+    [SerializeField] GameObject CreateObjectAirM;
     void Start()
     {
         
@@ -113,7 +145,9 @@ public class ReadFile : MonoBehaviour
                             if (key[i] == ',')
                             {
                                 UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime-1, getkey));
+                                StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
+
+
                                 callDebug(logTime, getkey);
                                 
                                 
@@ -125,7 +159,7 @@ public class ReadFile : MonoBehaviour
                             if (i == key.Length - 1)
                             {
                                 UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime - 1, getkey));
+                                StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
                                 callDebug(logTime, getkey);
                                 
                             }
@@ -144,6 +178,7 @@ public class ReadFile : MonoBehaviour
             }
 
         }
+        
         isStarted = true;
 
     }
@@ -269,8 +304,112 @@ public class ReadFile : MonoBehaviour
             case "M":
                 EnlargeObject = CreateObjectM;
                 break;
-        }
 
+            case "QQ":
+                EnlargeObject = CreateObjectAirQ;
+                break;
+
+            case "WW":
+                EnlargeObject = CreateObjectAirW;
+                break;
+
+            case "EE":
+                EnlargeObject = CreateObjectAirE;
+                break;
+
+            case "RR":
+                EnlargeObject = CreateObjectAirR;
+                break;
+
+            case "TT":
+                EnlargeObject = CreateObjectAirT;
+                break;
+
+            case "YY":
+                EnlargeObject = CreateObjectAirY;
+                break;
+
+            case "UU":
+                EnlargeObject = CreateObjectAirU;
+                break;
+
+            case "II":
+                EnlargeObject = CreateObjectAirI;
+                break;
+
+            case "OO":
+                EnlargeObject = CreateObjectAirO;
+                break;
+
+            case "PP":
+                EnlargeObject = CreateObjectAirP;
+                break;
+
+            case "AA":
+                EnlargeObject = CreateObjectAirA;
+                break;
+
+            case "SS":
+                EnlargeObject = CreateObjectAirS;
+                break;
+
+            case "DD":
+                EnlargeObject = CreateObjectAirD;
+                break;
+
+            case "FF":
+                EnlargeObject = CreateObjectAirF;
+                break;
+
+            case "GG":
+                EnlargeObject = CreateObjectAirG;
+                break;
+
+            case "HH":
+                EnlargeObject = CreateObjectAirH;
+                break;
+
+            case "JJ":
+                EnlargeObject = CreateObjectAirJ;
+                break;
+
+            case "KK":
+                EnlargeObject = CreateObjectAirK;
+                break;
+
+            case "LL":
+                EnlargeObject = CreateObjectAirL;
+                break;
+
+            case "ZZ":
+                EnlargeObject = CreateObjectAirZ;
+                break;
+
+            case "XX":
+                EnlargeObject = CreateObjectAirX;
+                break;
+
+            case "CC":
+                EnlargeObject = CreateObjectAirC;
+                break;
+
+            case "VV":
+                EnlargeObject = CreateObjectAirV;
+                break;
+
+            case "BB":
+                EnlargeObject = CreateObjectAirB;
+                break;
+
+            case "NN":
+                EnlargeObject = CreateObjectAirN;
+                break;
+
+            case "MM":
+                EnlargeObject = CreateObjectAirM;
+                break;
+        }
+        
         while (Time.time < triggerTime)
         {
             yield return null;
@@ -292,6 +431,7 @@ public class ReadFile : MonoBehaviour
         UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
         EnlargeObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
+
 
 
 
