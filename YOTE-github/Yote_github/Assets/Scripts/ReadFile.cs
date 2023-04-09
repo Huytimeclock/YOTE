@@ -108,7 +108,7 @@ public class ReadFile : MonoBehaviour
                             if (key[i] == ',')
                             {
                                 UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime-1));
+                                StartCoroutine(EnlargeObject(logTime-1, getkey));
                                 callDebug(logTime, getkey);
                                 
                                 
@@ -120,7 +120,7 @@ public class ReadFile : MonoBehaviour
                             if (i == key.Length - 1)
                             {
                                 UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime - 1));
+                                StartCoroutine(EnlargeObject(logTime - 1, getkey));
                                 callDebug(logTime, getkey);
                                 
                             }
@@ -155,9 +155,53 @@ public class ReadFile : MonoBehaviour
 
 
 
-    IEnumerator EnlargeObject(float triggerTime)
+    IEnumerator EnlargeObject(float triggerTime, string key)
     {
+        GameObject EnlargeObject = new GameObject();
        
+        switch(key)
+        {
+            case "Q":
+                EnlargeObject = CreateObjectQ;
+                break;
+
+            case "W":
+                EnlargeObject = CreateObjectW;
+                break;
+
+            case "E":
+                EnlargeObject = CreateObjectE;
+                break;
+
+            case "R":
+                EnlargeObject = CreateObjectR;
+                break;
+
+            case "T":
+                EnlargeObject = CreateObjectT;
+                break;
+
+            case "Y":
+                EnlargeObject = CreateObjectY;
+                break;
+
+            case "U":
+                EnlargeObject = CreateObjectU;
+                break;
+
+            case "I":
+                EnlargeObject = CreateObjectI;
+                break;
+
+            case "O":
+                EnlargeObject = CreateObjectO;
+                break;
+
+            case "P":
+                EnlargeObject = CreateObjectP;
+                break;
+        }
+
         while (Time.time < triggerTime)
         {
             yield return null;
