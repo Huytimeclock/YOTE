@@ -20,10 +20,43 @@ public class ReadFile : MonoBehaviour
 
     //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
 
-    [SerializeField] GameObject CreateObjectH;
-    
+
+    //Row 1
+    [SerializeField] GameObject CreateObjectQ;
+    [SerializeField] GameObject CreateObjectW;
+    [SerializeField] GameObject CreateObjectE;
+    [SerializeField] GameObject CreateObjectR;
+    [SerializeField] GameObject CreateObjectT;
+    [SerializeField] GameObject CreateObjectY;
+    [SerializeField] GameObject CreateObjectU;
+    [SerializeField] GameObject CreateObjectI;
+    [SerializeField] GameObject CreateObjectO;
+    [SerializeField] GameObject CreateObjectP;
+
+
+    //Row 2
+    [SerializeField] GameObject CreateObjectA;
+    [SerializeField] GameObject CreateObjectS;
+    [SerializeField] GameObject CreateObjectD;
+    [SerializeField] GameObject CreateObjectF;
+    [SerializeField] GameObject CreateObjectG;
+    [SerializeField] GameObject CreateObjectH;    
     [SerializeField] GameObject CreateObjectJ;
-    
+    [SerializeField] GameObject CreateObjectK;
+    [SerializeField] GameObject CreateObjectL;
+
+
+    //Row 3
+    [SerializeField] GameObject CreateObjectZ;
+    [SerializeField] GameObject CreateObjectX;
+    [SerializeField] GameObject CreateObjectC;
+    [SerializeField] GameObject CreateObjectV;
+    [SerializeField] GameObject CreateObjectB;
+    [SerializeField] GameObject CreateObjectN;
+    [SerializeField] GameObject CreateObjectM;
+
+
+
 
     void Start()
     {
