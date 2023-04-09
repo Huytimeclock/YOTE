@@ -2262,8 +2262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65e2d68d30dd6f41b885200d67c1556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enlargeTime: 1
-  enlargeRate: 100
+  enlargeTime: 0.6
+  enlargeRate: 160
   CreateObjectQ: {fileID: 390409384}
   CreateObjectW: {fileID: 1522170372}
   CreateObjectE: {fileID: 251298460}

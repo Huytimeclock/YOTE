@@ -200,6 +200,70 @@ public class ReadFile : MonoBehaviour
             case "P":
                 EnlargeObject = CreateObjectP;
                 break;
+
+            case "A":
+                EnlargeObject = CreateObjectA;
+                break;
+
+            case "S":
+                EnlargeObject = CreateObjectS;
+                break;
+
+            case "D":
+                EnlargeObject = CreateObjectD;
+                break;
+
+            case "F":
+                EnlargeObject = CreateObjectF;
+                break;
+
+            case "G":
+                EnlargeObject = CreateObjectG;
+                break;
+
+            case "H":
+                EnlargeObject = CreateObjectH;
+                break;
+
+            case "J":
+                EnlargeObject = CreateObjectJ;
+                break;
+
+            case "K":
+                EnlargeObject = CreateObjectK;
+                break;
+
+            case "L":
+                EnlargeObject = CreateObjectL;
+                break;
+
+            case "Z":
+                EnlargeObject = CreateObjectZ;
+                break;
+
+            case "X":
+                EnlargeObject = CreateObjectX;
+                break;
+
+            case "C":
+                EnlargeObject = CreateObjectC;
+                break;
+
+            case "V":
+                EnlargeObject = CreateObjectV;
+                break;
+
+            case "B":
+                EnlargeObject = CreateObjectB;
+                break;
+
+            case "N":
+                EnlargeObject = CreateObjectN;
+                break;
+
+            case "M":
+                EnlargeObject = CreateObjectM;
+                break;
         }
 
         while (Time.time < triggerTime)
@@ -217,11 +281,11 @@ public class ReadFile : MonoBehaviour
             
             float timeElapsed = Time.time - startTime;
             float scale = timeElapsed * enlargeRate;
-            CreateObjectH.transform.localScale = new Vector3(scale, scale, scale);
+            EnlargeObject.transform.localScale = new Vector3(scale, scale, scale);
             yield return null;
         }
         UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
-        CreateObjectH.transform.localScale = new Vector3(0f, 0f, 0f);
+        EnlargeObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
 
