@@ -125,7 +125,8 @@ public class ReadFile : MonoBehaviour
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines)
             {
-                // Debug.Log(line);
+              
+                UnityEngine.Debug.Log(line);
                 string[] splitLine = line.Split('['); // split the line at each '[' character
                 if (splitLine.Length >= 2) // make sure there are at least 2 parts (time and key)
                 {
