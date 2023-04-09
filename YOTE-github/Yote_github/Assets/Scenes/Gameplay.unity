@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &64585329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1149619127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &106770702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,6 +230,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -341,6 +350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputV
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirV
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &111427159 stripped
@@ -352,6 +365,16 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 111427158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &116681200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 552090704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &217261693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 565115743}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &251298458
 PrefabInstance:
@@ -456,6 +479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputE
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirE
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &251298459 stripped
@@ -467,6 +494,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 251298458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &313900577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1945555933}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &323731918
 PrefabInstance:
@@ -571,6 +603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputG
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirG
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &323731919 stripped
@@ -582,6 +618,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 323731918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &341924429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 435797418}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &390409382
 PrefabInstance:
@@ -686,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputQ
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirQ
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &390409383 stripped
@@ -787,6 +832,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &408977247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1605796581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &435797418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -890,6 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputY
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirY
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &435797419 stripped
@@ -901,6 +955,16 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 435797418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &439641096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 961449884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &491272201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 596141484}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &491310539 stripped
 RectTransform:
@@ -1010,6 +1074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputB
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirB
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &552090705 stripped
@@ -1021,6 +1089,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 552090704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &560662531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1049087315}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &565115743
 PrefabInstance:
@@ -1124,6 +1197,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -1239,6 +1316,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputL
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -1455,6 +1536,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6011433377428334402, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 681945799}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &692465801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1241669675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &695035386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1086675334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &726582226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1670,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &800296513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 2143391705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &852583647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1681,6 +1777,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputH
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirH
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -1801,6 +1901,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputO
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirO
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -2126,6 +2230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputT
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirT
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &961449885 stripped
@@ -2227,6 +2335,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &979797950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 853692095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1008897181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1870998189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1012010181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,32 +2416,32 @@ MonoBehaviour:
   CreateObjectB: {fileID: 552090706}
   CreateObjectN: {fileID: 1458790386}
   CreateObjectM: {fileID: 1605796583}
-  CreateObjectAirQ: {fileID: 0}
-  CreateObjectAirW: {fileID: 0}
-  CreateObjectAirE: {fileID: 0}
-  CreateObjectAirR: {fileID: 0}
-  CreateObjectAirT: {fileID: 0}
-  CreateObjectAirY: {fileID: 0}
-  CreateObjectAirU: {fileID: 0}
-  CreateObjectAirI: {fileID: 0}
-  CreateObjectAirO: {fileID: 0}
-  CreateObjectAirP: {fileID: 0}
-  CreateObjectAirA: {fileID: 0}
-  CreateObjectAirS: {fileID: 0}
-  CreateObjectAirD: {fileID: 0}
-  CreateObjectAirF: {fileID: 0}
-  CreateObjectAirG: {fileID: 0}
+  CreateObjectAirQ: {fileID: 2028273523}
+  CreateObjectAirW: {fileID: 1103746918}
+  CreateObjectAirE: {fileID: 1608801765}
+  CreateObjectAirR: {fileID: 692465801}
+  CreateObjectAirT: {fileID: 439641096}
+  CreateObjectAirY: {fileID: 341924429}
+  CreateObjectAirU: {fileID: 1832090872}
+  CreateObjectAirI: {fileID: 800296513}
+  CreateObjectAirO: {fileID: 979797950}
+  CreateObjectAirP: {fileID: 560662531}
+  CreateObjectAirA: {fileID: 1824931304}
+  CreateObjectAirS: {fileID: 1595347366}
+  CreateObjectAirD: {fileID: 1008897181}
+  CreateObjectAirF: {fileID: 64585329}
+  CreateObjectAirG: {fileID: 1603116537}
   CreateObjectAirH: {fileID: 852583650}
-  CreateObjectAirJ: {fileID: 0}
-  CreateObjectAirK: {fileID: 0}
-  CreateObjectAirL: {fileID: 0}
-  CreateObjectAirZ: {fileID: 0}
-  CreateObjectAirX: {fileID: 0}
-  CreateObjectAirC: {fileID: 0}
-  CreateObjectAirV: {fileID: 0}
-  CreateObjectAirB: {fileID: 0}
-  CreateObjectAirN: {fileID: 0}
-  CreateObjectAirM: {fileID: 0}
+  CreateObjectAirJ: {fileID: 1299563619}
+  CreateObjectAirK: {fileID: 313900577}
+  CreateObjectAirL: {fileID: 491272201}
+  CreateObjectAirZ: {fileID: 695035386}
+  CreateObjectAirX: {fileID: 217261693}
+  CreateObjectAirC: {fileID: 1824453901}
+  CreateObjectAirV: {fileID: 2009064994}
+  CreateObjectAirB: {fileID: 116681200}
+  CreateObjectAirN: {fileID: 1312146180}
+  CreateObjectAirM: {fileID: 408977247}
 --- !u!1001 &1049087315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2426,6 +2544,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputP
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -2542,6 +2664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputZ
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirZ
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1086675335 stripped
@@ -2553,6 +2679,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 1086675334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1103746918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1522170370}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1144390776
 GameObject:
@@ -2763,6 +2894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputF
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirF
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1149619128 stripped
@@ -2948,6 +3083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputR
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1241669676 stripped
@@ -2959,6 +3098,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 1241669675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1299563619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 6011433377515842185}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1310655837
 GameObject:
@@ -3031,6 +3175,11 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &1312146180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1458790384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1333880742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3133,6 +3282,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputU
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirU
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -3293,6 +3446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputN
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirN
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1458790385 stripped
@@ -3408,6 +3565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputW
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1522170371 stripped
@@ -3419,6 +3580,16 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 1522170370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1595347366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 106770702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1603116537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 323731918}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1605796581
 PrefabInstance:
@@ -3523,6 +3694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputM
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirM
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1605796582 stripped
@@ -3534,6 +3709,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 1605796581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1608801765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 251298458}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1714618885
 GameObject:
@@ -3637,6 +3817,21 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &1824453901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1844327885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1824931304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1963633304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1832090872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 1333880742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1844327885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3739,6 +3934,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -3854,6 +4053,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
@@ -4064,6 +4267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputK
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirK
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1945555934 stripped
@@ -4179,6 +4386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareInputA
       objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirA
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
 --- !u!224 &1963633305 stripped
@@ -4190,6 +4401,16 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
   m_PrefabInstance: {fileID: 1963633304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2009064994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 111427158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2028273523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+  m_PrefabInstance: {fileID: 390409382}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2096723043
 GameObject:
@@ -4382,6 +4603,10 @@ PrefabInstance:
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInputI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Name
+      value: SquareAirI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
