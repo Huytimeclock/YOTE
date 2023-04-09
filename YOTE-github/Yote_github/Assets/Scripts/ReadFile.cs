@@ -15,8 +15,8 @@ public class ReadFile : MonoBehaviour
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
 
-    public float enlargeTime = 1f; // Time to enlarge the object ???????????????????????????????????????????????????
-    public float enlargeRate = 100f; // Rate of enlargement per second
+    [SerializeField] float enlargeTime;
+    protected float enlargeRate ; // Rate of enlargement per second
 
     //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
 
@@ -61,8 +61,8 @@ public class ReadFile : MonoBehaviour
     void Start()
     {
 
-        
 
+        enlargeRate = 100 / enlargeTime;
 
 
         UnityEngine.Debug.ClearDeveloperConsole();
