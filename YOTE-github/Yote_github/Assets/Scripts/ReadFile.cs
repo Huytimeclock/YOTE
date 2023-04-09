@@ -7,7 +7,7 @@ using System.Xml.Linq;
 using System.Threading;
 using System.Collections;
 using Unity.VisualScripting;
-
+using System.Collections.Generic;
 
 
 public class ReadFile : MonoBehaviour
@@ -19,6 +19,11 @@ public class ReadFile : MonoBehaviour
     protected float enlargeRate ; // Rate of enlargement per second
 
     //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
+
+
+
+
+    
 
 
     //Row 1
@@ -57,9 +62,9 @@ public class ReadFile : MonoBehaviour
 
 
 
-
     void Start()
     {
+        
 
 
         enlargeRate = 100 / enlargeTime;
@@ -292,6 +297,7 @@ public class ReadFile : MonoBehaviour
 
 
 
-
+    // y tuong: cu goi 1 cai ham cho tung log _> trust...
+    // create many object at the sameplace
 }
 

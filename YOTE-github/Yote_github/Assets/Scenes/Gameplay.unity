@@ -1440,6 +1440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button-
       objectReference: {fileID: 0}
+    - target: {fileID: 6011433377428334403, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
       value: SquareInput
@@ -2263,7 +2267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enlargeTime: 0.6
-  enlargeRate: 160
   CreateObjectQ: {fileID: 390409384}
   CreateObjectW: {fileID: 1522170372}
   CreateObjectE: {fileID: 251298460}
@@ -2290,6 +2293,7 @@ MonoBehaviour:
   CreateObjectB: {fileID: 552090706}
   CreateObjectN: {fileID: 1458790386}
   CreateObjectM: {fileID: 1605796583}
+  CreateObjectH_prefab: {fileID: 852583649}
 --- !u!1001 &1049087315
 PrefabInstance:
   m_ObjectHideFlags: 0
