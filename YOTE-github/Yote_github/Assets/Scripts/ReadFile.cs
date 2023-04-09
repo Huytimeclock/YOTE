@@ -6,15 +6,19 @@ using System.Diagnostics;
 using System.Xml.Linq;
 using System.Threading;
 using System.Collections;
+using Unity.VisualScripting;
+
+
 
 public class ReadFile : MonoBehaviour
 {
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
 
-    public float enlargeTime = 3.0f; // Time to enlarge the object
-    public float enlargeRate = 33f; // Rate of enlargement per second
+    public float enlargeTime = 1f; // Time to enlarge the object ???????????????????????????????????????????????????
+    public float enlargeRate = 100f; // Rate of enlargement per second
 
+    //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
 
     [SerializeField] GameObject CreateObjectH;
     
@@ -70,9 +74,10 @@ public class ReadFile : MonoBehaviour
                         {
                             if (key[i] == ',')
                             {
-
-                                StartCoroutine(EnlargeObject());
+                                UnityEngine.Debug.Log("log time la: " + logTime);
+                                StartCoroutine(EnlargeObject(logTime-1));
                                 callDebug(logTime, getkey);
+                                
                                 
                                 getkey = "";//reset
                                 continue;
@@ -81,7 +86,8 @@ public class ReadFile : MonoBehaviour
                             UnityEngine.Debug.Log(getkey);
                             if (i == key.Length - 1)
                             {
-                                StartCoroutine(EnlargeObject());
+                                UnityEngine.Debug.Log("log time la: " + logTime);
+                                StartCoroutine(EnlargeObject(logTime - 1));
                                 callDebug(logTime, getkey);
                                 
                             }
@@ -116,17 +122,29 @@ public class ReadFile : MonoBehaviour
 
 
 
-    IEnumerator EnlargeObject()
+    IEnumerator EnlargeObject(float triggerTime)
     {
-        float startTime = Time.time;
-        while (Time.time - startTime < enlargeTime)
+       
+        while (Time.time < triggerTime)
         {
-            float scale = (Time.time - startTime) * enlargeRate;
-            CreateObjectH.transform.localScale = new Vector3(scale, scale, scale);
-            yield return null; // Wait for the next frame
+            yield return null;
         }
-        // Make sure the object is fully enlarged at the end of the loop
-        CreateObjectH.transform.localScale = new Vector3(enlargeRate * enlargeTime, enlargeRate * enlargeTime, enlargeRate * enlargeTime);
+        float startTime = triggerTime;
+        UnityEngine.Debug.Log("start time la: " + startTime);
+        
+        float endTime = triggerTime + enlargeTime;
+        UnityEngine.Debug.Log("enlarge time la: " + enlargeTime);
+        UnityEngine.Debug.Log("end time la: " + endTime);
+        while (Time.time < endTime)
+        {
+            
+            float timeElapsed = Time.time - startTime;
+            float scale = timeElapsed * enlargeRate;
+            CreateObjectH.transform.localScale = new Vector3(scale, scale, scale);
+            yield return null;
+        }
+        UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
+        CreateObjectH.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
 
