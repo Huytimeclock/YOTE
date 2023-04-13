@@ -647,6 +647,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1310655838}
     m_Modifications:
+    - target: {fileID: 2296501490528983556, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296501490528983556, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: keytopress
+      value: q
+      objectReference: {fileID: 0}
     - target: {fileID: 6011433377228926502, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_text
       value: Q
@@ -748,8 +756,20 @@ PrefabInstance:
       value: SquareAirQ
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
       value: q
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: keyairtopress
+      value: Q
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: returnDuration
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
