@@ -119,6 +119,7 @@ public class ReadFile : MonoBehaviour
         if (!isStarted)
         {
             string filePath = Application.dataPath + "\\Game_data\\Beatmaps\\Test-beatmap\\map.txt";
+
             // Check if the file exists
             if (!File.Exists(filePath))
             {
@@ -128,30 +129,41 @@ public class ReadFile : MonoBehaviour
 
             // Read the file and log each line
             string[] lines = File.ReadAllLines(filePath);
+
+
             foreach (string line in lines)
             {
               
                 UnityEngine.Debug.Log(line);
                 string[] splitLine = line.Split('['); // split the line at each '[' character
+
+
                 if (splitLine.Length >= 2) // make sure there are at least 2 parts (time and key)
                 {
+
                     // Debug.Log(splitLine[1].TrimEnd(']') + "test");
                     // Debug.Log(splitLine[2].TrimEnd(']') + "test");
-                    float time;
+
+
+                    float time; // identified time through text file
+
+
                     if (float.TryParse(splitLine[1].TrimEnd(']'), out time)) // try to parse the time from the second part
                     {
 
                         string key = splitLine[2].TrimEnd(']'); // get the key from the third part
-                        string getkey = ""; // get key from different element in key
+
+                        string getkey = ""; // get key from the key ( exp : b,c is the key so b and c will be in get key )
+
                         float logTime = startTime + time; // calculate the time when the log should be written
 
-
+                        // phan tich cac bien va thoi gian
                         for (int i = 0; i < key.Length; i++) // used to help when there is so many input ( exp [h,i,j] )
                         {
                             if (key[i] == ',')
                             {
-                                UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
+                                //UnityEngine.Debug.Log("log time la: " + logTime);  // debug log thoi gian can de in ra dong lenh phia sau
+                                StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
 
 
                                 callDebug(logTime, getkey);
@@ -160,12 +172,18 @@ public class ReadFile : MonoBehaviour
                                 getkey = "";//reset
                                 continue;
                             }
+
+
                             getkey += key[i];   //lay cac bien
                             UnityEngine.Debug.Log(getkey);
+
+
                             if (i == key.Length - 1)
                             {
-                                UnityEngine.Debug.Log("log time la: " + logTime);
+                                //UnityEngine.Debug.Log("log time la: " + logTime);
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
+
+
                                 callDebug(logTime, getkey);
                                 
                             }
@@ -173,7 +191,7 @@ public class ReadFile : MonoBehaviour
 
                         }
 
-
+                        // ghi ra cac bien va thoi gian
                         void callDebug(float xdtime, string xdkey)
                         {
                             StartCoroutine(LogAtTime(logTime, xdkey)); // start the coroutine to write the log at the specified time
@@ -439,7 +457,7 @@ public class ReadFile : MonoBehaviour
     }
 
 
-
+    // tuong tu enlarge object but se tao ra cac time delay de bam
 
 
 
