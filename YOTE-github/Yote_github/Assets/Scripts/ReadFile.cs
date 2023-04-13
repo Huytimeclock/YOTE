@@ -96,9 +96,22 @@ public class ReadFile : MonoBehaviour
     //--------------------------------------------------------------------------------------------------
     #endregion
 
+    private struct Note
+    {
+        public float time;
+        public string key;
+        public bool NeedShift;
+        public bool NoteStatus;
 
+        public float startGoodTime;
+        public float endGoodTime;
+        public float startGreatTime;
+        public float endGreatTime;
+        public float startPerfectTime;
+        public float endPerfectTime;
+    }
 
-
+    List<Note> notes = new List<Note>();
 
 
     void Start()
