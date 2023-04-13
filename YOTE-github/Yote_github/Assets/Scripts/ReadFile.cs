@@ -8,7 +8,7 @@ using System.Threading;
 using System.Collections;
 using Unity.VisualScripting;
 using System.Collections.Generic;
-
+using System.Diagnostics.CodeAnalysis;
 
 public class ReadFile : MonoBehaviour
 {
@@ -209,10 +209,12 @@ public class ReadFile : MonoBehaviour
                         {
                             StartCoroutine(LogAtTime(logTime, xdkey)); // start the coroutine to write the log at the specified time
                         }
+                        
 
                     }
                 }
             }
+            ListNote(notes);
 
         }
         
@@ -474,6 +476,7 @@ public class ReadFile : MonoBehaviour
         for (int i =0;i< notes.Count; i++)
         {
             Note note = notes[i];
+           StartCoroutine( CreateNote(note.time, note.key));
         }
     }
 
@@ -484,28 +487,51 @@ public class ReadFile : MonoBehaviour
             yield return null;
         }
         float startTime = Atime - 0.064f;
+        UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.064f;
+        UnityEngine.Debug.Log("start time end note la: " + endtime );
         while (Time.time < endtime)
         {
             float timeelapsed = Time.time - startTime;
            if (Input.GetKey (key))
-            {
-                if (timeelapsed <=0.016 && timeelapsed >=0)
+           {
+                UnityEngine.Debug.Log(timeelapsed);
+                if (timeelapsed <= 0.016 && timeelapsed >= 0)
                 {
                     UnityEngine.Debug.Log("Good");
                 }
-                if (timeelapsed<=0.032 && timeelapsed >0.016)
+                else if (timeelapsed <= 0.032)
                 {
                     UnityEngine.Debug.Log("Great");
                 }
-                if (timeelapsed <= 0.048 && timeelapsed > 0.032)
+                else if (timeelapsed <= 0.048)
                 {
                     UnityEngine.Debug.Log("Perfect");
                 }
+                else if (timeelapsed <= 0.08)
+                {
+                    UnityEngine.Debug.Log("CriticalPerfect");
+                }
+                else if (timeelapsed <= 0.096)
+                {
+                    UnityEngine.Debug.Log("Perfect");
+                }
+                else if (timeelapsed <= 0.112)
+                {
+                    UnityEngine.Debug.Log("Great");
+                }
+                else if (timeelapsed <= 0.128)
+                {
+                    UnityEngine.Debug.Log("Good");
+                }
+                
             }
         }
 
-
+        if (Time.time >endtime)
+        {
+            UnityEngine.Debug.Log("Goodbye");
+        }
        
     }
     // tuong tu enlarge object but se tao ra cac time delay de bam
