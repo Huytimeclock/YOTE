@@ -14,18 +14,17 @@ public class ReadFile : MonoBehaviour
 {
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
+                            //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
 
+
+
+    #region EnlargeVariable
+    // those variable will affect the enlarge of custom box creating
     [SerializeField] float enlargeTime;
     protected float enlargeRate ; // Rate of enlargement per second
-
-    //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
-
-
-
-
-    
-
-
+    #endregion
+    #region Variable
+    //variable that will define each object for each box
     //Row 1 default
     [SerializeField] GameObject CreateObjectQ;
     [SerializeField] GameObject CreateObjectW;
@@ -61,7 +60,7 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectM;
 
 
-    //Row 1 default
+    //Row 1 air
     [SerializeField] GameObject CreateObjectAirQ;
     [SerializeField] GameObject CreateObjectAirW;
     [SerializeField] GameObject CreateObjectAirE;
@@ -74,7 +73,7 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectAirP;
 
 
-    //Row 2 default
+    //Row 2 air
     [SerializeField] GameObject CreateObjectAirA;
     [SerializeField] GameObject CreateObjectAirS;
     [SerializeField] GameObject CreateObjectAirD;
@@ -86,7 +85,7 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectAirL;
 
 
-    //Row 3 default
+    //Row 3 air
     [SerializeField] GameObject CreateObjectAirZ;
     [SerializeField] GameObject CreateObjectAirX;
     [SerializeField] GameObject CreateObjectAirC;
@@ -94,11 +93,17 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectAirB;
     [SerializeField] GameObject CreateObjectAirN;
     [SerializeField] GameObject CreateObjectAirM;
+    //--------------------------------------------------------------------------------------------------
+    #endregion
+
+
+
+
+
+
     void Start()
     {
-        
-
-
+        // related to EnlargeObject
         enlargeRate = 100 / enlargeTime;
 
 
