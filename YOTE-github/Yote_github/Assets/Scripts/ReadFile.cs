@@ -102,13 +102,8 @@ public class ReadFile : MonoBehaviour
         public string key;
         public bool NeedShift;
         public bool NoteStatus;
+        //16 -> 32 -> 64
 
-        public float startGoodTime;
-        public float endGoodTime;
-        public float startGreatTime;
-        public float endGreatTime;
-        public float startPerfectTime;
-        public float endPerfectTime;
     }
 
     List<Note> notes = new List<Note>();
@@ -154,7 +149,8 @@ public class ReadFile : MonoBehaviour
                 if (splitLine.Length >= 2) // make sure there are at least 2 parts (time and key)
                 {
 
-                    // Debug.Log(splitLine[1].TrimEnd(']') + "test");
+                    // Debug.Log(splitLine[1].TrimEnd
+                    // (']') + "test");
                     // Debug.Log(splitLine[2].TrimEnd(']') + "test");
 
 
@@ -177,7 +173,11 @@ public class ReadFile : MonoBehaviour
                             {
                                 //UnityEngine.Debug.Log("log time la: " + logTime);  // debug log thoi gian can de in ra dong lenh phia sau
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
-
+                                if (getkey.Length == 1)
+                                {
+                                    notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false,  });
+                                }
+                                
 
                                 callDebug(logTime, getkey);
                                 
@@ -195,7 +195,7 @@ public class ReadFile : MonoBehaviour
                             {
                                 //UnityEngine.Debug.Log("log time la: " + logTime);
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
-
+                                notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
 
                                 callDebug(logTime, getkey);
                                 
@@ -469,7 +469,45 @@ public class ReadFile : MonoBehaviour
         EnlargeObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
+    void ListNote(List<Note> notes)
+    {
+        for (int i =0;i< notes.Count; i++)
+        {
+            Note note = notes[i];
+        }
+    }
 
+    IEnumerator CreateNote (float Atime, string key)
+    {
+        while (Time.time < Atime) //active time
+        {
+            yield return null;
+        }
+        float startTime = Atime - 0.064f;
+        float endtime = Atime + 0.064f;
+        while (Time.time < endtime)
+        {
+            float timeelapsed = Time.time - startTime;
+           if (Input.GetKey (key))
+            {
+                if (timeelapsed <=0.016 && timeelapsed >=0)
+                {
+                    UnityEngine.Debug.Log("Good");
+                }
+                if (timeelapsed<=0.032 && timeelapsed >0.016)
+                {
+                    UnityEngine.Debug.Log("Great");
+                }
+                if (timeelapsed <= 0.048 && timeelapsed > 0.032)
+                {
+                    UnityEngine.Debug.Log("Perfect");
+                }
+            }
+        }
+
+
+       
+    }
     // tuong tu enlarge object but se tao ra cac time delay de bam
 
 
