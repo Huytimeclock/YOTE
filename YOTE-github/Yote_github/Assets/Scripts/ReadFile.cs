@@ -214,7 +214,7 @@ public class ReadFile : MonoBehaviour
                     }
                 }
             }
-            ListNote(notes);
+            StartCoroutine(ListNote(notes)); 
 
         }
         
@@ -240,183 +240,183 @@ public class ReadFile : MonoBehaviour
        
         switch(key)
         {
-            case "Q":
+            case "q":
                 EnlargeObject = CreateObjectQ;
                 break;
 
-            case "W":
+            case "w":
                 EnlargeObject = CreateObjectW;
                 break;
 
-            case "E":
+            case "e":
                 EnlargeObject = CreateObjectE;
                 break;
 
-            case "R":
+            case "r":
                 EnlargeObject = CreateObjectR;
                 break;
 
-            case "T":
+            case "t":
                 EnlargeObject = CreateObjectT;
                 break;
 
-            case "Y":
+            case "y":
                 EnlargeObject = CreateObjectY;
                 break;
 
-            case "U":
+            case "u":
                 EnlargeObject = CreateObjectU;
                 break;
 
-            case "I":
+            case "i":
                 EnlargeObject = CreateObjectI;
                 break;
 
-            case "O":
+            case "o":
                 EnlargeObject = CreateObjectO;
                 break;
 
-            case "P":
+            case "p":
                 EnlargeObject = CreateObjectP;
                 break;
 
-            case "A":
+            case "a":
                 EnlargeObject = CreateObjectA;
                 break;
 
-            case "S":
+            case "s":
                 EnlargeObject = CreateObjectS;
                 break;
 
-            case "D":
+            case "d":
                 EnlargeObject = CreateObjectD;
                 break;
 
-            case "F":
+            case "f":
                 EnlargeObject = CreateObjectF;
                 break;
 
-            case "G":
+            case "g":
                 EnlargeObject = CreateObjectG;
                 break;
 
-            case "H":
+            case "h":
                 EnlargeObject = CreateObjectH;
                 break;
 
-            case "J":
+            case "j":
                 EnlargeObject = CreateObjectJ;
                 break;
 
-            case "K":
+            case "k":
                 EnlargeObject = CreateObjectK;
                 break;
 
-            case "L":
+            case "l":
                 EnlargeObject = CreateObjectL;
                 break;
 
-            case "Z":
+            case "z":
                 EnlargeObject = CreateObjectZ;
                 break;
 
-            case "X":
+            case "x":
                 EnlargeObject = CreateObjectX;
                 break;
 
-            case "C":
+            case "c":
                 EnlargeObject = CreateObjectC;
                 break;
 
-            case "V":
+            case "v":
                 EnlargeObject = CreateObjectV;
                 break;
 
-            case "B":
+            case "b":
                 EnlargeObject = CreateObjectB;
                 break;
 
-            case "N":
+            case "n":
                 EnlargeObject = CreateObjectN;
                 break;
 
-            case "M":
+            case "m":
                 EnlargeObject = CreateObjectM;
                 break;
 
-            case "QQ":
+            case "Q":
                 EnlargeObject = CreateObjectAirQ;
                 break;
 
-            case "WW":
+            case "W":
                 EnlargeObject = CreateObjectAirW;
                 break;
 
-            case "EE":
+            case "E":
                 EnlargeObject = CreateObjectAirE;
                 break;
 
-            case "RR":
+            case "R":
                 EnlargeObject = CreateObjectAirR;
                 break;
 
-            case "TT":
+            case "T":
                 EnlargeObject = CreateObjectAirT;
                 break;
 
-            case "YY":
+            case "Y":
                 EnlargeObject = CreateObjectAirY;
                 break;
 
-            case "UU":
+            case "U":
                 EnlargeObject = CreateObjectAirU;
                 break;
 
-            case "II":
+            case "I":
                 EnlargeObject = CreateObjectAirI;
                 break;
 
-            case "OO":
+            case "O":
                 EnlargeObject = CreateObjectAirO;
                 break;
 
-            case "PP":
+            case "P":
                 EnlargeObject = CreateObjectAirP;
                 break;
 
-            case "AA":
+            case "A":
                 EnlargeObject = CreateObjectAirA;
                 break;
 
-            case "SS":
+            case "S":
                 EnlargeObject = CreateObjectAirS;
                 break;
 
-            case "DD":
+            case "D":
                 EnlargeObject = CreateObjectAirD;
                 break;
 
-            case "FF":
+            case "F":
                 EnlargeObject = CreateObjectAirF;
                 break;
 
-            case "GG":
+            case "G":
                 EnlargeObject = CreateObjectAirG;
                 break;
 
-            case "HH":
+            case "H":
                 EnlargeObject = CreateObjectAirH;
                 break;
 
-            case "JJ":
+            case "J":
                 EnlargeObject = CreateObjectAirJ;
                 break;
 
-            case "KK":
+            case "K":
                 EnlargeObject = CreateObjectAirK;
                 break;
 
-            case "LL":
+            case "L":
                 EnlargeObject = CreateObjectAirL;
                 break;
 
@@ -424,27 +424,27 @@ public class ReadFile : MonoBehaviour
                 EnlargeObject = CreateObjectAirZ;
                 break;
 
-            case "XX":
+            case "X":
                 EnlargeObject = CreateObjectAirX;
                 break;
 
-            case "CC":
+            case "C":
                 EnlargeObject = CreateObjectAirC;
                 break;
 
-            case "VV":
+            case "V":
                 EnlargeObject = CreateObjectAirV;
                 break;
 
-            case "BB":
+            case "B":
                 EnlargeObject = CreateObjectAirB;
                 break;
 
-            case "NN":
+            case "N":
                 EnlargeObject = CreateObjectAirN;
                 break;
 
-            case "MM":
+            case "M":
                 EnlargeObject = CreateObjectAirM;
                 break;
         }
@@ -471,18 +471,29 @@ public class ReadFile : MonoBehaviour
         EnlargeObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
-    void ListNote(List<Note> notes)
+    IEnumerator ListNote(List<Note> notes)
     {
         for (int i =0;i< notes.Count; i++)
         {
-            Note note = notes[i];
-           StartCoroutine( CreateNote(note.time, note.key));
+            Note note = notes[i];               
+            yield return StartCoroutine(CreateNote(note.time, note.key));
+
+           
         }
     }
 
-    IEnumerator CreateNote (float Atime, string key)
+    Dictionary<char, char> upperCaseMap = new Dictionary<char, char>()
+{
+    {'a', 'A'},
+    {'b', 'B'},
+    {'c', 'C'},
+    // and so on for the rest of the alphabet
+};
+
+
+    IEnumerator CreateNote(float Atime, string key)
     {
-        UnityEngine.Debug.Log("key la: " + key );
+        UnityEngine.Debug.Log("key la: " + key);
         while (Time.time < Atime) //active time
         {
             yield return null;
@@ -490,51 +501,54 @@ public class ReadFile : MonoBehaviour
         float startTime = Atime - 0.064f;
         UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.064f;
-        UnityEngine.Debug.Log("start time end note la: " + endtime );
-        while (Time.time < endtime && Time.time>=startTime) //chi thuc hien 1 lan
+        UnityEngine.Debug.Log("start time end note la: " + endtime);
+        while (true) // runs continuously until the coroutine is stopped
         {
-            UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa" );
-            float timeelapsed = Time.time - startTime;
-           if (Input.GetKey (key))
-           {
-                UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
-                if (timeelapsed <= 0.016 && timeelapsed >= 0)
+            if (Time.time >= startTime && Time.time < endtime) // check if Time.time is within the desired range
+            {
+                UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa");
+                float timeelapsed = Time.time - startTime;
+                if (Input.GetKey(key))
                 {
-                    UnityEngine.Debug.Log("Good");
+                    UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
+                    if (timeelapsed <= 0.016 && timeelapsed >= 0)
+                    {
+                        UnityEngine.Debug.Log("Good");
+                    }
+                    else if (timeelapsed <= 0.032)
+                    {
+                        UnityEngine.Debug.Log("Great");
+                    }
+                    else if (timeelapsed <= 0.048)
+                    {
+                        UnityEngine.Debug.Log("Perfect");
+                    }
+                    else if (timeelapsed <= 0.08)
+                    {
+                        UnityEngine.Debug.Log("CriticalPerfect");
+                    }
+                    else if (timeelapsed <= 0.096)
+                    {
+                        UnityEngine.Debug.Log("Perfect");
+                    }
+                    else if (timeelapsed <= 0.112)
+                    {
+                        UnityEngine.Debug.Log("Great");
+                    }
+                    else if (timeelapsed <= 0.128)
+                    {
+                        UnityEngine.Debug.Log("Good");
+                    }
+                    break;
                 }
-                else if (timeelapsed <= 0.032)
-                {
-                    UnityEngine.Debug.Log("Great");
-                }
-                else if (timeelapsed <= 0.048)
-                {
-                    UnityEngine.Debug.Log("Perfect");
-                }
-                else if (timeelapsed <= 0.08)
-                {
-                    UnityEngine.Debug.Log("CriticalPerfect");
-                }
-                else if (timeelapsed <= 0.096)
-                {
-                    UnityEngine.Debug.Log("Perfect");
-                }
-                else if (timeelapsed <= 0.112)
-                {
-                    UnityEngine.Debug.Log("Great");
-                }
-                else if (timeelapsed <= 0.128)
-                {
-                    UnityEngine.Debug.Log("Good");
-                }
-                
             }
+            else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
+            {
+                UnityEngine.Debug.Log("Goodbye");
+                yield break; // exit the coroutine
+            }
+            yield return null;
         }
-
-        if (Time.time >endtime)
-        {
-            UnityEngine.Debug.Log("Goodbye");
-        }
-       
     }
     // tuong tu enlarge object but se tao ra cac time delay de bam
 
