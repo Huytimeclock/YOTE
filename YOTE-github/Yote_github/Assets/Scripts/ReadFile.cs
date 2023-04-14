@@ -175,7 +175,20 @@ public class ReadFile : MonoBehaviour
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
                                 if (getkey.Length == 1)
                                 {
-                                    notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false,  });
+                                    int needshiftnum = 0;
+                                    if (getkey.Length == 1 && char.IsUpper(getkey[0]))
+                                    {
+                                        getkey = char.ToLower(getkey[0]).ToString();
+                                        needshiftnum = 1;
+                                    }
+                                    if (needshiftnum==1)
+                                    {
+                                        notes.Add(new Note { time = logTime, key = getkey, NeedShift = true, NoteStatus = false, });
+                                    }
+                                    if (needshiftnum == 0)
+                                    {
+                                        notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
+                                    }
                                 }
                                 
 
@@ -195,7 +208,20 @@ public class ReadFile : MonoBehaviour
                             {
                                 //UnityEngine.Debug.Log("log time la: " + logTime);
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
-                                notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
+                                int needshiftnum = 0;
+                                if (getkey.Length == 1 && char.IsUpper(getkey[0]))
+                                {
+                                    getkey = char.ToLower(getkey[0]).ToString();
+                                    needshiftnum = 1;
+                                }
+                                if (needshiftnum == 1)
+                                {
+                                    notes.Add(new Note { time = logTime, key = getkey, NeedShift = true, NoteStatus = false, });
+                                }
+                                if (needshiftnum == 0)
+                                {
+                                    notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
+                                }
 
                                 callDebug(logTime, getkey);
                                 
@@ -476,22 +502,14 @@ public class ReadFile : MonoBehaviour
         for (int i =0;i< notes.Count; i++)
         {
             Note note = notes[i];               
-            yield return StartCoroutine(CreateNote(note.time, note.key));
+            yield return StartCoroutine(CreateNote(note.time, note.key, note.NeedShift));
 
            
         }
     }
 
-    Dictionary<char, char> upperCaseMap = new Dictionary<char, char>()
-{
-    {'a', 'A'},
-    {'b', 'B'},
-    {'c', 'C'},
-    // and so on for the rest of the alphabet
-};
 
-
-    IEnumerator CreateNote(float Atime, string key)
+    IEnumerator CreateNote(float Atime, string key, bool needshift)
     {
         UnityEngine.Debug.Log("key la: " + key);
         while (Time.time < Atime) //active time
@@ -502,52 +520,111 @@ public class ReadFile : MonoBehaviour
         UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.064f;
         UnityEngine.Debug.Log("start time end note la: " + endtime);
-        while (true) // runs continuously until the coroutine is stopped
+        if (needshift == false)
         {
-            if (Time.time >= startTime && Time.time < endtime) // check if Time.time is within the desired range
+            while (true) // runs continuously until the coroutine is stopped
             {
-                UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa");
-                float timeelapsed = Time.time - startTime;
-                if (Input.GetKey(key))
+                if (Time.time >= startTime && Time.time < endtime) // check if Time.time is within the desired range
                 {
-                    UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
-                    if (timeelapsed <= 0.016 && timeelapsed >= 0)
+                    UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa");
+                    float timeelapsed = Time.time - startTime;
+                    if (Input.GetKey(key))
                     {
-                        UnityEngine.Debug.Log("Good");
+                        UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
+                        if (timeelapsed <= 0.016 && timeelapsed >= 0)
+                        {
+                            UnityEngine.Debug.Log("Good");
+                        }
+                        else if (timeelapsed <= 0.032)
+                        {
+                            UnityEngine.Debug.Log("Great");
+                        }
+                        else if (timeelapsed <= 0.048)
+                        {
+                            UnityEngine.Debug.Log("Perfect");
+                        }
+                        else if (timeelapsed <= 0.08)
+                        {
+                            UnityEngine.Debug.Log("CriticalPerfect");
+                        }
+                        else if (timeelapsed <= 0.096)
+                        {
+                            UnityEngine.Debug.Log("Perfect");
+                        }
+                        else if (timeelapsed <= 0.112)
+                        {
+                            UnityEngine.Debug.Log("Great");
+                        }
+                        else if (timeelapsed <= 0.128)
+                        {
+                            UnityEngine.Debug.Log("Good");
+                        }
+                        break;
                     }
-                    else if (timeelapsed <= 0.032)
-                    {
-                        UnityEngine.Debug.Log("Great");
-                    }
-                    else if (timeelapsed <= 0.048)
-                    {
-                        UnityEngine.Debug.Log("Perfect");
-                    }
-                    else if (timeelapsed <= 0.08)
-                    {
-                        UnityEngine.Debug.Log("CriticalPerfect");
-                    }
-                    else if (timeelapsed <= 0.096)
-                    {
-                        UnityEngine.Debug.Log("Perfect");
-                    }
-                    else if (timeelapsed <= 0.112)
-                    {
-                        UnityEngine.Debug.Log("Great");
-                    }
-                    else if (timeelapsed <= 0.128)
-                    {
-                        UnityEngine.Debug.Log("Good");
-                    }
-                    break;
                 }
+                else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
+                {
+                    UnityEngine.Debug.Log("Goodbye");
+                    yield break; // exit the coroutine
+                }
+                yield return null;
             }
-            else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
+
+        }
+        if (needshift == true)
+        {
+            bool isShiftPressed = false;
+            while (true) // runs continuously until the coroutine is stopped
             {
-                UnityEngine.Debug.Log("Goodbye");
-                yield break; // exit the coroutine
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    isShiftPressed = true;
+                }
+                if (Time.time >= startTime && Time.time < endtime) // check if Time.time is within the desired range
+                {
+                    UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa");
+                    float timeelapsed = Time.time - startTime;
+                    if (Input.GetKey(key)&&isShiftPressed==true)
+                    {
+                        UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
+                        if (timeelapsed <= 0.016 && timeelapsed >= 0)
+                        {
+                            UnityEngine.Debug.Log("Good");
+                        }
+                        else if (timeelapsed <= 0.032)
+                        {
+                            UnityEngine.Debug.Log("Great");
+                        }
+                        else if (timeelapsed <= 0.048)
+                        {
+                            UnityEngine.Debug.Log("Perfect");
+                        }
+                        else if (timeelapsed <= 0.08)
+                        {
+                            UnityEngine.Debug.Log("CriticalPerfect");
+                        }
+                        else if (timeelapsed <= 0.096)
+                        {
+                            UnityEngine.Debug.Log("Perfect");
+                        }
+                        else if (timeelapsed <= 0.112)
+                        {
+                            UnityEngine.Debug.Log("Great");
+                        }
+                        else if (timeelapsed <= 0.128)
+                        {
+                            UnityEngine.Debug.Log("Good");
+                        }
+                        break;
+                    }
+                }
+                else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
+                {
+                    UnityEngine.Debug.Log("Goodbye");
+                    yield break; // exit the coroutine
+                }
+                yield return null;
             }
-            yield return null;
         }
     }
     // tuong tu enlarge object but se tao ra cac time delay de bam
