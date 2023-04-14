@@ -247,6 +247,8 @@ public class ReadFile : MonoBehaviour
         isStarted = true;
 
     }
+
+
     private System.Collections.IEnumerator LogAtTime(float time, string message)
     {
         while (Time.time < time)
@@ -257,8 +259,6 @@ public class ReadFile : MonoBehaviour
         
         UnityEngine.Debug.Log(message + " " + time);
     }
-
-
 
     IEnumerator EnlargeObject(float triggerTime, string key)
     {
@@ -502,63 +502,35 @@ public class ReadFile : MonoBehaviour
         for (int i =0;i< notes.Count; i++)
         {
             Note note = notes[i];               
-            yield return StartCoroutine(CreateNote(note.time, note.key, note.NeedShift));
-
-           
+            yield return StartCoroutine(CreateNote(note.time, note.key, note.NeedShift));           
         }
     }
 
-
     IEnumerator CreateNote(float Atime, string key, bool needshift)
     {
-        UnityEngine.Debug.Log("key la: " + key);
+        //UnityEngine.Debug.Log("key la: " + key);
         while (Time.time < Atime) //active time
         {
             yield return null;
         }
+
+
         float startTime = Atime - 0.064f;
-        UnityEngine.Debug.Log("start time create note la: " + startTime);
+        //UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.064f;
-        UnityEngine.Debug.Log("start time end note la: " + endtime);
+        //UnityEngine.Debug.Log("start time end note la: " + endtime);
+
+
         if (needshift == false)
         {
             while (true) // runs continuously until the coroutine is stopped
             {
                 if (Time.time >= startTime && Time.time < endtime) // check if Time.time is within the desired range
                 {
-                    UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa");
                     float timeelapsed = Time.time - startTime;
                     if (Input.GetKey(key))
                     {
-                        UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
-                        if (timeelapsed <= 0.016 && timeelapsed >= 0)
-                        {
-                            UnityEngine.Debug.Log("Good");
-                        }
-                        else if (timeelapsed <= 0.032)
-                        {
-                            UnityEngine.Debug.Log("Great");
-                        }
-                        else if (timeelapsed <= 0.048)
-                        {
-                            UnityEngine.Debug.Log("Perfect");
-                        }
-                        else if (timeelapsed <= 0.08)
-                        {
-                            UnityEngine.Debug.Log("CriticalPerfect");
-                        }
-                        else if (timeelapsed <= 0.096)
-                        {
-                            UnityEngine.Debug.Log("Perfect");
-                        }
-                        else if (timeelapsed <= 0.112)
-                        {
-                            UnityEngine.Debug.Log("Great");
-                        }
-                        else if (timeelapsed <= 0.128)
-                        {
-                            UnityEngine.Debug.Log("Good");
-                        }
+                        LogResultClick(timeelapsed);
                         break;
                     }
                 }
@@ -571,6 +543,8 @@ public class ReadFile : MonoBehaviour
             }
 
         }
+
+
         if (needshift == true)
         {
             bool isShiftPressed = false;
@@ -582,39 +556,10 @@ public class ReadFile : MonoBehaviour
                 }
                 if (Time.time >= startTime && Time.time < endtime) // check if Time.time is within the desired range
                 {
-                    UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa");
                     float timeelapsed = Time.time - startTime;
                     if (Input.GetKey(key)&&isShiftPressed==true)
                     {
-                        UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
-                        if (timeelapsed <= 0.016 && timeelapsed >= 0)
-                        {
-                            UnityEngine.Debug.Log("Good");
-                        }
-                        else if (timeelapsed <= 0.032)
-                        {
-                            UnityEngine.Debug.Log("Great");
-                        }
-                        else if (timeelapsed <= 0.048)
-                        {
-                            UnityEngine.Debug.Log("Perfect");
-                        }
-                        else if (timeelapsed <= 0.08)
-                        {
-                            UnityEngine.Debug.Log("CriticalPerfect");
-                        }
-                        else if (timeelapsed <= 0.096)
-                        {
-                            UnityEngine.Debug.Log("Perfect");
-                        }
-                        else if (timeelapsed <= 0.112)
-                        {
-                            UnityEngine.Debug.Log("Great");
-                        }
-                        else if (timeelapsed <= 0.128)
-                        {
-                            UnityEngine.Debug.Log("Good");
-                        }
+                        LogResultClick(timeelapsed);
                         break;
                     }
                 }
@@ -626,12 +571,45 @@ public class ReadFile : MonoBehaviour
                 yield return null;
             }
         }
+
+
     }
     // tuong tu enlarge object but se tao ra cac time delay de bam
 
 
+    void LogResultClick (float timeelapsed)
+    {
+        UnityEngine.Debug.Log("Ban da click vao luc: " + timeelapsed);
+        if (timeelapsed <= 0.016 && timeelapsed >= 0)
+        {
+            UnityEngine.Debug.Log("Good");
+        }
+        else if (timeelapsed <= 0.032)
+        {
+            UnityEngine.Debug.Log("Great");
+        }
+        else if (timeelapsed <= 0.048)
+        {
+            UnityEngine.Debug.Log("Perfect");
+        }
+        else if (timeelapsed <= 0.08)
+        {
+            UnityEngine.Debug.Log("CriticalPerfect");
+        }
+        else if (timeelapsed <= 0.096)
+        {
+            UnityEngine.Debug.Log("Perfect");
+        }
+        else if (timeelapsed <= 0.112)
+        {
+            UnityEngine.Debug.Log("Great");
+        }
+        else if (timeelapsed <= 0.128)
+        {
+            UnityEngine.Debug.Log("Good");
+        }
+    }
 
-    // y tuong: cu goi 1 cai ham cho tung log _> trust...
     // create many object at the sameplace
 }
 
