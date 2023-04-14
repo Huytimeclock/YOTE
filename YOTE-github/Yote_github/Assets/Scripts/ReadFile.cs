@@ -482,6 +482,7 @@ public class ReadFile : MonoBehaviour
 
     IEnumerator CreateNote (float Atime, string key)
     {
+        UnityEngine.Debug.Log("key la: " + key );
         while (Time.time < Atime) //active time
         {
             yield return null;
@@ -490,12 +491,13 @@ public class ReadFile : MonoBehaviour
         UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.064f;
         UnityEngine.Debug.Log("start time end note la: " + endtime );
-        while (Time.time < endtime)
+        while (Time.time < endtime && Time.time>=startTime) //chi thuc hien 1 lan
         {
+            UnityEngine.Debug.Log("AaAAAAAAAAAAAAAAAAAaa" );
             float timeelapsed = Time.time - startTime;
            if (Input.GetKey (key))
            {
-                UnityEngine.Debug.Log(timeelapsed);
+                UnityEngine.Debug.Log("timelapsed la: " + timeelapsed);
                 if (timeelapsed <= 0.016 && timeelapsed >= 0)
                 {
                     UnityEngine.Debug.Log("Good");
