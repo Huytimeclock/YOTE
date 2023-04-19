@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirS
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirV
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirE
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirG
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -773,7 +773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirQ
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Enabled
@@ -1007,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirY
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -1150,7 +1150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirB
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -1283,7 +1283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirX
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -1411,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirL
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -1766,7 +1766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirH
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -1907,7 +1907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirO
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -2244,7 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirT
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -2595,7 +2595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirP
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -2723,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirZ
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -2962,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirF
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -3160,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirR
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -3369,7 +3369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirU
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -3541,7 +3541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirN
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -3700,7 +3700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirW
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -3838,7 +3838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirM
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -4088,7 +4088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirC
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -4216,7 +4216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirD
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -4438,7 +4438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirK
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -4566,7 +4566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirA
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
@@ -4804,7 +4804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareAirI
+      value: SquareAir
       objectReference: {fileID: 0}
     - target: {fileID: 7999654200076112286, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: keytopress
