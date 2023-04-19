@@ -282,100 +282,140 @@ public class ReadFile : MonoBehaviour
 
             case "r":
                 //EnlargeObject = CreateObjectR;
-                numKey = 3;
+                convertkey = 3;
+                isAir = false;
                 break;
 
             case "t":
                 //EnlargeObject = CreateObjectT;
-                numKey = 4;
+                convertkey = 4;
+                isAir = false;
                 break;
 
             case "y":
                 //EnlargeObject = CreateObjectY;
-                numKey = 5;
+                convertkey = 5;
+                isAir = false;
                 break;
 
             case "u":
-                numKey = 6;
+                convertkey = 6;
+                isAir = false;
                 //EnlargeObject = CreateObjectU;
                 break;
 
             case "i":
                 //EnlargeObject = CreateObjectI;
-                numKey = 7;
+                convertkey = 7;
+                isAir = false;
                 break;
 
             case "o":
                 // EnlargeObject = CreateObjectO;
-                numKey = 8;
+                convertkey = 8;
+                isAir = false;
                 break;
 
             case "p":
                 // EnlargeObject = CreateObjectP;
+                convertkey = 9;
+                isAir = false;
                 break;
 
             case "a":
                 //  EnlargeObject = CreateObjectA;
+                convertkey = 10;
+                isAir = false;
                 break;
 
             case "s":
                 //  EnlargeObject = CreateObjectS;
+                convertkey = 11;
+                isAir = false;
                 break;
 
             case "d":
                 //   EnlargeObject = CreateObjectD;
+                convertkey = 12;
+                isAir = false;
                 break;
 
             case "f":
                 //  EnlargeObject = CreateObjectF;
+                convertkey = 13;
+                isAir = false;
                 break;
 
             case "g":
                 //  EnlargeObject = CreateObjectG;
+                convertkey = 14;
+                isAir = false;
                 break;
 
             case "h":
                 //    EnlargeObject = CreateObjectH;
+                convertkey = 15;
+                isAir = false;
                 break;
 
             case "j":
                 //  EnlargeObject = CreateObjectJ;
+                convertkey = 16;
+                isAir = false;
                 break;
 
             case "k":
                 //  EnlargeObject = CreateObjectK;
+                convertkey = 17;
+                isAir = false;
                 break;
 
             case "l":
                 //  EnlargeObject = CreateObjectL;
+                convertkey = 18;
+                isAir = false;
                 break;
 
             case "z":
                 //    EnlargeObject = CreateObjectZ;
+                convertkey = 19;
+                isAir = false;
                 break;
 
             case "x":
                 //    EnlargeObject = CreateObjectX;
+                convertkey = 20;
+                isAir = false;
                 break;
 
             case "c":
                 //      EnlargeObject = CreateObjectC;
+                convertkey = 21;
+                isAir = false;
                 break;
 
             case "v":
                 //  EnlargeObject = CreateObjectV;
+                convertkey = 22;
+                isAir = false;
                 break;
 
             case "b":
                 //   EnlargeObject = CreateObjectB;
+                convertkey = 23;
+                isAir = false;
                 break;
 
             case "n":
                 //   EnlargeObject = CreateObjectN;
+                convertkey = 24;
+                isAir = false;
                 break;
 
             case "m":
                 //     EnlargeObject = CreateObjectM;
+                convertkey = 25;
+                isAir = false;
                 break;
 
             case "Q":
