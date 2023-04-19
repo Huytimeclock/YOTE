@@ -598,9 +598,9 @@ public class ReadFile : MonoBehaviour
         UnityEngine.Debug.Log(message + " " + time);
     }
 
-    IEnumerator EnlargeObject(float triggerTime, string key)
+    IEnumerator EnlargeObject(float triggerTime, int convertKey, bool isAir)
     {
-        GameObject EnlargeObject = new GameObject();
+        GameObject EnlargeObject = buttonaaa[convertKey];
         
        
         

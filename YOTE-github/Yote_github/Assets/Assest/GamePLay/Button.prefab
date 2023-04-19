@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 6011433378832468611}
   - component: {fileID: 6011433378832468610}
   m_Layer: 5
-  m_Name: SquareInputJ
+  m_Name: SquareInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 5462507153738836917}
   - component: {fileID: 3570593801572786487}
   m_Layer: 5
-  m_Name: SquareAirJ
+  m_Name: SquareAir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

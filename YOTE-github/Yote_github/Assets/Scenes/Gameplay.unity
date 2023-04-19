@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputS
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputV
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputE
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputG
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -769,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputQ
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -1003,7 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputY
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -1146,7 +1146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputB
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -1279,7 +1279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputX
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -1407,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputL
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -1762,7 +1762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputH
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -1903,7 +1903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputO
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -2240,7 +2240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputT
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -2591,7 +2591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputP
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -2719,7 +2719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputZ
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -2958,7 +2958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputF
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -3156,7 +3156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputR
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -3365,7 +3365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputU
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -3537,7 +3537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputN
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -3696,7 +3696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputW
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -3834,7 +3834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputM
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -4084,7 +4084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputC
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -4212,7 +4212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputD
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -4434,7 +4434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputK
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -4562,7 +4562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputA
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
@@ -4800,7 +4800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011433378832468608, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
-      value: SquareInputI
+      value: SquareInput
       objectReference: {fileID: 0}
     - target: {fileID: 7807424118492391834, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_Name
