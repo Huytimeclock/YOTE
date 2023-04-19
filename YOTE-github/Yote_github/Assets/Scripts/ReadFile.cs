@@ -93,6 +93,10 @@ public class ReadFile : MonoBehaviour
     [SerializeField] GameObject CreateObjectAirB;
     [SerializeField] GameObject CreateObjectAirN;
     [SerializeField] GameObject CreateObjectAirM;
+
+
+    //Fuck
+    [SerializeField] GameObject[] buttonaaa;
     //--------------------------------------------------------------------------------------------------
     #endregion
 
@@ -171,7 +175,12 @@ public class ReadFile : MonoBehaviour
                         {
                             if (key[i] == ',')
                             {
+                                int convertKey;
+                                bool isAir = false;
                                 //UnityEngine.Debug.Log("log time la: " + logTime);  // debug log thoi gian can de in ra dong lenh phia sau
+                                
+
+
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
                                 if (getkey.Length == 1)
                                 {
@@ -248,7 +257,234 @@ public class ReadFile : MonoBehaviour
 
     }
 
+    int returnButtonType (string key, out int convertkey, out bool isAir)
+    {
 
+        switch (key)
+        {
+            case "q":
+                //EnlargeObject = CreateObjectQ;
+                convertkey = 0;
+                isAir = false;
+                break;
+
+            case "w":
+                //EnlargeObject = CreateObjectW;
+                convertkey = 1;
+                isAir = false;
+                break;
+
+            case "e":
+                //EnlargeObject = CreateObjectE;
+                convertkey = 2;
+                isAir = false;
+                break;
+
+            case "r":
+                //EnlargeObject = CreateObjectR;
+                numKey = 3;
+                break;
+
+            case "t":
+                //EnlargeObject = CreateObjectT;
+                numKey = 4;
+                break;
+
+            case "y":
+                //EnlargeObject = CreateObjectY;
+                numKey = 5;
+                break;
+
+            case "u":
+                numKey = 6;
+                //EnlargeObject = CreateObjectU;
+                break;
+
+            case "i":
+                //EnlargeObject = CreateObjectI;
+                numKey = 7;
+                break;
+
+            case "o":
+                // EnlargeObject = CreateObjectO;
+                numKey = 8;
+                break;
+
+            case "p":
+                // EnlargeObject = CreateObjectP;
+                break;
+
+            case "a":
+                //  EnlargeObject = CreateObjectA;
+                break;
+
+            case "s":
+                //  EnlargeObject = CreateObjectS;
+                break;
+
+            case "d":
+                //   EnlargeObject = CreateObjectD;
+                break;
+
+            case "f":
+                //  EnlargeObject = CreateObjectF;
+                break;
+
+            case "g":
+                //  EnlargeObject = CreateObjectG;
+                break;
+
+            case "h":
+                //    EnlargeObject = CreateObjectH;
+                break;
+
+            case "j":
+                //  EnlargeObject = CreateObjectJ;
+                break;
+
+            case "k":
+                //  EnlargeObject = CreateObjectK;
+                break;
+
+            case "l":
+                //  EnlargeObject = CreateObjectL;
+                break;
+
+            case "z":
+                //    EnlargeObject = CreateObjectZ;
+                break;
+
+            case "x":
+                //    EnlargeObject = CreateObjectX;
+                break;
+
+            case "c":
+                //      EnlargeObject = CreateObjectC;
+                break;
+
+            case "v":
+                //  EnlargeObject = CreateObjectV;
+                break;
+
+            case "b":
+                //   EnlargeObject = CreateObjectB;
+                break;
+
+            case "n":
+                //   EnlargeObject = CreateObjectN;
+                break;
+
+            case "m":
+                //     EnlargeObject = CreateObjectM;
+                break;
+
+            case "Q":
+                //   EnlargeObject = CreateObjectAirQ;
+                break;
+
+            case "W":
+                //    EnlargeObject = CreateObjectAirW;
+                break;
+
+            case "E":
+                //   EnlargeObject = CreateObjectAirE;
+                break;
+
+            case "R":
+                //    EnlargeObject = CreateObjectAirR;
+                break;
+
+            case "T":
+                //    EnlargeObject = CreateObjectAirT;
+                break;
+
+            case "Y":
+                //  EnlargeObject = CreateObjectAirY;
+                break;
+
+            case "U":
+                //   EnlargeObject = CreateObjectAirU;
+                break;
+
+            case "I":
+                //  EnlargeObject = CreateObjectAirI;
+                break;
+
+            case "O":
+                //   EnlargeObject = CreateObjectAirO;
+                break;
+
+            case "P":
+                //   EnlargeObject = CreateObjectAirP;
+                break;
+
+            case "A":
+                //   EnlargeObject = CreateObjectAirA;
+                break;
+
+            case "S":
+                //   EnlargeObject = CreateObjectAirS;
+                break;
+
+            case "D":
+                //  EnlargeObject = CreateObjectAirD;
+                break;
+
+            case "F":
+                //   EnlargeObject = CreateObjectAirF;
+                break;
+
+            case "G":
+                //   EnlargeObject = CreateObjectAirG;
+                break;
+
+            case "H":
+                //   EnlargeObject = CreateObjectAirH;
+                break;
+
+            case "J":
+                //    EnlargeObject = CreateObjectAirJ;
+                break;
+
+            case "K":
+                //   EnlargeObject = CreateObjectAirK;
+                break;
+
+            case "L":
+                //   EnlargeObject = CreateObjectAirL;
+                break;
+
+            case "ZZ":
+                //   EnlargeObject = CreateObjectAirZ;
+                break;
+
+            case "X":
+                //  EnlargeObject = CreateObjectAirX;
+                break;
+
+            case "C":
+                //  EnlargeObject = CreateObjectAirC;
+                break;
+
+            case "V":
+                //  EnlargeObject = CreateObjectAirV;
+                break;
+
+            case "B":
+                //    EnlargeObject = CreateObjectAirB;
+                break;
+
+            case "N":
+                //    EnlargeObject = CreateObjectAirN;
+                break;
+
+            case "M":
+                //  EnlargeObject = CreateObjectAirM;
+                break;
+        }
+
+        return numKey;
+    }
     private System.Collections.IEnumerator LogAtTime(float time, string message)
     {
         while (Time.time < time)
@@ -263,217 +499,8 @@ public class ReadFile : MonoBehaviour
     IEnumerator EnlargeObject(float triggerTime, string key)
     {
         GameObject EnlargeObject = new GameObject();
+        
        
-        switch(key)
-        {
-            case "q":
-                EnlargeObject = CreateObjectQ;
-                break;
-
-            case "w":
-                EnlargeObject = CreateObjectW;
-                break;
-
-            case "e":
-                EnlargeObject = CreateObjectE;
-                break;
-
-            case "r":
-                EnlargeObject = CreateObjectR;
-                break;
-
-            case "t":
-                EnlargeObject = CreateObjectT;
-                break;
-
-            case "y":
-                EnlargeObject = CreateObjectY;
-                break;
-
-            case "u":
-                EnlargeObject = CreateObjectU;
-                break;
-
-            case "i":
-                EnlargeObject = CreateObjectI;
-                break;
-
-            case "o":
-                EnlargeObject = CreateObjectO;
-                break;
-
-            case "p":
-                EnlargeObject = CreateObjectP;
-                break;
-
-            case "a":
-                EnlargeObject = CreateObjectA;
-                break;
-
-            case "s":
-                EnlargeObject = CreateObjectS;
-                break;
-
-            case "d":
-                EnlargeObject = CreateObjectD;
-                break;
-
-            case "f":
-                EnlargeObject = CreateObjectF;
-                break;
-
-            case "g":
-                EnlargeObject = CreateObjectG;
-                break;
-
-            case "h":
-                EnlargeObject = CreateObjectH;
-                break;
-
-            case "j":
-                EnlargeObject = CreateObjectJ;
-                break;
-
-            case "k":
-                EnlargeObject = CreateObjectK;
-                break;
-
-            case "l":
-                EnlargeObject = CreateObjectL;
-                break;
-
-            case "z":
-                EnlargeObject = CreateObjectZ;
-                break;
-
-            case "x":
-                EnlargeObject = CreateObjectX;
-                break;
-
-            case "c":
-                EnlargeObject = CreateObjectC;
-                break;
-
-            case "v":
-                EnlargeObject = CreateObjectV;
-                break;
-
-            case "b":
-                EnlargeObject = CreateObjectB;
-                break;
-
-            case "n":
-                EnlargeObject = CreateObjectN;
-                break;
-
-            case "m":
-                EnlargeObject = CreateObjectM;
-                break;
-
-            case "Q":
-                EnlargeObject = CreateObjectAirQ;
-                break;
-
-            case "W":
-                EnlargeObject = CreateObjectAirW;
-                break;
-
-            case "E":
-                EnlargeObject = CreateObjectAirE;
-                break;
-
-            case "R":
-                EnlargeObject = CreateObjectAirR;
-                break;
-
-            case "T":
-                EnlargeObject = CreateObjectAirT;
-                break;
-
-            case "Y":
-                EnlargeObject = CreateObjectAirY;
-                break;
-
-            case "U":
-                EnlargeObject = CreateObjectAirU;
-                break;
-
-            case "I":
-                EnlargeObject = CreateObjectAirI;
-                break;
-
-            case "O":
-                EnlargeObject = CreateObjectAirO;
-                break;
-
-            case "P":
-                EnlargeObject = CreateObjectAirP;
-                break;
-
-            case "A":
-                EnlargeObject = CreateObjectAirA;
-                break;
-
-            case "S":
-                EnlargeObject = CreateObjectAirS;
-                break;
-
-            case "D":
-                EnlargeObject = CreateObjectAirD;
-                break;
-
-            case "F":
-                EnlargeObject = CreateObjectAirF;
-                break;
-
-            case "G":
-                EnlargeObject = CreateObjectAirG;
-                break;
-
-            case "H":
-                EnlargeObject = CreateObjectAirH;
-                break;
-
-            case "J":
-                EnlargeObject = CreateObjectAirJ;
-                break;
-
-            case "K":
-                EnlargeObject = CreateObjectAirK;
-                break;
-
-            case "L":
-                EnlargeObject = CreateObjectAirL;
-                break;
-
-            case "ZZ":
-                EnlargeObject = CreateObjectAirZ;
-                break;
-
-            case "X":
-                EnlargeObject = CreateObjectAirX;
-                break;
-
-            case "C":
-                EnlargeObject = CreateObjectAirC;
-                break;
-
-            case "V":
-                EnlargeObject = CreateObjectAirV;
-                break;
-
-            case "B":
-                EnlargeObject = CreateObjectAirB;
-                break;
-
-            case "N":
-                EnlargeObject = CreateObjectAirN;
-                break;
-
-            case "M":
-                EnlargeObject = CreateObjectAirM;
-                break;
-        }
         
         while (Time.time < triggerTime)
         {
