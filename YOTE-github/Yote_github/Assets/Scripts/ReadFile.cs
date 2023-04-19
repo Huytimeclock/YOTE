@@ -177,8 +177,10 @@ public class ReadFile : MonoBehaviour
                             {
                                 int convertKey;
                                 bool isAir = false;
+                                returnButtonType(getkey, out convertKey, out isAir);
+
                                 //UnityEngine.Debug.Log("log time la: " + logTime);  // debug log thoi gian can de in ra dong lenh phia sau
-                                
+
 
 
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
@@ -215,6 +217,11 @@ public class ReadFile : MonoBehaviour
 
                             if (i == key.Length - 1)
                             {
+                                int convertKey;
+                                bool isAir = false;
+                                returnButtonType(getkey, out convertKey, out isAir);
+
+
                                 //UnityEngine.Debug.Log("log time la: " + logTime);
                                 StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
                                 int needshiftnum = 0;
@@ -420,110 +427,165 @@ public class ReadFile : MonoBehaviour
 
             case "Q":
                 //   EnlargeObject = CreateObjectAirQ;
+                convertkey = 0;
+                isAir = true;
                 break;
 
             case "W":
                 //    EnlargeObject = CreateObjectAirW;
+                convertkey = 1;
+                isAir = true;
                 break;
 
             case "E":
                 //   EnlargeObject = CreateObjectAirE;
+                convertkey = 2;
+                isAir = true;
                 break;
 
             case "R":
                 //    EnlargeObject = CreateObjectAirR;
+                convertkey = 3;
+                isAir = true;
                 break;
 
             case "T":
                 //    EnlargeObject = CreateObjectAirT;
+                convertkey = 4;
+                isAir = true;
                 break;
 
             case "Y":
                 //  EnlargeObject = CreateObjectAirY;
+                convertkey = 5;
+                isAir = true;
                 break;
 
             case "U":
                 //   EnlargeObject = CreateObjectAirU;
+                convertkey = 6;
+                isAir = true;
                 break;
 
             case "I":
                 //  EnlargeObject = CreateObjectAirI;
+                convertkey = 7;
+                isAir = true;
                 break;
 
             case "O":
                 //   EnlargeObject = CreateObjectAirO;
+                convertkey = 8;
+                isAir = true;
                 break;
 
             case "P":
                 //   EnlargeObject = CreateObjectAirP;
+                convertkey = 9;
+                isAir = true;
                 break;
 
             case "A":
                 //   EnlargeObject = CreateObjectAirA;
+                convertkey = 10;
+                isAir = true;
                 break;
 
             case "S":
                 //   EnlargeObject = CreateObjectAirS;
+                convertkey = 11;
+                isAir = true;
                 break;
 
             case "D":
                 //  EnlargeObject = CreateObjectAirD;
+                convertkey = 12;
+                isAir = true;
                 break;
 
             case "F":
                 //   EnlargeObject = CreateObjectAirF;
+                convertkey = 13;
+                isAir = true;
                 break;
 
             case "G":
                 //   EnlargeObject = CreateObjectAirG;
+                convertkey = 14;
+                isAir = true;
                 break;
 
             case "H":
                 //   EnlargeObject = CreateObjectAirH;
+                convertkey = 15;
+                isAir = true;
                 break;
 
             case "J":
                 //    EnlargeObject = CreateObjectAirJ;
+                convertkey = 16;
+                isAir = true;
                 break;
 
             case "K":
                 //   EnlargeObject = CreateObjectAirK;
+                convertkey = 17;
+                isAir = true;
                 break;
 
             case "L":
                 //   EnlargeObject = CreateObjectAirL;
+                convertkey = 18;
+                isAir = true;
                 break;
 
             case "ZZ":
                 //   EnlargeObject = CreateObjectAirZ;
+                convertkey = 19;
+                isAir = true;
                 break;
 
             case "X":
                 //  EnlargeObject = CreateObjectAirX;
+                convertkey = 20;
+                isAir = true;
                 break;
 
             case "C":
                 //  EnlargeObject = CreateObjectAirC;
+                convertkey = 21;
+                isAir = true;
                 break;
 
             case "V":
                 //  EnlargeObject = CreateObjectAirV;
+                convertkey = 22;
+                isAir = true;
                 break;
 
             case "B":
                 //    EnlargeObject = CreateObjectAirB;
+                convertkey = 23;
+                isAir = true;
                 break;
 
             case "N":
                 //    EnlargeObject = CreateObjectAirN;
+                convertkey = 24;
+                isAir = true;
                 break;
 
             case "M":
                 //  EnlargeObject = CreateObjectAirM;
+                convertkey = 25;
+                isAir = true;
                 break;
-        }
 
-        return numKey;
+            default:
+                throw new ArgumentException("Invalid key: " + key);
+        }
+        return 0; // Change this to the appropriate value for your method
+
     }
     private System.Collections.IEnumerator LogAtTime(float time, string message)
     {
