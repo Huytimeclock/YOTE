@@ -208,7 +208,6 @@ public class ReadFile : MonoBehaviour
 
     int returnButtonType (string key, out int convertkey, out bool isAir)
     {
-
         switch (key)
         {
             case "q":
@@ -527,7 +526,6 @@ public class ReadFile : MonoBehaviour
                 throw new ArgumentException("Invalid key: " + key);
         }
         return 0; // Change this to the appropriate value for your method
-
     }
     private System.Collections.IEnumerator LogAtTime(float time, string message)
     {
@@ -588,13 +586,22 @@ public class ReadFile : MonoBehaviour
     {
         for (int i =0;i< notes.Count; i++)
         {
-            Note note = notes[i];               
-            yield return StartCoroutine(CreateNote(note.time, note.key, note.NeedShift));           
+            Note note = notes[i];
+
+            int convertKey;
+            bool isAir = false; //not need
+            returnButtonType(note.key, out convertKey, out isAir);
+
+            yield return StartCoroutine(CreateNote(note.time, note.key, note.NeedShift, convertKey));           
         }
     }
 
-    IEnumerator CreateNote(float Atime, string key, bool needshift)
+    IEnumerator CreateNote(float Atime, string key, bool needshift, int convertKey)
     {
+
+
+
+
         //UnityEngine.Debug.Log("key la: " + key);
         while (Time.time < Atime) //active time
         {
@@ -617,7 +624,7 @@ public class ReadFile : MonoBehaviour
                     float timeelapsed = Time.time - startTime;
                     if (Input.GetKey(key))
                     {
-                        LogResultClick(timeelapsed);
+                        LogResultClick(timeelapsed, convertKey);
                         break;
                     }
                 }
@@ -646,7 +653,7 @@ public class ReadFile : MonoBehaviour
                     float timeelapsed = Time.time - startTime;
                     if (Input.GetKey(key)&&isShiftPressed==true)
                     {
-                        LogResultClick(timeelapsed);
+                        LogResultClick(timeelapsed, convertKey);
                         break;
                     }
                 }
@@ -664,36 +671,53 @@ public class ReadFile : MonoBehaviour
     // tuong tu enlarge object but se tao ra cac time delay de bam
 
 
-    void LogResultClick (float timeelapsed)
+    void LogResultClick (float timeelapsed, int convertKey)
     {
+
+
+        GameObject ForWordObject = buttonaaa[convertKey];
+        Transform GoodText = ForWordObject.transform.Find("Good");
+        Transform GreatText = ForWordObject.transform.Find("Great");
+        Transform PerfectText = ForWordObject.transform.Find("Perfect");
+        Transform CP = ForWordObject.transform.Find("Critical Perfect");
+
+
         UnityEngine.Debug.Log("Ban da click vao luc: " + timeelapsed);
         if (timeelapsed <= 0.016 && timeelapsed >= 0)
         {
             UnityEngine.Debug.Log("Good");
+            GoodText.gameObject.SetActive(true);
+            
         }
         else if (timeelapsed <= 0.032)
         {
             UnityEngine.Debug.Log("Great");
+            GreatText.gameObject.SetActive(true);
         }
         else if (timeelapsed <= 0.048)
         {
             UnityEngine.Debug.Log("Perfect");
+            PerfectText.gameObject.SetActive(true);
         }
         else if (timeelapsed <= 0.08)
         {
             UnityEngine.Debug.Log("CriticalPerfect");
+            CP.gameObject.SetActive(true);
         }
         else if (timeelapsed <= 0.096)
         {
             UnityEngine.Debug.Log("Perfect");
+            PerfectText.gameObject.SetActive (true);
         }
         else if (timeelapsed <= 0.112)
         {
             UnityEngine.Debug.Log("Great");
+            GreatText.gameObject.SetActive(true);
         }
         else if (timeelapsed <= 0.128)
         {
             UnityEngine.Debug.Log("Good");
+            GoodText.gameObject.SetActive(true);
         }
     }
 
