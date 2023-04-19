@@ -183,7 +183,7 @@ public class ReadFile : MonoBehaviour
 
 
 
-                                StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
+                                StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
                                 if (getkey.Length == 1)
                                 {
                                     int needshiftnum = 0;
@@ -223,7 +223,7 @@ public class ReadFile : MonoBehaviour
 
 
                                 //UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime - enlargeTime, getkey));
+                                StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir));
                                 int needshiftnum = 0;
                                 if (getkey.Length == 1 && char.IsUpper(getkey[0]))
                                 {
@@ -601,9 +601,10 @@ public class ReadFile : MonoBehaviour
     IEnumerator EnlargeObject(float triggerTime, int convertKey, bool isAir)
     {
         GameObject EnlargeObject = buttonaaa[convertKey];
-        
-       
-        
+        Transform EnlargeGroundObject = EnlargeObject.transform.Find("SquareInput");
+        Transform EnlargeAirObject = EnlargeObject.transform.Find("SquareAir");
+
+
         while (Time.time < triggerTime)
         {
             yield return null;
@@ -614,16 +615,31 @@ public class ReadFile : MonoBehaviour
         float endTime = triggerTime + enlargeTime;
         UnityEngine.Debug.Log("enlarge time la: " + enlargeTime);
         UnityEngine.Debug.Log("end time la: " + endTime);
-        while (Time.time < endTime)
+        if (isAir==false)
         {
-            
-            float timeElapsed = Time.time - startTime;
-            float scale = timeElapsed * enlargeRate;
-            EnlargeObject.transform.localScale = new Vector3(scale, scale, scale);
-            yield return null;
+            while (Time.time < endTime)
+            {
+
+                float timeElapsed = Time.time - startTime;
+                float scale = timeElapsed * enlargeRate;
+                EnlargeGroundObject.transform.localScale = new Vector3(scale, scale, scale);
+                yield return null;
+            }
+        }
+        if (isAir == true)
+        {
+            while (Time.time < endTime)
+            {
+
+                float timeElapsed = Time.time - startTime;
+                float scale = timeElapsed * enlargeRate;
+                EnlargeAirObject.transform.localScale = new Vector3(scale, scale, scale);
+                yield return null;
+            }
         }
         UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
-        EnlargeObject.transform.localScale = new Vector3(0f, 0f, 0f);
+        EnlargeGroundObject.transform.localScale = new Vector3(0f, 0f, 0f);
+        EnlargeAirObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     IEnumerator ListNote(List<Note> notes)
