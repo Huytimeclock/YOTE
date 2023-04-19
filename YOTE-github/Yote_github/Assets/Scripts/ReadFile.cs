@@ -25,76 +25,6 @@ public class ReadFile : MonoBehaviour
     #endregion
     #region Variable
     //variable that will define each object for each box
-    //Row 1 default
-    [SerializeField] GameObject CreateObjectQ;
-    [SerializeField] GameObject CreateObjectW;
-    [SerializeField] GameObject CreateObjectE;
-    [SerializeField] GameObject CreateObjectR;
-    [SerializeField] GameObject CreateObjectT;
-    [SerializeField] GameObject CreateObjectY;
-    [SerializeField] GameObject CreateObjectU;
-    [SerializeField] GameObject CreateObjectI;
-    [SerializeField] GameObject CreateObjectO;
-    [SerializeField] GameObject CreateObjectP;
-
-
-    //Row 2 default
-    [SerializeField] GameObject CreateObjectA;
-    [SerializeField] GameObject CreateObjectS;
-    [SerializeField] GameObject CreateObjectD;
-    [SerializeField] GameObject CreateObjectF;
-    [SerializeField] GameObject CreateObjectG;
-    [SerializeField] GameObject CreateObjectH;    
-    [SerializeField] GameObject CreateObjectJ;
-    [SerializeField] GameObject CreateObjectK;
-    [SerializeField] GameObject CreateObjectL;
-
-
-    //Row 3 default
-    [SerializeField] GameObject CreateObjectZ;
-    [SerializeField] GameObject CreateObjectX;
-    [SerializeField] GameObject CreateObjectC;
-    [SerializeField] GameObject CreateObjectV;
-    [SerializeField] GameObject CreateObjectB;
-    [SerializeField] GameObject CreateObjectN;
-    [SerializeField] GameObject CreateObjectM;
-
-
-    //Row 1 air
-    [SerializeField] GameObject CreateObjectAirQ;
-    [SerializeField] GameObject CreateObjectAirW;
-    [SerializeField] GameObject CreateObjectAirE;
-    [SerializeField] GameObject CreateObjectAirR;
-    [SerializeField] GameObject CreateObjectAirT;
-    [SerializeField] GameObject CreateObjectAirY;
-    [SerializeField] GameObject CreateObjectAirU;
-    [SerializeField] GameObject CreateObjectAirI;
-    [SerializeField] GameObject CreateObjectAirO;
-    [SerializeField] GameObject CreateObjectAirP;
-
-
-    //Row 2 air
-    [SerializeField] GameObject CreateObjectAirA;
-    [SerializeField] GameObject CreateObjectAirS;
-    [SerializeField] GameObject CreateObjectAirD;
-    [SerializeField] GameObject CreateObjectAirF;
-    [SerializeField] GameObject CreateObjectAirG;
-    [SerializeField] GameObject CreateObjectAirH;
-    [SerializeField] GameObject CreateObjectAirJ;
-    [SerializeField] GameObject CreateObjectAirK;
-    [SerializeField] GameObject CreateObjectAirL;
-
-
-    //Row 3 air
-    [SerializeField] GameObject CreateObjectAirZ;
-    [SerializeField] GameObject CreateObjectAirX;
-    [SerializeField] GameObject CreateObjectAirC;
-    [SerializeField] GameObject CreateObjectAirV;
-    [SerializeField] GameObject CreateObjectAirB;
-    [SerializeField] GameObject CreateObjectAirN;
-    [SerializeField] GameObject CreateObjectAirM;
-
-
     //Fuck
     [SerializeField] GameObject[] buttonaaa;
     //--------------------------------------------------------------------------------------------------
@@ -123,7 +53,19 @@ public class ReadFile : MonoBehaviour
         startTime = Time.time;
         isStarted = false;
 
+        for (int i = 0;i<=25;i++)
+        {
+            GameObject ForWordObject = buttonaaa[i];
+            Transform GoodText = ForWordObject.transform.Find("Good");
+            Transform GreatText = ForWordObject.transform.Find("Great");
+            Transform PerfectText = ForWordObject.transform.Find("Perfect");
+            Transform CP = ForWordObject.transform.Find("Critical Perfect");
 
+            GoodText.gameObject.SetActive(false);
+            GreatText.gameObject.SetActive(false);
+            PerfectText.gameObject.SetActive(false);
+            CP.gameObject.SetActive(false);
+        }
     }
     private void Update()
     {
