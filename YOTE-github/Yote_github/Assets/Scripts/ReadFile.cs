@@ -9,6 +9,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using TMPro;
 
 public class ReadFile : MonoBehaviour
 {
@@ -42,29 +43,69 @@ public class ReadFile : MonoBehaviour
 
     List<Note> notes = new List<Note>();
 
+    private Renderer rendererGood;
+    private Renderer rendererGreat;
+    private Renderer rendererPerfect;
+    private Renderer rendererCP;
+    private Color initialColorGood;
+    private Color initialColorGreat;
+    private Color initialColorPerfect;
+    private Color initialColorCP;
+    private Color transparentColorGood;
+    private Color transparentColorGreat;
+    private Color transparentColorPerfect;
+    private Color transparentColorCP;
 
     void Start()
     {
         // related to EnlargeObject
         enlargeRate = 100 / enlargeTime;
 
-
-        UnityEngine.Debug.ClearDeveloperConsole();
-        startTime = Time.time;
-        isStarted = false;
-
-        for (int i = 0;i<=25;i++)
+        for (int i = 0; i <= 25; i++)
         {
             GameObject ForWordObject = buttonaaa[i];
             Transform GoodText = ForWordObject.transform.Find("Good");
             Transform GreatText = ForWordObject.transform.Find("Great");
             Transform PerfectText = ForWordObject.transform.Find("Perfect");
-            Transform CP = ForWordObject.transform.Find("Critical Perfect");
+            Transform CPText = ForWordObject.transform.Find("Critical Perfect");
 
-            GoodText.gameObject.SetActive(false);
-            GreatText.gameObject.SetActive(false);
-            PerfectText.gameObject.SetActive(false);
-            CP.gameObject.SetActive(false);
+            GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 0);
+            GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 0);
+            PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 0);
+            CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 0);
+
+            UnityEngine.Debug.Log("GoodText: " + GoodText);
+            UnityEngine.Debug.Log("GreatText: " + GreatText);
+            UnityEngine.Debug.Log("PerfectText: " + PerfectText);
+            UnityEngine.Debug.Log("CPText: " + CPText);
+        }
+
+        UnityEngine.Debug.ClearDeveloperConsole();
+        startTime = Time.time;
+        isStarted = false;
+
+
+    }
+
+    private void Awake()
+    {
+        for (int i = 0; i <= 25; i++)
+        {
+            GameObject ForWordObject = buttonaaa[i];
+            Transform GoodText = ForWordObject.transform.Find("Good");
+            Transform GreatText = ForWordObject.transform.Find("Great");
+            Transform PerfectText = ForWordObject.transform.Find("Perfect");
+            Transform CPText = ForWordObject.transform.Find("Critical Perfect");
+
+            GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
+            GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
+            PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
+            CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 255);
+
+            UnityEngine.Debug.Log("GoodText: " + GoodText);
+            UnityEngine.Debug.Log("GreatText: " + GreatText);
+            UnityEngine.Debug.Log("PerfectText: " + PerfectText);
+            UnityEngine.Debug.Log("CPText: " + CPText);
         }
     }
     private void Update()
@@ -679,47 +720,55 @@ public class ReadFile : MonoBehaviour
         Transform GoodText = ForWordObject.transform.Find("Good");
         Transform GreatText = ForWordObject.transform.Find("Great");
         Transform PerfectText = ForWordObject.transform.Find("Perfect");
-        Transform CP = ForWordObject.transform.Find("Critical Perfect");
+        Transform CPText = ForWordObject.transform.Find("Critical Perfect");
 
 
         UnityEngine.Debug.Log("Ban da click vao luc: " + timeelapsed);
         if (timeelapsed <= 0.016 && timeelapsed >= 0)
         {
             UnityEngine.Debug.Log("Good");
-            GoodText.gameObject.SetActive(true);
-            
+            GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
+
         }
         else if (timeelapsed <= 0.032)
         {
             UnityEngine.Debug.Log("Great");
-            GreatText.gameObject.SetActive(true);
+            GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 0);
         }
         else if (timeelapsed <= 0.048)
         {
             UnityEngine.Debug.Log("Perfect");
-            PerfectText.gameObject.SetActive(true);
+
+            PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 0);
         }
         else if (timeelapsed <= 0.08)
         {
             UnityEngine.Debug.Log("CriticalPerfect");
-            CP.gameObject.SetActive(true);
+
+            CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 255);
         }
         else if (timeelapsed <= 0.096)
         {
             UnityEngine.Debug.Log("Perfect");
-            PerfectText.gameObject.SetActive (true);
+            PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 0);
         }
         else if (timeelapsed <= 0.112)
         {
             UnityEngine.Debug.Log("Great");
-            GreatText.gameObject.SetActive(true);
+            GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 0);
         }
         else if (timeelapsed <= 0.128)
         {
             UnityEngine.Debug.Log("Good");
-            GoodText.gameObject.SetActive(true);
+            GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
         }
     }
+
+
+
+
+
+
 
     // create many object at the sameplace
 }
