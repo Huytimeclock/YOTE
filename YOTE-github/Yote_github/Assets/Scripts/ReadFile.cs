@@ -68,11 +68,13 @@ public class ReadFile : MonoBehaviour
             Transform GreatText = ForWordObject.transform.Find("Great");
             Transform PerfectText = ForWordObject.transform.Find("Perfect");
             Transform CPText = ForWordObject.transform.Find("Critical Perfect");
+            Transform MissText = ForWordObject.transform.Find("Miss");
 
             GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 0);
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 0);
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 0);
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 0);
+            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 0);
 
             UnityEngine.Debug.Log("GoodText: " + GoodText);
             UnityEngine.Debug.Log("GreatText: " + GreatText);
@@ -96,19 +98,22 @@ public class ReadFile : MonoBehaviour
             Transform GreatText = ForWordObject.transform.Find("Great");
             Transform PerfectText = ForWordObject.transform.Find("Perfect");
             Transform CPText = ForWordObject.transform.Find("Critical Perfect");
+            Transform MissText = ForWordObject.transform.Find("Miss");
 
             GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 255);
+            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 255);
 
             UnityEngine.Debug.Log("GoodText: " + GoodText);
             UnityEngine.Debug.Log("GreatText: " + GreatText);
             UnityEngine.Debug.Log("PerfectText: " + PerfectText);
             UnityEngine.Debug.Log("CPText: " + CPText);
+            UnityEngine.Debug.Log("MissText: " + MissText);
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
 
         if (!isStarted)
@@ -633,7 +638,7 @@ public class ReadFile : MonoBehaviour
             bool isAir = false; //not need
             returnButtonType(note.key, out convertKey, out isAir);
 
-            yield return StartCoroutine(CreateNote(note.time, note.key, note.NeedShift, convertKey));           
+            yield return StartCoroutine(CreateNote(note.time-0.1f, note.key, note.NeedShift, convertKey));           
         }
     }
 
@@ -651,9 +656,9 @@ public class ReadFile : MonoBehaviour
 
 
         float startTime = Atime ;
-        //UnityEngine.Debug.Log("start time create note la: " + startTime);
+        UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.2f;
-        //UnityEngine.Debug.Log("start time end note la: " + endtime);
+        UnityEngine.Debug.Log("start time end note la: " + endtime);
 
 
         if (needshift == false)
@@ -666,12 +671,14 @@ public class ReadFile : MonoBehaviour
                     if (Input.GetKey(key))
                     {
                         LogResultClick(timeelapsed, convertKey);
-                        break;
+                        yield break; 
                     }
                 }
                 else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
                 {
                     UnityEngine.Debug.Log("Goodbye");
+                    float timeelapsed = Time.time - startTime;
+                    LogResultClick(timeelapsed, convertKey);
                     yield break; // exit the coroutine
                 }
                 yield return null;
@@ -695,12 +702,15 @@ public class ReadFile : MonoBehaviour
                     if (Input.GetKey(key)&&isShiftPressed==true)
                     {
                         LogResultClick(timeelapsed, convertKey);
-                        break;
+                        yield break;
                     }
                 }
                 else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
                 {
                     UnityEngine.Debug.Log("Goodbye");
+                    float timeelapsed = Time.time - startTime;
+                    LogResultClick(timeelapsed, convertKey);
+
                     yield break; // exit the coroutine
                 }
                 yield return null;
@@ -721,25 +731,31 @@ public class ReadFile : MonoBehaviour
         Transform GreatText = ForWordObject.transform.Find("Great");
         Transform PerfectText = ForWordObject.transform.Find("Perfect");
         Transform CPText = ForWordObject.transform.Find("Critical Perfect");
+        Transform MissText = ForWordObject.transform.Find("Miss");
 
 
         UnityEngine.Debug.Log("Ban da click vao luc: " + timeelapsed);
         if (timeelapsed <= 0.03f && timeelapsed >= 0)
         {
             UnityEngine.Debug.Log("Good");
+            
             GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
+            StartCoroutine(FadeOutText(GoodText, 2f));
 
         }
         else if (timeelapsed <= 0.06f)
         {
             UnityEngine.Debug.Log("Great");
+            
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
+            StartCoroutine(FadeOutText(GreatText, 2f));
         }
         else if (timeelapsed <= 0.08f)
         {
             UnityEngine.Debug.Log("Perfect");
-
+            
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
+            StartCoroutine(FadeOutText(PerfectText, 2f));
         }
         else if (timeelapsed <= 0.12)
         {
@@ -751,17 +767,30 @@ public class ReadFile : MonoBehaviour
         else if (timeelapsed <= 0.14)
         {
             UnityEngine.Debug.Log("Perfect");
+            
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
+            StartCoroutine(FadeOutText(PerfectText, 2f));
         }
         else if (timeelapsed <= 0.17)
         {
             UnityEngine.Debug.Log("Great");
+            
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
+            StartCoroutine(FadeOutText(GreatText, 2f));
         }
         else if (timeelapsed <= 0.20)
         {
             UnityEngine.Debug.Log("Good");
+            
             GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
+            StartCoroutine(FadeOutText(GoodText, 2f));
+        }
+        else if (timeelapsed >0.2)
+        {
+            UnityEngine.Debug.Log("Miss");
+            
+            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 255);
+            StartCoroutine(FadeOutText(MissText, 2f));
         }
     }
 
