@@ -16,6 +16,22 @@ public class ReadFile : MonoBehaviour
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
                             //Unity.VisualScripting.Timer t = new Unity.VisualScripting.Timer();
+    float EndNoteTime = 0f;
+
+    public AudioSource audioSource;
+
+
+    //for score variable
+    int numOfNotes = 0;
+    float percentage = 0f;
+    float goodPercentageValue = 0f;
+    float greatPercentageValue =0f;
+    float perfectPercentageValue = 0f;
+    int goodCount = 0;
+    int greatCount = 0;
+    int perfectCount = 0;
+    int CPCount = 0;
+    int missCount = 0;
 
 
 
@@ -244,8 +260,8 @@ public class ReadFile : MonoBehaviour
                     }
                 }
             }
-            StartCoroutine(ListNote(notes)); 
-
+            StartCoroutine(ListNote(notes));
+            
         }
         
         isStarted = true;
@@ -630,6 +646,7 @@ public class ReadFile : MonoBehaviour
 
     IEnumerator ListNote(List<Note> notes)
     {
+
         for (int i =0;i< notes.Count; i++)
         {
             Note note = notes[i];
@@ -640,7 +657,42 @@ public class ReadFile : MonoBehaviour
 
             yield return StartCoroutine(CreateNote(note.time-0.1f, note.key, note.NeedShift, convertKey));           
         }
+
+        EndNoteTime = notes[notes.Count-1].time;
+
+
+
+        UnityEngine.Debug.Log("end node time la: " + EndNoteTime);
+        Invoke("LowerVolumeAndEndDelayed", 3f);
+        UnityEngine.Debug.Log("Huy rat chi la cute");
     }
+
+
+    private void LowerVolumeAndEndDelayed()
+    {
+        
+        StartCoroutine(LowerVolumeAndEnd());
+        return;
+    }
+
+    IEnumerator LowerVolumeAndEnd()
+    {
+        float fadeTime = 3f;
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        audioSource.Stop();
+      //  CalculateScore();
+      //  ShowResults();
+    }
+
+
+
 
     IEnumerator CreateNote(float Atime, string key, bool needshift, int convertKey)
     {
