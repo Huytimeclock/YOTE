@@ -16,7 +16,7 @@ public class ImportSong : MonoBehaviour
     {
         string m_path = Application.dataPath;
         Debug.Log(m_path);
-        m_path += "\\Game_data\\Beatmaps\\Test-beatmap\\audio.mp3";
+        m_path += "\\Game_data\\Beatmaps\\Weather-changer\\audio.mp3";
         Debug.Log(m_path);
         StartCoroutine(LoadAudioClip(m_path, clip =>
         {

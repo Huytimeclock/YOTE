@@ -137,7 +137,12 @@ public class ReadFile : MonoBehaviour
 
         if (!isStarted)
         {
-            string filePath = Application.dataPath + "\\Game_data\\Beatmaps\\Test-beatmap\\map.txt";
+            string filePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\map.txt";
+            string imagePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\bg.jpg";
+
+            string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
+            string beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
+            UnityEngine.Debug.Log(beatmapName);
 
             // Check if the file exists
             if (!File.Exists(filePath))
