@@ -933,7 +933,6 @@ public class ReadFile : MonoBehaviour
 
 
 
-
     // create many object at the sameplace
 }
 
