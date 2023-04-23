@@ -267,7 +267,7 @@ public class ReadFile : MonoBehaviour
                     }
                 }
             }
-            perfectPercentageValue = 100 / numOfNotes;
+            perfectPercentageValue = 100f / numOfNotes;
             greatPercentageValue = 0.75f * perfectPercentageValue;
             goodPercentageValue = 0.5f * perfectPercentageValue;
 
@@ -921,7 +921,7 @@ public class ReadFile : MonoBehaviour
 
         // Load the new scene
         yield return new WaitForSeconds(fadeTime);
-        SceneManager.LoadScene("ScoreShow");
+        SceneManager.LoadScene("ScoreShow", LoadSceneMode.Additive);
 
         // Destroy the fade out panel
         Destroy(panel);
@@ -930,9 +930,35 @@ public class ReadFile : MonoBehaviour
         UnityEngine.Debug.Log("FadeOutCamera coroutine finished");
     }
 
+    public int GetCPCount ()
+    {
+        return CPCount;
+    }
 
+    public int GetPerfectCount()
+    {
+        return perfectCount;
+    }
 
+    public int GetGoodCount()
+    {
+        return goodCount;
+    }
 
+    public int GetGreatCount ()
+    {
+        return greatCount;
+    }
+
+    public int GetMissCount ()
+    {
+        return missCount;
+    }
+
+    public float GetPercentage ()
+    {
+        return percentage;
+    }
     // create many object at the sameplace
 }
 
