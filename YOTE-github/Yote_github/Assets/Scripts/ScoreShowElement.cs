@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.IO;
 
 public class ScoreShowElement : MonoBehaviour
 {
@@ -15,10 +17,15 @@ public class ScoreShowElement : MonoBehaviour
     [SerializeField] TextMeshProUGUI Title_Song;
 
 
-    [SerializeField] GameObject[] Rank;  
+    [SerializeField] GameObject[] Rank;
+
+    private string imagePath;
+    public Image imageComponent;
 
     private void Start()
     {
+        
+
         // Find the ReadFile game object in Scene 1
         GameObject readFileObj = GameObject.Find("ReadFile");
 
@@ -80,9 +87,39 @@ public class ScoreShowElement : MonoBehaviour
         MissCount.text =  readFile.GetMissCount().ToString();
         PercentageValue.text = readFile.GetPercentage().ToString("F2");
         Title_Song.text=readFile.GetMapName().ToString();
+        imagePath = readFile.GetImagePath().ToString();
+
+        Texture2D texture = LoadTextureFromPath(imagePath);
+        if (texture != null)
+        {
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+            imageComponent.sprite = sprite;
+            Color imageColor = imageComponent.color;
+            imageColor.a = 0.2f; // Set alpha value to 20%
+            imageComponent.color = imageColor;
+        }
+
+
         SceneManager.UnloadSceneAsync("Gameplay");
     }
+    Texture2D LoadTextureFromPath(string path)
+    {
+        Texture2D texture = null;
+        byte[] fileData;
 
+        if (File.Exists(path))
+        {
+            fileData = File.ReadAllBytes(path);
+            texture = new Texture2D(2, 2);
+            texture.LoadImage(fileData); // LoadImage() automatically resizes the texture to match the image size
+        }
+        else
+        {
+            Debug.LogWarning("File does not exist at path: " + path);
+        }
+
+        return texture;
+    }
 
 
 

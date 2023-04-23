@@ -6,28 +6,40 @@ public class FadeInScene : MonoBehaviour
 {
     public float fadeTime = 1.0f;
     public Image fadePanel;
+    public Image bg;
 
     private void Start()
     {
-        StartCoroutine(FadeInPanel());
+        StartCoroutine(FadeInPanelAndBg());
     }
 
-    IEnumerator FadeInPanel()
+    IEnumerator FadeInPanelAndBg()
     {
-        // Set the initial color of the panel
-        Color color = fadePanel.color;
-        color.a = 1f;
-        fadePanel.color = color;
+        // Set the initial color of the panel and the bg image
+        Color panelColor = fadePanel.color;
+        panelColor.a = 1f;
+        fadePanel.color = panelColor;
 
-        // Fade in the panel
+        Color bgColor = bg.color;
+        bgColor.a = 0f;
+        bg.color = bgColor;
+
+        // Fade in the panel and the bg image
         float t = 0;
         while (t < fadeTime)
         {
             t += Time.deltaTime;
             float normalizedTime = Mathf.Clamp01(t / fadeTime);
-            color.a = Mathf.Lerp(1f, 0f, normalizedTime);
-            fadePanel.color = color;
+            panelColor.a = Mathf.Lerp(1f, 0f, normalizedTime);
+            fadePanel.color = panelColor;
+
+            bgColor.a = Mathf.Lerp(0f, 0.2f, normalizedTime);
+            bg.color = bgColor;
+
             yield return null;
         }
+        // Set the final color of the bg image to fully opaque
+        bgColor.a = 1f;
+        bg.color = bgColor;
     }
 }

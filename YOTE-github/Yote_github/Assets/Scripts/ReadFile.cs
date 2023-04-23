@@ -142,6 +142,7 @@ public class ReadFile : MonoBehaviour
         {
             string filePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\map.txt";
             imagePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\bg.jpg";
+            UnityEngine.Debug.Log(imagePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
             beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
@@ -971,6 +972,11 @@ public class ReadFile : MonoBehaviour
     public string GetMapName ()
     {
         return beatmapName;
+    }
+    
+    public string GetImagePath ()
+    {
+        return imagePath;
     }
     // create many object at the sameplace
 }
