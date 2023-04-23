@@ -38,8 +38,6 @@ public class FadeInScene : MonoBehaviour
 
             yield return null;
         }
-        // Set the final color of the bg image to fully opaque
-        bgColor.a = 1f;
-        bg.color = bgColor;
+
     }
 }
