@@ -13,11 +13,18 @@ public class ScoreShowElement : MonoBehaviour
     [SerializeField] TextMeshProUGUI MissCount;
     [SerializeField] TextMeshProUGUI PercentageValue;
 
+
+    [SerializeField] GameObject[] Rank;  
+
     private void Start()
     {
         // Find the ReadFile game object in Scene 1
         GameObject readFileObj = GameObject.Find("ReadFile");
 
+        for (int i = 0; i < Rank.Length; i++)
+        {
+            Rank[i].SetActive(false);
+        }
         if (readFileObj == null)
         {
             Debug.LogError("ReadFile object not found");
@@ -31,6 +38,37 @@ public class ScoreShowElement : MonoBehaviour
         {
             Debug.LogError("ReadFile script not found");
             return;
+        }
+
+        float percentage = readFile.GetPercentage();
+
+        if(percentage <80)
+        {
+            Rank[6].SetActive(true);
+        }
+        else if(percentage<97)
+        {
+            Rank[5].SetActive(true);
+        }
+        else if (percentage<98)
+        {
+            Rank[4].SetActive(true);
+        }
+        else if (percentage<99)
+        {
+            Rank[3].SetActive(true);
+        }
+        else if (percentage<99.5)
+        {
+            Rank[2].SetActive(true);
+        }
+        else if (percentage<99.4)
+        {
+            Rank[1].SetActive(true);
+        }
+        else if (percentage ==100)
+        {
+            Rank[0].SetActive(true);
         }
 
         // Set the text of the TextMeshProUGUI components to the values from ReadFile

@@ -3412,6 +3412,14 @@ MonoBehaviour:
   GoodCount: {fileID: 1522861735}
   MissCount: {fileID: 1623135948}
   PercentageValue: {fileID: 486407293}
+  Rank:
+  - {fileID: 880280195}
+  - {fileID: 457872923}
+  - {fileID: 1324668428}
+  - {fileID: 204232373}
+  - {fileID: 639087816}
+  - {fileID: 425097592}
+  - {fileID: 1919230054}
 --- !u!4 &2052954536
 Transform:
   m_ObjectHideFlags: 0
