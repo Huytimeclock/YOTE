@@ -75,6 +75,9 @@ public class ReadFile : MonoBehaviour
     private Color transparentColorPerfect;
     private Color transparentColorCP;
 
+    private string beatmapName="";
+    private string imagePath="";
+
     void Start()
     {
         // related to EnlargeObject
@@ -138,10 +141,10 @@ public class ReadFile : MonoBehaviour
         if (!isStarted)
         {
             string filePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\map.txt";
-            string imagePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\bg.jpg";
+            imagePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\bg.jpg";
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
-            string beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
+            beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
             UnityEngine.Debug.Log(beatmapName);
 
             // Check if the file exists
@@ -963,6 +966,11 @@ public class ReadFile : MonoBehaviour
     public float GetPercentage ()
     {
         return percentage;
+    }
+
+    public string GetMapName ()
+    {
+        return beatmapName;
     }
     // create many object at the sameplace
 }

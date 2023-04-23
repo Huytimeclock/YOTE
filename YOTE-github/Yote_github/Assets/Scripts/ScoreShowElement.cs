@@ -12,6 +12,7 @@ public class ScoreShowElement : MonoBehaviour
     [SerializeField] TextMeshProUGUI GoodCount;
     [SerializeField] TextMeshProUGUI MissCount;
     [SerializeField] TextMeshProUGUI PercentageValue;
+    [SerializeField] TextMeshProUGUI Title_Song;
 
 
     [SerializeField] GameObject[] Rank;  
@@ -78,6 +79,7 @@ public class ScoreShowElement : MonoBehaviour
         GoodCount.text =  readFile.GetGoodCount().ToString();
         MissCount.text =  readFile.GetMissCount().ToString();
         PercentageValue.text = readFile.GetPercentage().ToString("F2");
+        Title_Song.text=readFile.GetMapName().ToString();
         SceneManager.UnloadSceneAsync("Gameplay");
     }
 
