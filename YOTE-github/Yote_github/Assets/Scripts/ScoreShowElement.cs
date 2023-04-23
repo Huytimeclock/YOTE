@@ -21,6 +21,7 @@ public class ScoreShowElement : MonoBehaviour
 
     private string imagePath;
     public Image imageComponent;
+    public Image imageTitle;
 
     private void Start()
     {
@@ -90,10 +91,12 @@ public class ScoreShowElement : MonoBehaviour
         imagePath = readFile.GetImagePath().ToString();
 
         Texture2D texture = LoadTextureFromPath(imagePath);
+
         if (texture != null)
         {
             Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
             imageComponent.sprite = sprite;
+            imageTitle.sprite = sprite;
             Color imageColor = imageComponent.color;
             imageColor.a = 0.2f; // Set alpha value to 20%
             imageComponent.color = imageColor;
