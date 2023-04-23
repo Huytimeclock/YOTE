@@ -93,7 +93,7 @@ public class ReadFile : MonoBehaviour
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 0);
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 0);
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 0);
-            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 0);
+            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(149, 140, 142, 0);
 
             UnityEngine.Debug.Log("GoodText: " + GoodText);
             UnityEngine.Debug.Log("GreatText: " + GreatText);
@@ -123,7 +123,7 @@ public class ReadFile : MonoBehaviour
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 255);
-            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 255);
+            MissText.GetComponent<TextMeshProUGUI>().color = new Color32(149, 140, 142, 255);
 
             UnityEngine.Debug.Log("GoodText: " + GoodText);
             UnityEngine.Debug.Log("GreatText: " + GreatText);
