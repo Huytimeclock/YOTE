@@ -1,3 +1,8 @@
+[MAP INFO]
+Diff: 6
+
+
+[MAP DATA]
 [4.185][h]
 [9.3][H,J]
 

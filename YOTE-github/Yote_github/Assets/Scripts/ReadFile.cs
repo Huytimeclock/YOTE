@@ -77,6 +77,7 @@ public class ReadFile : MonoBehaviour
 
     private string beatmapName="";
     private string imagePath="";
+    private int diff = 0;
 
     void Start()
     {
@@ -159,121 +160,154 @@ public class ReadFile : MonoBehaviour
             string[] lines = File.ReadAllLines(filePath);
 
 
-            foreach (string line in lines)
-            {
-              
-                UnityEngine.Debug.Log(line);
-                string[] splitLine = line.Split('['); // split the line at each '[' character
 
 
-                if (splitLine.Length >= 2) // make sure there are at least 2 parts (time and key)
+
+                for (int i = 0; i < lines.Length; i++)
                 {
-
-                    // Debug.Log(splitLine[1].TrimEnd
-                    // (']') + "test");
-                    // Debug.Log(splitLine[2].TrimEnd(']') + "test");
-
-
-                    float time; // identified time through text file
-
-
-                    if (float.TryParse(splitLine[1].TrimEnd(']'), out time)) // try to parse the time from the second part
+                    string line = lines[i];
+                    if (line.StartsWith("[MAP INFO]"))
                     {
-
-                        string key = splitLine[2].TrimEnd(']'); // get the key from the third part
-
-                        string getkey = ""; // get key from the key ( exp : b,c is the key so b and c will be in get key )
-
-                        float logTime = startTime + time; // calculate the time when the log should be written
-
-                        // phan tich cac bien va thoi gian
-                        for (int i = 0; i < key.Length; i++) // used to help when there is so many input ( exp [h,i,j] )
+                        i++;
+                        while (i < lines.Length && !lines[i].StartsWith("["))
                         {
-                            if (key[i] == ',')
+                            string[] parts = lines[i].Split(':');
+                            if (parts.Length == 2 && parts[0].Trim() == "Diff")
                             {
-                                int convertKey;
-                                bool isAir = false;
-                                returnButtonType(getkey, out convertKey, out isAir);
-
-                                //UnityEngine.Debug.Log("log time la: " + logTime);  // debug log thoi gian can de in ra dong lenh phia sau
-
-
-
-                                StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
-                                if (getkey.Length == 1)
-                                {
-                                    int needshiftnum = 0;
-                                    if (getkey.Length == 1 && char.IsUpper(getkey[0]))
-                                    {
-                                        getkey = char.ToLower(getkey[0]).ToString();
-                                        needshiftnum = 1;
-                                    }
-                                    if (needshiftnum==1)
-                                    {
-                                        notes.Add(new Note { time = logTime, key = getkey, NeedShift = true, NoteStatus = false, });
-                                        numOfNotes++;
-                                    }
-                                    if (needshiftnum == 0)
-                                    {
-                                        notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
-                                        numOfNotes++;
-                                    }
-                                }
-                                
-
-                                callDebug(logTime, getkey);
-                                
-                                
-                                getkey = "";//reset
-                                continue;
+                                int.TryParse(parts[1].Trim(), out diff);
+                                UnityEngine.Debug.Log($"{i} {diff}");
                             }
-
-
-                            getkey += key[i];   //lay cac bien
-                            UnityEngine.Debug.Log(getkey);
-
-
-                            if (i == key.Length - 1)
-                            {
-                                int convertKey;
-                                bool isAir = false;
-                                returnButtonType(getkey, out convertKey, out isAir);
-
-
-                                //UnityEngine.Debug.Log("log time la: " + logTime);
-                                StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir));
-                                int needshiftnum = 0;
-                                if (getkey.Length == 1 && char.IsUpper(getkey[0]))
-                                {
-                                    getkey = char.ToLower(getkey[0]).ToString();
-                                    needshiftnum = 1;
-                                }
-                                if (needshiftnum == 1)
-                                {
-                                    notes.Add(new Note { time = logTime, key = getkey, NeedShift = true, NoteStatus = false, });
-                                    numOfNotes++;
-                                }
-                                if (needshiftnum == 0)
-                                {
-                                    notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
-                                    numOfNotes++;
-                                }
-
-                                callDebug(logTime, getkey);
-                                
-                            }
-
-
+                            i++;
                         }
-
-                        // ghi ra cac bien va thoi gian
-                        void callDebug(float xdtime, string xdkey)
-                        {
-                            StartCoroutine(LogAtTime(logTime, xdkey)); // start the coroutine to write the log at the specified time
-                        }
-                        
-
+                        break;
                     }
+                }
+
+            // Read map data
+            for (int x = 0; x < lines.Length; x++)
+            {
+                string line = lines[x];
+                if (line.StartsWith("[MAP DATA]"))
+                {
+                    x++;
+                    while (x < lines.Length && lines[x].StartsWith("["))
+                    {
+                        
+                        UnityEngine.Debug.Log(line);
+
+                        string[] splitLine = lines[x].Split('['); // split the line at each '[' character
+                        if (splitLine.Length >= 2) // make sure there are at least 2 parts (time and key)
+                        {
+
+                            // Debug.Log(splitLine[1].TrimEnd
+                            // (']') + "test");
+                            // Debug.Log(splitLine[2].TrimEnd(']') + "test");
+
+
+                            float time; // identified time through text file
+
+
+                            if (float.TryParse(splitLine[1].TrimEnd(']'), out time)) // try to parse the time from the second part
+                            {
+
+                                string key = splitLine[2].TrimEnd(']'); // get the key from the third part
+
+                                string getkey = ""; // get key from the key ( exp : b,c is the key so b and c will be in get key )
+
+                                float logTime = startTime + time; // calculate the time when the log should be written
+
+                                // phan tich cac bien va thoi gian
+                                for (int i = 0; i < key.Length; i++) // used to help when there is so many input ( exp [h,i,j] )
+                                {
+                                    if (key[i] == ',')
+                                    {
+                                        int convertKey;
+                                        bool isAir = false;
+                                        returnButtonType(getkey, out convertKey, out isAir);
+
+                                        //UnityEngine.Debug.Log("log time la: " + logTime);  // debug log thoi gian can de in ra dong lenh phia sau
+
+
+
+                                        StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
+                                        if (getkey.Length == 1)
+                                        {
+                                            int needshiftnum = 0;
+                                            if (getkey.Length == 1 && char.IsUpper(getkey[0]))
+                                            {
+                                                getkey = char.ToLower(getkey[0]).ToString();
+                                                needshiftnum = 1;
+                                            }
+                                            if (needshiftnum == 1)
+                                            {
+                                                notes.Add(new Note { time = logTime, key = getkey, NeedShift = true, NoteStatus = false, });
+                                                numOfNotes++;
+                                            }
+                                            if (needshiftnum == 0)
+                                            {
+                                                notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
+                                                numOfNotes++;
+                                            }
+                                        }
+
+
+                                        callDebug(logTime, getkey);
+
+
+                                        getkey = "";//reset
+                                        continue;
+                                    }
+
+
+                                    getkey += key[i];   //lay cac bien
+                                    UnityEngine.Debug.Log(getkey);
+
+
+                                    if (i == key.Length - 1)
+                                    {
+                                        int convertKey;
+                                        bool isAir = false;
+                                        returnButtonType(getkey, out convertKey, out isAir);
+
+
+                                        //UnityEngine.Debug.Log("log time la: " + logTime);
+                                        StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir));
+                                        int needshiftnum = 0;
+                                        if (getkey.Length == 1 && char.IsUpper(getkey[0]))
+                                        {
+                                            getkey = char.ToLower(getkey[0]).ToString();
+                                            needshiftnum = 1;
+                                        }
+                                        if (needshiftnum == 1)
+                                        {
+                                            notes.Add(new Note { time = logTime, key = getkey, NeedShift = true, NoteStatus = false, });
+                                            numOfNotes++;
+                                        }
+                                        if (needshiftnum == 0)
+                                        {
+                                            notes.Add(new Note { time = logTime, key = getkey, NeedShift = false, NoteStatus = false, });
+                                            numOfNotes++;
+                                        }
+
+                                        callDebug(logTime, getkey);
+
+                                    }
+
+
+                                }
+
+                                // ghi ra cac bien va thoi gian
+                                void callDebug(float xdtime, string xdkey)
+                                {
+                                    StartCoroutine(LogAtTime(logTime, xdkey)); // start the coroutine to write the log at the specified time
+                                }
+
+
+                            }
+                        }
+                        x++;
+                    }
+                    break;
                 }
             }
             perfectPercentageValue = 100f / numOfNotes;
