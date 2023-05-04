@@ -1,0 +1,7 @@
+[MAP INFO]
+Diff: 6
+Artist: 光吉猛修の兄
+
+[MAP DATA]
+[4.185][h]
+[9.3][H,J]
