@@ -93,13 +93,19 @@ public class ScoreShowElement : MonoBehaviour
         DiffText.text = readFile.GetDiff().ToString();
         Artist.text = readFile.GetArtistText().ToString();
 
-        Texture2D texture = LoadTextureFromPath(imagePath);
+        Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
+        Texture2D textureLargeImage = LoadTextureFromPath(imagePath, 1920, 1080);
 
-        if (texture != null)
+        if (textureSmallImage != null) // image for song-bg (400x400)
         {
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-            imageComponent.sprite = sprite;
+            Sprite sprite = Sprite.Create(textureSmallImage, new Rect(0, 0, textureSmallImage.width, textureSmallImage.height), Vector2.zero);
             imageTitle.sprite = sprite;
+        }
+
+        if (textureLargeImage != null) // image for big-bg (1980x1020)
+        {
+            Sprite sprite = Sprite.Create(textureLargeImage, new Rect(0, 0, textureLargeImage.width, textureLargeImage.height), Vector2.zero);
+            imageComponent.sprite = sprite;
             Color imageColor = imageComponent.color;
             imageColor.a = 0.2f; // Set alpha value to 20%
             imageComponent.color = imageColor;
@@ -108,7 +114,7 @@ public class ScoreShowElement : MonoBehaviour
 
         SceneManager.UnloadSceneAsync("Gameplay");
     }
-    Texture2D LoadTextureFromPath(string path)
+    Texture2D LoadTextureFromPath(string path, int maxWidth, int maxHeight)
     {
         Texture2D texture = null;
         byte[] fileData;
@@ -118,6 +124,42 @@ public class ScoreShowElement : MonoBehaviour
             fileData = File.ReadAllBytes(path);
             texture = new Texture2D(2, 2);
             texture.LoadImage(fileData); // LoadImage() automatically resizes the texture to match the image size
+
+            // Resize the texture if it's too large
+            if (texture.width > maxWidth || texture.height > maxHeight)
+            {
+                float aspectRatio = (float)texture.width / (float)texture.height;
+                int newWidth = Mathf.Min(texture.width, maxWidth);
+                int newHeight = Mathf.Min(texture.height, maxHeight);
+
+                if (texture.width > maxWidth)
+                {
+                    newHeight = Mathf.RoundToInt(newWidth / aspectRatio);
+                }
+                else if (texture.height > maxHeight)
+                {
+                    newWidth = Mathf.RoundToInt(newHeight * aspectRatio);
+                }
+
+                Color[] pixels = texture.GetPixels(0, 0, texture.width, texture.height);
+                Color[] resizedPixels = new Color[newWidth * newHeight];
+
+                for (int y = 0; y < newHeight; y++)
+                {
+                    for (int x = 0; x < newWidth; x++)
+                    {
+                        float u = (float)x / (float)newWidth;
+                        float v = (float)y / (float)newHeight;
+                        resizedPixels[y * newWidth + x] = SampleTexture(pixels, texture.width, texture.height, u, v);
+                    }
+                }
+
+                Texture2D resizedTexture = new Texture2D(newWidth, newHeight);
+                resizedTexture.SetPixels(resizedPixels);
+                resizedTexture.Apply();
+                UnityEngine.Object.Destroy(texture);
+                return resizedTexture;
+            }
         }
         else
         {
@@ -126,6 +168,34 @@ public class ScoreShowElement : MonoBehaviour
 
         return texture;
     }
+
+    Color SampleTexture(Color[] pixels, int width, int height, float u, float v)
+    {
+        u = Mathf.Clamp01(u);
+        v = Mathf.Clamp01(v);
+
+        float x = u * (float)(width - 1);
+        float y = v * (float)(height - 1);
+
+        int x0 = Mathf.FloorToInt(x);
+        int y0 = Mathf.FloorToInt(y);
+        int x1 = Mathf.Clamp(x0 + 1, 0, width - 1);
+        int y1 = Mathf.Clamp(y0 + 1, 0, height - 1);
+
+        float sx = x - (float)x0;
+        float sy = y - (float)y0;
+
+        Color c00 = pixels[y0 * width + x0];
+        Color c10 = pixels[y0 * width + x1];
+        Color c01 = pixels[y1 * width + x0];
+        Color c11 = pixels[y1 * width + x1];
+
+        Color top = Color.Lerp(c00, c10, sx);
+        Color bottom = Color.Lerp(c01, c11, sx);
+
+        return Color.Lerp(top, bottom, sy);
+    }
+
 
 
 
