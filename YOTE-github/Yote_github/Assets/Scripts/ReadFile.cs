@@ -78,6 +78,7 @@ public class ReadFile : MonoBehaviour
     private string beatmapName="";
     private string imagePath="";
     private int diff = 0;
+    private string Artist = "";
 
     void Start()
     {
@@ -162,7 +163,7 @@ public class ReadFile : MonoBehaviour
 
 
 
-
+            // Read the map info
                 for (int i = 0; i < lines.Length; i++)
                 {
                     string line = lines[i];
@@ -177,7 +178,12 @@ public class ReadFile : MonoBehaviour
                                 int.TryParse(parts[1].Trim(), out diff);
                                 UnityEngine.Debug.Log($"{i} {diff}");
                             }
-                            i++;
+                            if (parts.Length == 2 && parts[0].Trim() == "Artist")
+                            {
+                                Artist = parts[1].Trim();
+                                UnityEngine.Debug.Log($"{i} {Artist}");
+                            }
+                        i++;
                         }
                         break;
                     }
@@ -1011,6 +1017,16 @@ public class ReadFile : MonoBehaviour
     public string GetImagePath ()
     {
         return imagePath;
+    }
+
+    public int GetDiff()
+    {
+        return diff;
+    }
+
+    public string GetArtistText ()
+    {
+        return Artist;
     }
     // create many object at the sameplace
 }

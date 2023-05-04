@@ -15,7 +15,8 @@ public class ScoreShowElement : MonoBehaviour
     [SerializeField] TextMeshProUGUI MissCount;
     [SerializeField] TextMeshProUGUI PercentageValue;
     [SerializeField] TextMeshProUGUI Title_Song;
-
+    [SerializeField] TextMeshProUGUI DiffText;
+    [SerializeField] TextMeshProUGUI Artist;
 
     [SerializeField] GameObject[] Rank;
 
@@ -89,6 +90,8 @@ public class ScoreShowElement : MonoBehaviour
         PercentageValue.text = readFile.GetPercentage().ToString("F2");
         Title_Song.text=readFile.GetMapName().ToString();
         imagePath = readFile.GetImagePath().ToString();
+        DiffText.text = readFile.GetDiff().ToString();
+        Artist.text = readFile.GetArtistText().ToString();
 
         Texture2D texture = LoadTextureFromPath(imagePath);
 

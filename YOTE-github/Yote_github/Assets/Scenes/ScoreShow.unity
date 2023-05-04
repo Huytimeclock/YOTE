@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 595.9999, y: -88}
-  m_SizeDelta: {x: 40.574, y: 23.318}
+  m_AnchoredPosition: {x: 674, y: -77}
+  m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200324524
 MonoBehaviour:
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.01927948, y: -0.324378, z: 0.43950272, w: 17.429308}
+  m_margin: {x: 0.01927948, y: 0.0081892, z: 14.934842, w: 15.53187}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3989,6 +3989,8 @@ MonoBehaviour:
   MissCount: {fileID: 1623135948}
   PercentageValue: {fileID: 486407293}
   Title_Song: {fileID: 1767439201}
+  DiffText: {fileID: 200324524}
+  Artist: {fileID: 607540690}
   Rank:
   - {fileID: 880280195}
   - {fileID: 457872923}

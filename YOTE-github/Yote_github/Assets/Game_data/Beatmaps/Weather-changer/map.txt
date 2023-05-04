@@ -1,6 +1,6 @@
 [MAP INFO]
-Diff: 6
-
+Diff: 8
+Artist: Cres.
 
 [MAP DATA]
 [4.185][h]
