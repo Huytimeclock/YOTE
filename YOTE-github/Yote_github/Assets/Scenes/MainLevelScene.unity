@@ -1077,6 +1077,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 1087165913}
   scrollViewContent: {fileID: 1364748255}
+  Title_Song: {fileID: 1739167862}
+  DiffText: {fileID: 1916451447}
+  Artist: {fileID: 1895935739}
+  imageTitle: {fileID: 1650745907}
 --- !u!4 &1712132225
 Transform:
   m_ObjectHideFlags: 0

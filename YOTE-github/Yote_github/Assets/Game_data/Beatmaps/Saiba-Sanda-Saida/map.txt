@@ -1,6 +1,6 @@
 [MAP INFO]
-Diff: 5
-Artist: Odd Hastur
+Diff: 9
+Artist: EZFG
 
 [MAP DATA]
 [4.185][h]
