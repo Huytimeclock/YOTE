@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager.UI;
 
 public class ScoreShowElement : MonoBehaviour
 {
@@ -173,27 +175,33 @@ public class ScoreShowElement : MonoBehaviour
     {
         u = Mathf.Clamp01(u);
         v = Mathf.Clamp01(v);
+        //This ensures that the sample position is always within the texture boundaries.
 
         float x = u * (float)(width - 1);
         float y = v * (float)(height - 1);
+        //The (width - 1) and (height - 1) terms are used to ensure that the sample position is always within the texture boundaries, even if u and v are exactly equal to 1.
+
 
         int x0 = Mathf.FloorToInt(x);
         int y0 = Mathf.FloorToInt(y);
         int x1 = Mathf.Clamp(x0 + 1, 0, width - 1);
         int y1 = Mathf.Clamp(y0 + 1, 0, height - 1);
+        //x0 and y0 represent the top-left pixel coordinate of the four surrounding pixels, while x1 and y1 represent the bottom-right pixel coordinate. Clamp is used to ensure that the pixel coordinates are always within the texture boundaries.
 
         float sx = x - (float)x0;
         float sy = y - (float)y0;
+        //These factors represent how far the sample position is between the top - left pixel and the top-right pixel(for sx) and between the top-left pixel and the bottom-left pixel(for sy).
 
         Color c00 = pixels[y0 * width + x0];
         Color c10 = pixels[y0 * width + x1];
         Color c01 = pixels[y1 * width + x0];
         Color c11 = pixels[y1 * width + x1];
+        //c00, c10, c01, and c11 represent the colors of the top-left, top-right, bottom-left, and bottom-right pixels, respectively.
 
-        Color top = Color.Lerp(c00, c10, sx);
-        Color bottom = Color.Lerp(c01, c11, sx);
+        Color top = Color.Lerp(c00, c10, sx); //top represents the color at the top of the sample position, interpolated between the top-left and top-right colors based on the sx factor.
+        Color bottom = Color.Lerp(c01, c11, sx); //bottom represents the color at the bottom of the sample position, interpolated between the bottom-left and bottom-right colors based on the sx factor.
 
-        return Color.Lerp(top, bottom, sy);
+        return Color.Lerp(top, bottom, sy); //Interpolates between the top and bottom colors based on the sy factor, returning the final color at the sample position.
     }
 
 
