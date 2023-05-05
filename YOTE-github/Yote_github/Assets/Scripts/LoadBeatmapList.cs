@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.IO;
 using TMPro;
 using UnityEngine.EventSystems;
+using System;
+using UnityEngine.SceneManagement;
 
 public class LoadBeatmapList : MonoBehaviour
 {
@@ -15,7 +17,8 @@ public class LoadBeatmapList : MonoBehaviour
     public Image imageTitle;
     public Image imageComponent;
     private GameObject parentContainer;
-
+    private string imagePath = "";
+    private string infoPath = "";
 
 
     void Start()
@@ -107,16 +110,26 @@ public class LoadBeatmapList : MonoBehaviour
         Debug.Log("songName " + songName);
         // Get the path to the selected song data
         string folderPath = Path.Combine(path, songName);
-        string imagePath = Path.Combine(folderPath, "bg.jpg");
-        string infoPath = Path.Combine(folderPath, "map.txt");
+        imagePath = Path.Combine(folderPath, "bg.jpg");
+        infoPath = Path.Combine(folderPath, "map.txt");
 
         // Load the data in your ReadFile.cs script and pass it to the scene that needs it
+
+        // Load the new scene
+
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Additive);
     }
 
 
+    public string getImagePath1()
+    {
+        return imagePath;
+    }
 
-
-
+    public string getMapPath1()
+    {
+        return infoPath;
+    }
 
     Texture2D LoadTextureFromPath(string path, int maxWidth, int maxHeight)
     {

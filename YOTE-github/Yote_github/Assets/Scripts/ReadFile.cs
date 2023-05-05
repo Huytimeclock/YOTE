@@ -79,6 +79,7 @@ public class ReadFile : MonoBehaviour
     private string imagePath="";
     private int diff = 0;
     private string Artist = "";
+    private string filePath = "";
 
     void Start()
     {
@@ -111,6 +112,33 @@ public class ReadFile : MonoBehaviour
         isStarted = false;
 
 
+
+
+
+        // Find the ReadFile game object in Scene 1
+        GameObject readFileObj = GameObject.Find("ScriptHandleLoadSong");
+
+
+        if (readFileObj == null)
+        {
+            UnityEngine.Debug.LogError("LoadBeatmapList object not found");
+            return;
+        }
+
+        // Get the ReadFile script from the game object
+        LoadBeatmapList readFile = readFileObj.GetComponent<LoadBeatmapList>();
+
+        if (readFile == null)
+        {
+            UnityEngine.Debug.LogError("LoadBeatmapList script not found");
+            return;
+        }
+
+        filePath = readFile.getMapPath1().ToString();
+        imagePath = readFile.getImagePath1().ToString();
+
+
+        SceneManager.UnloadSceneAsync("MainLevelScene");
     }
 
     private void Awake()
@@ -142,8 +170,7 @@ public class ReadFile : MonoBehaviour
 
         if (!isStarted)
         {
-            string filePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\map.txt";
-            imagePath = Application.dataPath + "\\Game_data\\Beatmaps\\Weather-changer\\bg.jpg";
+            
             UnityEngine.Debug.Log(imagePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap

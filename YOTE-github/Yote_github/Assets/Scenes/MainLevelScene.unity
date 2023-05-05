@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 1712132225}
   - component: {fileID: 1712132224}
   m_Layer: 0
-  m_Name: ScriptHandle
+  m_Name: ScriptHandleLoadSong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
