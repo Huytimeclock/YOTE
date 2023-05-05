@@ -19,6 +19,7 @@ public class LoadBeatmapList : MonoBehaviour
     private GameObject parentContainer;
     private string imagePath = "";
     private string infoPath = "";
+    private string songPath = "";
 
 
     void Start()
@@ -112,6 +113,8 @@ public class LoadBeatmapList : MonoBehaviour
         string folderPath = Path.Combine(path, songName);
         imagePath = Path.Combine(folderPath, "bg.jpg");
         infoPath = Path.Combine(folderPath, "map.txt");
+        songPath = Path.Combine(folderPath, "audio.mp3");
+
 
         // Load the data in your ReadFile.cs script and pass it to the scene that needs it
 
@@ -131,6 +134,10 @@ public class LoadBeatmapList : MonoBehaviour
         return infoPath;
     }
 
+    public string GetSongPath1()
+    {
+        return songPath;
+    }
     Texture2D LoadTextureFromPath(string path, int maxWidth, int maxHeight)
     {
         Texture2D texture = null;

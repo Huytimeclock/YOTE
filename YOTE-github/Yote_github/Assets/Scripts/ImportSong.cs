@@ -7,18 +7,37 @@ using UnityEngine.Networking;
 public class ImportSong : MonoBehaviour
 {
     AudioSource m_AudioSource;
-
+    private string songPath;
    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        string m_path = Application.dataPath;
-        Debug.Log(m_path);
-        m_path += "\\Game_data\\Beatmaps\\Weather-changer\\audio.mp3";
-        Debug.Log(m_path);
-        StartCoroutine(LoadAudioClip(m_path, clip =>
+
+        // Find the ReadFile game object in Scene 1
+        GameObject readFileObj = GameObject.Find("ScriptHandleLoadSong");
+
+
+        if (readFileObj == null)
+        {
+            UnityEngine.Debug.LogError("LoadBeatmapList object not found");
+            return;
+        }
+
+        // Get the ReadFile script from the game object
+        LoadBeatmapList readFile = readFileObj.GetComponent<LoadBeatmapList>();
+
+        if (readFile == null)
+        {
+            UnityEngine.Debug.LogError("LoadBeatmapList script not found");
+            return;
+        }
+        songPath = readFile.GetSongPath1().ToString();
+
+
+
+        StartCoroutine(LoadAudioClip(songPath, clip =>
         {
             AudioSource audioSource = GetComponent<AudioSource>();
             audioSource.clip = clip;

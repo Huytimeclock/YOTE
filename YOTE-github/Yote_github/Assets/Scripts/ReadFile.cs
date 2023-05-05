@@ -12,6 +12,9 @@ using System.Diagnostics.CodeAnalysis;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
+
+
 public class ReadFile : MonoBehaviour
 {
     private float startTime; // time when the script starts
@@ -80,6 +83,8 @@ public class ReadFile : MonoBehaviour
     private int diff = 0;
     private string Artist = "";
     private string filePath = "";
+    private string songPath = "";
+
 
     void Start()
     {
@@ -136,10 +141,20 @@ public class ReadFile : MonoBehaviour
 
         filePath = readFile.getMapPath1().ToString();
         imagePath = readFile.getImagePath1().ToString();
-
+        songPath = readFile.GetSongPath1().ToString();
 
         SceneManager.UnloadSceneAsync("MainLevelScene");
+
+
+       
+
+
+
+
     }
+
+
+
 
     private void Awake()
     {
@@ -1056,5 +1071,9 @@ public class ReadFile : MonoBehaviour
         return Artist;
     }
     // create many object at the sameplace
+
+
+
+
 }
 
