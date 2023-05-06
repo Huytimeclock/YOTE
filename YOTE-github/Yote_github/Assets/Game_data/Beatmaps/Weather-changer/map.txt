@@ -1,6 +1,8 @@
 [MAP INFO]
 Diff: 8
 Artist: Cres.
+BPM: 130
+Creator: Huytimeclock
 
 [MAP DATA]
 [4.185][h]

@@ -14,12 +14,15 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] TextMeshProUGUI Title_Song;
     [SerializeField] TextMeshProUGUI DiffText;
     [SerializeField] TextMeshProUGUI Artist;
+    [SerializeField] TextMeshProUGUI BPM1;
+    [SerializeField] TextMeshProUGUI CreatorText;
     public Image imageTitle;
     public Image imageComponent;
     private GameObject parentContainer;
     private string imagePath = "";
     private string infoPath = "";
     private string songPath = "";
+    private string BPMValue = "";
 
 
     void Start()
@@ -45,6 +48,8 @@ public class LoadBeatmapList : MonoBehaviour
             // Parse the info file to get the artist name and difficulty
             string artistName = "";
             int difficulty = -1;
+            float BPM = 0f;
+            string Creator = "";
             if (File.Exists(infoPath))
             {
                 string[] lines = File.ReadAllLines(infoPath);
@@ -58,12 +63,22 @@ public class LoadBeatmapList : MonoBehaviour
                     {
                         int.TryParse(line.Substring("Diff: ".Length).Trim(), out difficulty);
                     }
+                    else if (line.StartsWith("BPM: "))
+                    {
+                        float.TryParse(line.Substring("BPM: ".Length).Trim(), out BPM);
+                    }
+                    else if (line.StartsWith("Creator: "))
+                    {
+                        Creator = line.Substring("Creator: ".Length).Trim();
+                    }
                 }
             }
 
             Title_Song.text = songName;
             Artist.text = artistName;
             DiffText.text=difficulty.ToString();
+            BPM1.text = "BPM: " + BPM.ToString();
+            CreatorText.text = Creator;
 
             Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
            
@@ -108,12 +123,14 @@ public class LoadBeatmapList : MonoBehaviour
 
         // Get the song name from the title text component on the parent object
         string songName = parentObject.transform.Find("Song_title").GetComponent<TextMeshProUGUI>().text;
+        BPMValue = parentObject.transform.Find("BPM").GetComponent<TextMeshProUGUI>().text;
         Debug.Log("songName " + songName);
         // Get the path to the selected song data
         string folderPath = Path.Combine(path, songName);
         imagePath = Path.Combine(folderPath, "bg.jpg");
         infoPath = Path.Combine(folderPath, "map.txt");
         songPath = Path.Combine(folderPath, "audio.mp3");
+
 
 
         // Load the data in your ReadFile.cs script and pass it to the scene that needs it

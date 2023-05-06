@@ -21,7 +21,7 @@ public class ImportSong : MonoBehaviour
 
         if (readFileObj == null)
         {
-            UnityEngine.Debug.LogError("LoadBeatmapList object not found");
+            UnityEngine.Debug.LogError("ScriptHandleLoadSong object not found");
             return;
         }
 
