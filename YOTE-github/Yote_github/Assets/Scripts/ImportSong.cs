@@ -1,23 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class ImportSong : MonoBehaviour
 {
-    AudioSource m_AudioSource;
+    [SerializeField] AudioClip BPMSound;
     private string songPath;
-   
-
+    private float BPM = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-
         // Find the ReadFile game object in Scene 1
         GameObject readFileObj = GameObject.Find("ScriptHandleLoadSong");
-
 
         if (readFileObj == null)
         {
@@ -33,17 +32,109 @@ public class ImportSong : MonoBehaviour
             UnityEngine.Debug.LogError("LoadBeatmapList script not found");
             return;
         }
+
+        GameObject readTimeStamp = GameObject.Find("TrackTime");
+
+        if (readFileObj == null)
+        {
+            UnityEngine.Debug.LogError("TrackTime object not found");
+            return;
+        }
+
+        // Get the ReadFile script from the game object
+        TrackTimeSong ReadTime = readTimeStamp.GetComponent<TrackTimeSong>();
+
+        if (readFile == null)
+        {
+            UnityEngine.Debug.LogError("TrackTimeSong script not found");
+            return;
+        }
+
+
         songPath = readFile.GetSongPath1().ToString();
 
+        // Get the BPM value from the text file
+        string bpmString = readFile.GetBPMValue().Trim();
+        Debug.Log("BPM string value: " + bpmString);
 
+        if (float.TryParse(bpmString, out float result))
+        {
+            BPM = result;
+            Debug.Log("BPM value: " + BPM);
+        }
+        else
+        {
+            UnityEngine.Debug.LogError("BPM value could not be parsed");
+        }
+
+        StartCoroutine(StartPlaying(3f));
+    }
+
+    IEnumerator StartPlaying(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float bpmSoundDelay = 3f;
+        
+        float songDelay = bpmSoundDelay + (60f / BPM) * 3; // 3 is the index of the song clip
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = null;
 
         StartCoroutine(LoadAudioClip(songPath, clip =>
         {
-            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.clip = clip;
+            audioSource.PlayDelayed(songDelay);
+        }));
+
+        StartCoroutine(PlayBPMSound(4));
+    }
+
+
+
+
+
+
+
+
+
+
+
+    private IEnumerator PlayBPMSound(int count)
+    {
+        GameObject readTimeStamp = GameObject.Find("TrackTime");
+
+ 
+
+        // Get the ReadFile script from the game object
+        TrackTimeSong ReadTime = readTimeStamp.GetComponent<TrackTimeSong>();
+
+ 
+
+
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        for (int i = 0; i < count; i++)
+        {
+            audioSource.clip = BPMSound;
+            audioSource.PlayDelayed(3f + (60f / BPM) * i);
+            audioSource.PlayOneShot(BPMSound, 3f);
+            string readTimeeeee = ReadTime.ReturnTimeStamp();
+            Debug.Log("readtime la " + readTimeeeee);
+            yield return new WaitForSeconds((60f / BPM));
+        }
+        audioSource.clip = null;
+        StartCoroutine(LoadAudioClip(songPath, clip =>
+        {
             audioSource.clip = clip;
             audioSource.Play();
+            string readTimeeeee = ReadTime.ReturnTimeStamp();
+            Debug.Log("readtime la " + readTimeeeee);
+
         }));
     }
+
+
     private IEnumerator LoadAudioClip(string url, System.Action<AudioClip> onComplete)
     {
         using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG))
@@ -61,20 +152,4 @@ public class ImportSong : MonoBehaviour
             onComplete?.Invoke(clip);
         }
     }
-
-   // private double lastLogTime;
-   // private const double logInterval = 1.0; // write every log each second
-
-//    private void OnAudioFilterRead(float[] data, int channels)
-  //  {
-    //    double currentTime = AudioSettings.dspTime;
-      //  double elapsedTime = currentTime - lastLogTime;
-
-        //if (elapsedTime >= logInterval)
-        //{
-          //  Debug.Log("Audio is playing...");
-            //lastLogTime = currentTime;
-        //}
-    //}
-
 }

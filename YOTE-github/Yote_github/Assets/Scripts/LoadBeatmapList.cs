@@ -155,6 +155,15 @@ public class LoadBeatmapList : MonoBehaviour
     {
         return songPath;
     }
+
+    public string GetBPMValue()
+    {
+        string bpmString = BPMValue.Replace("BPM: ", ""); // remove the "BPM: " prefix
+        return bpmString;
+    }
+
+
+
     Texture2D LoadTextureFromPath(string path, int maxWidth, int maxHeight)
     {
         Texture2D texture = null;

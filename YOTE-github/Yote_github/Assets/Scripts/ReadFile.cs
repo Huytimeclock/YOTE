@@ -84,6 +84,8 @@ public class ReadFile : MonoBehaviour
     private string Artist = "";
     private string filePath = "";
     private string songPath = "";
+    private string BPMText = "";
+    private float BPMValue = 0;
 
 
     void Start()
@@ -126,7 +128,7 @@ public class ReadFile : MonoBehaviour
 
         if (readFileObj == null)
         {
-            UnityEngine.Debug.LogError("LoadBeatmapList object not found");
+            //UnityEngine.Debug.LogError("LoadBeatmapList object not found");
             return;
         }
 
@@ -135,7 +137,7 @@ public class ReadFile : MonoBehaviour
 
         if (readFile == null)
         {
-            UnityEngine.Debug.LogError("LoadBeatmapList script not found");
+            //UnityEngine.Debug.LogError("LoadBeatmapList script not found");
             return;
         }
 
@@ -173,11 +175,11 @@ public class ReadFile : MonoBehaviour
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 255);
             MissText.GetComponent<TextMeshProUGUI>().color = new Color32(149, 140, 142, 255);
 
-            UnityEngine.Debug.Log("GoodText: " + GoodText);
-            UnityEngine.Debug.Log("GreatText: " + GreatText);
-            UnityEngine.Debug.Log("PerfectText: " + PerfectText);
-            UnityEngine.Debug.Log("CPText: " + CPText);
-            UnityEngine.Debug.Log("MissText: " + MissText);
+           // UnityEngine.Debug.Log("GoodText: " + GoodText);
+           // UnityEngine.Debug.Log("GreatText: " + GreatText);
+           // UnityEngine.Debug.Log("PerfectText: " + PerfectText);
+           // UnityEngine.Debug.Log("CPText: " + CPText);
+          //  UnityEngine.Debug.Log("MissText: " + MissText);
         }
     }
     private void FixedUpdate()
@@ -186,16 +188,16 @@ public class ReadFile : MonoBehaviour
         if (!isStarted)
         {
             
-            UnityEngine.Debug.Log(imagePath);
+           // UnityEngine.Debug.Log(imagePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
             beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
-            UnityEngine.Debug.Log(beatmapName);
+           // UnityEngine.Debug.Log(beatmapName);
 
             // Check if the file exists
             if (!File.Exists(filePath))
             {
-                UnityEngine.Debug.LogError("File not found at: " + filePath);
+            //    UnityEngine.Debug.LogError("File not found at: " + filePath);
                 return;
             }
 
@@ -218,13 +220,23 @@ public class ReadFile : MonoBehaviour
                             if (parts.Length == 2 && parts[0].Trim() == "Diff")
                             {
                                 int.TryParse(parts[1].Trim(), out diff);
-                                UnityEngine.Debug.Log($"{i} {diff}");
+                        //        UnityEngine.Debug.Log($"{i} {diff}");
                             }
                             if (parts.Length == 2 && parts[0].Trim() == "Artist")
                             {
                                 Artist = parts[1].Trim();
-                                UnityEngine.Debug.Log($"{i} {Artist}");
+                      //          UnityEngine.Debug.Log($"{i} {Artist}");
                             }
+                        if (parts.Length == 2 && parts[0].Trim() == "BPM")
+                        {
+                            BPMText = parts[1].Trim();
+                            //          UnityEngine.Debug.Log($"{i} {Artist}");
+                        }
+                        if (float.TryParse(BPMText, out float result))
+                        {
+                            BPMValue = result;
+                            UnityEngine.Debug.Log("BPM value: " + BPMValue);
+                        }
                         i++;
                         }
                         break;
@@ -241,7 +253,7 @@ public class ReadFile : MonoBehaviour
                     while (x < lines.Length && lines[x].StartsWith("["))
                     {
                         
-                        UnityEngine.Debug.Log(line);
+                    //    UnityEngine.Debug.Log(line);
 
                         string[] splitLine = lines[x].Split('['); // split the line at each '[' character
                         if (splitLine.Length >= 2) // make sure there are at least 2 parts (time and key)
@@ -277,7 +289,7 @@ public class ReadFile : MonoBehaviour
 
 
 
-                                        StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
+                                        StartCoroutine(EnlargeObject(logTime - enlargeTime +3.36f + (60/BPMValue) * 4 , convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
                                         if (getkey.Length == 1)
                                         {
                                             int needshiftnum = 0;
@@ -308,7 +320,7 @@ public class ReadFile : MonoBehaviour
 
 
                                     getkey += key[i];   //lay cac bien
-                                    UnityEngine.Debug.Log(getkey);
+                                //    UnityEngine.Debug.Log(getkey);
 
 
                                     if (i == key.Length - 1)
@@ -319,7 +331,7 @@ public class ReadFile : MonoBehaviour
 
 
                                         //UnityEngine.Debug.Log("log time la: " + logTime);
-                                        StartCoroutine(EnlargeObject(logTime - enlargeTime, convertKey, isAir));
+                                        StartCoroutine(EnlargeObject(logTime - enlargeTime + 3.36f + (60 / BPMValue) * 4, convertKey, isAir));
                                         int needshiftnum = 0;
                                         if (getkey.Length == 1 && char.IsUpper(getkey[0]))
                                         {
@@ -715,11 +727,11 @@ public class ReadFile : MonoBehaviour
             yield return null;
         }
         float startTime = triggerTime;
-        UnityEngine.Debug.Log("start time la: " + startTime);
+       // UnityEngine.Debug.Log("start time la: " + startTime);
         
         float endTime = triggerTime + enlargeTime;
-        UnityEngine.Debug.Log("enlarge time la: " + enlargeTime);
-        UnityEngine.Debug.Log("end time la: " + endTime);
+     //  UnityEngine.Debug.Log("enlarge time la: " + enlargeTime);
+      //  UnityEngine.Debug.Log("end time la: " + endTime);
         if (isAir==false)
         {
             while (Time.time < endTime)
@@ -742,7 +754,7 @@ public class ReadFile : MonoBehaviour
                 yield return null;
             }
         }
-        UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
+       // UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
         EnlargeGroundObject.transform.localScale = new Vector3(0f, 0f, 0f);
         EnlargeAirObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
@@ -758,18 +770,18 @@ public class ReadFile : MonoBehaviour
             bool isAir = false; //not need
             returnButtonType(note.key, out convertKey, out isAir);
 
-            yield return StartCoroutine(CreateNote(note.time-0.1f, note.key, note.NeedShift, convertKey));           
+            yield return StartCoroutine(CreateNote(note.time+3.26f + (60 / BPMValue) * 4, note.key, note.NeedShift, convertKey));           
         }
 
         EndNoteTime = notes[notes.Count-1].time;
 
 
 
-        UnityEngine.Debug.Log("end node time la: " + EndNoteTime);
+       // UnityEngine.Debug.Log("end node time la: " + EndNoteTime);
         Invoke("LowerVolumeAndEndDelayed", 3f);
         StartCoroutine(FadeOutCamera());
-        UnityEngine.Debug.Log("So luong great la: " + greatCount + "\nSo luong good la: " + goodCount + "\nSo luong perfect la: " + perfectCount + "\nSo luong CP la: " + CPCount + "\nPercentage la: " + percentage);
-        UnityEngine.Debug.Log("Huy rat chi la cute");
+     //   UnityEngine.Debug.Log("So luong great la: " + greatCount + "\nSo luong good la: " + goodCount + "\nSo luong perfect la: " + perfectCount + "\nSo luong CP la: " + CPCount + "\nPercentage la: " + percentage);
+     //   UnityEngine.Debug.Log("Huy rat chi la cute");
     }
 
 
@@ -813,9 +825,9 @@ public class ReadFile : MonoBehaviour
 
 
         float startTime = Atime ;
-        UnityEngine.Debug.Log("start time create note la: " + startTime);
+      //  UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.2f;
-        UnityEngine.Debug.Log("start time end note la: " + endtime);
+     //   UnityEngine.Debug.Log("start time end note la: " + endtime);
 
 
         if (needshift == false)
@@ -833,7 +845,7 @@ public class ReadFile : MonoBehaviour
                 }
                 else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
                 {
-                    UnityEngine.Debug.Log("Goodbye");
+                 //   UnityEngine.Debug.Log("Goodbye");
                     float timeelapsed = Time.time - startTime;
                     LogResultClick(timeelapsed, convertKey);
                     yield break; // exit the coroutine
@@ -864,7 +876,7 @@ public class ReadFile : MonoBehaviour
                 }
                 else if (Time.time >= endtime) // check if Time.time has exceeded the endtime
                 {
-                    UnityEngine.Debug.Log("Goodbye");
+                 //   UnityEngine.Debug.Log("Goodbye");
                     float timeelapsed = Time.time - startTime;
                     LogResultClick(timeelapsed, convertKey);
 
@@ -891,7 +903,7 @@ public class ReadFile : MonoBehaviour
         Transform MissText = ForWordObject.transform.Find("Miss");
 
 
-        UnityEngine.Debug.Log("Ban da click vao luc: " + timeelapsed);
+     //   UnityEngine.Debug.Log("Ban da click vao luc: " + timeelapsed);
         if (timeelapsed <= 0.03f && timeelapsed >= 0)
         {
             UnityEngine.Debug.Log("Good");
@@ -903,7 +915,7 @@ public class ReadFile : MonoBehaviour
         }
         else if (timeelapsed <= 0.06f)
         {
-            UnityEngine.Debug.Log("Great");
+         //   UnityEngine.Debug.Log("Great");
             percentage += greatPercentageValue;
             greatCount++;
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);

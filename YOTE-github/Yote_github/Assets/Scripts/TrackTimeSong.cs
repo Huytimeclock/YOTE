@@ -1,21 +1,17 @@
 using UnityEngine;
-using System.Collections;
 
 public class TrackTimeSong : MonoBehaviour
 {
+    double startTime;
+
     void Start()
     {
-        StartCoroutine(LogMessage());
+        startTime = Time.realtimeSinceStartup;
     }
 
-    IEnumerator LogMessage()
+    public string ReturnTimeStamp()
     {
-        double sec=0;
-        while (true)
-        {
-            Debug.Log(sec);
-            yield return new WaitForSeconds(0.5f);
-            sec += 0.5;
-        }
+        double elapsed = Time.realtimeSinceStartup - startTime;
+        return  elapsed.ToString("0.000");
     }
 }
