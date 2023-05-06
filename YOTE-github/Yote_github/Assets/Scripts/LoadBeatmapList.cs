@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.EventSystems;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class LoadBeatmapList : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] TextMeshProUGUI Artist;
     [SerializeField] TextMeshProUGUI BPM1;
     [SerializeField] TextMeshProUGUI CreatorText;
+    [SerializeField] AudioSource EntrySound;
     public Image imageTitle;
     public Image imageComponent;
     private GameObject parentContainer;
@@ -23,6 +26,10 @@ public class LoadBeatmapList : MonoBehaviour
     private string infoPath = "";
     private string songPath = "";
     private string BPMValue = "";
+
+
+
+  
 
 
     void Start()
@@ -137,7 +144,7 @@ public class LoadBeatmapList : MonoBehaviour
 
         // Load the new scene
 
-        SceneManager.LoadScene("Gameplay", LoadSceneMode.Additive);
+
     }
 
 
@@ -251,7 +258,6 @@ public class LoadBeatmapList : MonoBehaviour
 
         return Color.Lerp(top, bottom, sy); //Interpolates between the top and bottom colors based on the sy factor, returning the final color at the sample position.
     }
-
 
 
 }

@@ -1,6 +1,8 @@
 [MAP INFO]
 Diff: 9
 Artist: EZFG
+BPM: 145
+Creator: Huytimeclock
 
 [MAP DATA]
 [4.185][h]

@@ -1,6 +1,8 @@
 [MAP INFO]
 Diff: 7
-Artist: ぽんきち
+Artist: Ponkichi
+BPM: 152
+Creator: Huytimeclock
 
 [MAP DATA]
 [4.185][h]

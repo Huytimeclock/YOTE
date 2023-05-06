@@ -1,6 +1,8 @@
 [MAP INFO]
 Diff: 6
-Artist: 光吉猛修の兄
+Artist: Mitsuyoshi Takenobu no Ani
+BPM: 185
+Creator: Huytimeclock
 
 [MAP DATA]
 [4.185][h]
