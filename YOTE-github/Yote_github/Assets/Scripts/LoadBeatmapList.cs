@@ -35,6 +35,8 @@ public class LoadBeatmapList : MonoBehaviour
 
     void Start()
     {
+        transitionAnim.SetBool("FadeOutOnly", false);
+        Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));
         StartCoroutine(FadeOutDisable());
         path = Application.dataPath + "\\Game_data\\Beatmaps";
         string[] folderPaths = Directory.GetDirectories(path);
@@ -263,9 +265,13 @@ public class LoadBeatmapList : MonoBehaviour
 
     IEnumerator LoadScene()
     {
-        panelfadeout.SetActive(true);
+
+        panelfadeout.SetActive(true);       
+        transitionAnim.SetBool("FadeOutOnly", true);
+        Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));       
         transitionAnim.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(5);
+
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
     }
 
