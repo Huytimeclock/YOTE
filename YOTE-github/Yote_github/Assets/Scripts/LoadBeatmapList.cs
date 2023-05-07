@@ -28,12 +28,14 @@ public class LoadBeatmapList : MonoBehaviour
     private string BPMValue = "";
 
 
-
-  
+    public Animator transitionAnim;
+    public string SceneName;
+    [SerializeField] GameObject panelfadeout;
 
 
     void Start()
     {
+        StartCoroutine(FadeOutDisable());
         path = Application.dataPath + "\\Game_data\\Beatmaps";
         string[] folderPaths = Directory.GetDirectories(path);
 
@@ -143,7 +145,7 @@ public class LoadBeatmapList : MonoBehaviour
         // Load the data in your ReadFile.cs script and pass it to the scene that needs it
 
         // Load the new scene
-
+        StartCoroutine(LoadScene());
 
     }
 
@@ -259,5 +261,19 @@ public class LoadBeatmapList : MonoBehaviour
         return Color.Lerp(top, bottom, sy); //Interpolates between the top and bottom colors based on the sy factor, returning the final color at the sample position.
     }
 
+    IEnumerator LoadScene()
+    {
+        panelfadeout.SetActive(true);
+        transitionAnim.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+    }
 
+
+    IEnumerator FadeOutDisable()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+        panelfadeout.SetActive(false);
+    }
 }
