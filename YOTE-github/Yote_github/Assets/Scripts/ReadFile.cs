@@ -88,10 +88,15 @@ public class ReadFile : MonoBehaviour
     private float BPMValue = 0;
 
 
+    public Animator transitionAnim;
+
     void Start()
     {
         // related to EnlargeObject
         enlargeRate = 100 / enlargeTime;
+
+
+        transitionAnim.SetBool("FadeOutOnly", false);
 
         for (int i = 0; i <= 25; i++)
         {

@@ -270,7 +270,7 @@ public class LoadBeatmapList : MonoBehaviour
         transitionAnim.SetBool("FadeOutOnly", true);
         Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));       
         transitionAnim.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
     }
