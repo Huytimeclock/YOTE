@@ -18,7 +18,10 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] TextMeshProUGUI Artist;
     [SerializeField] TextMeshProUGUI BPM1;
     [SerializeField] TextMeshProUGUI CreatorText;
-    [SerializeField] AudioSource EntrySound;
+    [SerializeField] AudioClip EntrySound;
+    [SerializeField] private AudioSource audioSource;
+
+
     public Image imageTitle;
     public Image imageComponent;
     private GameObject parentContainer;
@@ -142,6 +145,8 @@ public class LoadBeatmapList : MonoBehaviour
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+
+        audioSource.PlayOneShot(EntrySound);
         Debug.Log("Selected object: " + eventData.pointerCurrentRaycast.gameObject.name);
 
         // Get the selected song

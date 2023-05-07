@@ -2481,7 +2481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 951638622}
   fadeTime: 3
-  fadeOutPanel: {fileID: 1056384613}
   mainCamera: {fileID: 787670438}
   timedelaybeforetractstart: 2
   enlargeTime: 0.6
@@ -2512,7 +2511,7 @@ MonoBehaviour:
   - {fileID: 552090707}
   - {fileID: 1458790387}
   - {fileID: 1605796584}
-  transitionAnim: {fileID: 109933682}
+  transitionAnim2: {fileID: 109933682}
 --- !u!1001 &1049087315
 PrefabInstance:
   m_ObjectHideFlags: 0

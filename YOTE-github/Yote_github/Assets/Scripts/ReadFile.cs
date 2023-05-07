@@ -38,7 +38,7 @@ public class ReadFile : MonoBehaviour
     int missCount = 0;
 
     public float fadeTime = 3f;
-    public GameObject fadeOutPanel = null;
+  
     public Camera mainCamera;
 
     public float timedelaybeforetractstart = 0f;
@@ -90,15 +90,17 @@ public class ReadFile : MonoBehaviour
     private float BPMValue = 0;
 
 
-    public Animator transitionAnim;
+    public Animator transitionAnim2;
+    
 
     void Start()
     {
         // related to EnlargeObject
         enlargeRate = 100 / enlargeTime;
 
-
-        transitionAnim.SetBool("FadeOutOnly", false);
+        
+        transitionAnim2.SetBool("isFadeIn", false);
+        
 
         for (int i = 0; i <= 25; i++)
         {
@@ -167,6 +169,7 @@ public class ReadFile : MonoBehaviour
 
     private void Awake()
     {
+        
         for (int i = 0; i <= 25; i++)
         {
             GameObject ForWordObject = buttonaaa[i];
@@ -786,6 +789,7 @@ public class ReadFile : MonoBehaviour
 
        // UnityEngine.Debug.Log("end node time la: " + EndNoteTime);
         Invoke("LowerVolumeAndEndDelayed", 3f);
+ 
         StartCoroutine(FadeOutCamera());
      //   UnityEngine.Debug.Log("So luong great la: " + greatCount + "\nSo luong good la: " + goodCount + "\nSo luong perfect la: " + perfectCount + "\nSo luong CP la: " + CPCount + "\nPercentage la: " + percentage);
      //   UnityEngine.Debug.Log("Huy rat chi la cute");
@@ -801,7 +805,7 @@ public class ReadFile : MonoBehaviour
 
     IEnumerator LowerVolumeAndEnd()
     {
-        float fadeTime = 3f;
+        
         float startVolume = audioSource.volume;
 
         while (audioSource.volume > 0)
@@ -998,43 +1002,17 @@ public class ReadFile : MonoBehaviour
 
     IEnumerator FadeOutCamera()
     {
-        // Fade out the camera
-        float t = 0;
-        while (t < fadeTime)
-        {
-            t += Time.deltaTime;
-            float normalizedTime = Mathf.Clamp01(t / fadeTime);
-            mainCamera.backgroundColor = Color.Lerp(Color.white, Color.black, normalizedTime);
-            yield return null;
-        }
 
-        // Debug statement to check if we made it past the camera fade
-        UnityEngine.Debug.Log("Camera fade finished");
+        transitionAnim2.SetBool("isFadeIn", true);
 
-        // Create the fade out panel
-        GameObject panel = Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
-        if (panel == null)
-        {
-            UnityEngine.Debug.LogError("Failed to instantiate fadeOutPanel");
-            yield break;
-        }
-
-        RectTransform panelRectTransform = panel.GetComponent<RectTransform>();
-        panelRectTransform.SetParent(mainCamera.transform, false);
-        panelRectTransform.anchorMin = new Vector2(0, 0);
-        panelRectTransform.anchorMax = new Vector2(1, 1);
-        panelRectTransform.anchoredPosition = Vector2.zero;
-        panelRectTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
-
-        // Debug statement to check if the fade out panel was created
-        UnityEngine.Debug.Log("Fade out panel created");
+        UnityEngine.Debug.Log("isFadeIn parameter value: " + transitionAnim2.GetBool("isFadeIn"));
+        transitionAnim2.SetTrigger("FadeOut");
 
         // Load the new scene
-        yield return new WaitForSeconds(fadeTime);
+        yield return new WaitForSeconds(6f);
         SceneManager.LoadScene("ScoreShow", LoadSceneMode.Additive);
 
-        // Destroy the fade out panel
-        Destroy(panel);
+        
 
         // Debug statement to check if we made it to the end of the coroutine
         UnityEngine.Debug.Log("FadeOutCamera coroutine finished");
