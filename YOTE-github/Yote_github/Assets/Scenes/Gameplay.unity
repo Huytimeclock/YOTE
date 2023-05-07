@@ -2222,6 +2222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BPMSound: {fileID: 8300000, guid: 440ca6de3b337cf459454d00c566503a, type: 3}
+  delaytimebeforestart: 2
 --- !u!1001 &961449884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2482,6 +2483,7 @@ MonoBehaviour:
   fadeTime: 3
   fadeOutPanel: {fileID: 1056384613}
   mainCamera: {fileID: 787670438}
+  timedelaybeforetractstart: 2
   enlargeTime: 0.6
   buttonaaa:
   - {fileID: 390409385}
@@ -3862,7 +3864,7 @@ GameObject:
   - component: {fileID: 1671956253}
   - component: {fileID: 1671956252}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: fadetransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

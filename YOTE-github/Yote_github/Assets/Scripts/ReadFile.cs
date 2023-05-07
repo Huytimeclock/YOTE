@@ -41,6 +41,8 @@ public class ReadFile : MonoBehaviour
     public GameObject fadeOutPanel = null;
     public Camera mainCamera;
 
+    public float timedelaybeforetractstart = 0f;
+
     #region EnlargeVariable
     // those variable will affect the enlarge of custom box creating
     [SerializeField] float enlargeTime;
@@ -294,7 +296,7 @@ public class ReadFile : MonoBehaviour
 
 
 
-                                        StartCoroutine(EnlargeObject(logTime - enlargeTime +3.36f + (60/BPMValue) * 4 , convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
+                                        StartCoroutine(EnlargeObject(logTime - enlargeTime + timedelaybeforetractstart +0.36f + (60/BPMValue) * 4 , convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
                                         if (getkey.Length == 1)
                                         {
                                             int needshiftnum = 0;
@@ -336,7 +338,7 @@ public class ReadFile : MonoBehaviour
 
 
                                         //UnityEngine.Debug.Log("log time la: " + logTime);
-                                        StartCoroutine(EnlargeObject(logTime - enlargeTime + 3.36f + (60 / BPMValue) * 4, convertKey, isAir));
+                                        StartCoroutine(EnlargeObject(logTime - enlargeTime + timedelaybeforetractstart + 0.36f + (60 / BPMValue) * 4, convertKey, isAir));
                                         int needshiftnum = 0;
                                         if (getkey.Length == 1 && char.IsUpper(getkey[0]))
                                         {
@@ -775,7 +777,7 @@ public class ReadFile : MonoBehaviour
             bool isAir = false; //not need
             returnButtonType(note.key, out convertKey, out isAir);
 
-            yield return StartCoroutine(CreateNote(note.time+3.26f + (60 / BPMValue) * 4, note.key, note.NeedShift, convertKey));           
+            yield return StartCoroutine(CreateNote(note.time + timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4, note.key, note.NeedShift, convertKey));           
         }
 
         EndNoteTime = notes[notes.Count-1].time;

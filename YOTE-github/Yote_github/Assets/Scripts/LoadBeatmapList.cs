@@ -29,13 +29,33 @@ public class LoadBeatmapList : MonoBehaviour
 
 
     public Animator transitionAnim;
+    public Animator circle1;
+    public Animator circle2;
+    public Animator circle3;
+    public Animator circle4;
     public string SceneName;
+
+
     [SerializeField] GameObject panelfadeout;
+    [SerializeField] GameObject circle01;
+    [SerializeField] GameObject circle02;
+    [SerializeField] GameObject circle03;
+    [SerializeField] GameObject circle04;
 
 
     void Start()
     {
         transitionAnim.SetBool("FadeOutOnly", false);
+        circle1.SetBool("fadeintrue", false);
+        circle2.SetBool("fadeintrue", false);
+        circle3.SetBool("fadeintrue", false);
+        circle4.SetBool("fadeintrue", false);
+        circle01.SetActive(false);
+        circle02.SetActive(false);
+        circle03.SetActive(false);
+        circle04.SetActive(false);
+
+
         Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));
         StartCoroutine(FadeOutDisable());
         path = Application.dataPath + "\\Game_data\\Beatmaps";
@@ -143,7 +163,10 @@ public class LoadBeatmapList : MonoBehaviour
         songPath = Path.Combine(folderPath, "audio.mp3");
 
 
-
+        circle01.SetActive(true);
+        circle02.SetActive(true);
+        circle03.SetActive(true);
+        circle04.SetActive(true);
         // Load the data in your ReadFile.cs script and pass it to the scene that needs it
 
         // Load the new scene
@@ -266,11 +289,24 @@ public class LoadBeatmapList : MonoBehaviour
     IEnumerator LoadScene()
     {
 
+
         panelfadeout.SetActive(true);       
         transitionAnim.SetBool("FadeOutOnly", true);
-        Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));       
-        transitionAnim.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(3);
+        circle1.SetBool("fadeintrue", true);
+        circle2.SetBool("fadeintrue", true);
+        circle3.SetBool("fadeintrue", true);
+        circle4.SetBool("fadeintrue", true);
+        Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));
+        //transitionAnim.SetTrigger("FadeOut");
+        circle1.SetTrigger("EnlargeCircle");
+        yield return new WaitForSeconds(0.5f);
+        circle2.SetTrigger("EnlargeCircle");
+        yield return new WaitForSeconds(0.5f);
+        circle3.SetTrigger("EnlargeCircle");
+        yield return new WaitForSeconds(0.5f);
+        circle4.SetTrigger("EnlargeCircle");
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
     }

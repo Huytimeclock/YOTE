@@ -11,6 +11,7 @@ public class ImportSong : MonoBehaviour
     [SerializeField] AudioClip BPMSound;
     private string songPath;
     private float BPM = 1.0f;
+    public float delaytimebeforestart = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -67,15 +68,15 @@ public class ImportSong : MonoBehaviour
             UnityEngine.Debug.LogError("BPM value could not be parsed");
         }
 
-        StartCoroutine(StartPlaying(3f));
+        StartCoroutine(StartPlaying(delaytimebeforestart));
     }
 
     IEnumerator StartPlaying(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        float bpmSoundDelay = 3f;
-        
+        float bpmSoundDelay = delaytimebeforestart;
+
         float songDelay = bpmSoundDelay + (60f / BPM) * 3; // 3 is the index of the song clip
 
         AudioSource audioSource = GetComponent<AudioSource>();
@@ -104,12 +105,12 @@ public class ImportSong : MonoBehaviour
     {
         GameObject readTimeStamp = GameObject.Find("TrackTime");
 
- 
+
 
         // Get the ReadFile script from the game object
         TrackTimeSong ReadTime = readTimeStamp.GetComponent<TrackTimeSong>();
 
- 
+
 
 
 
@@ -117,7 +118,7 @@ public class ImportSong : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             audioSource.clip = BPMSound;
-            audioSource.PlayDelayed(3f + (60f / BPM) * i);
+            audioSource.PlayDelayed(delaytimebeforestart + (60f / BPM) * i);
             audioSource.PlayOneShot(BPMSound, 3f);
             string readTimeeeee = ReadTime.ReturnTimeStamp();
             Debug.Log("readtime la " + readTimeeeee);
@@ -153,3 +154,6 @@ public class ImportSong : MonoBehaviour
         }
     }
 }
+
+
+// note: fix the delay of import song to 2 sec
