@@ -14,7 +14,7 @@ public class EnterPlaySesson : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainLevelScene");
     }
 
 }

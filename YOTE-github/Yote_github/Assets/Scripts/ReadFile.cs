@@ -796,6 +796,11 @@ public class ReadFile : MonoBehaviour
     }
 
 
+
+    // lower the volumn of the song
+    #region
+    // -----------------------------------------------------------------
+
     private void LowerVolumeAndEndDelayed()
     {
         
@@ -819,8 +824,8 @@ public class ReadFile : MonoBehaviour
       //  ShowResults();
     }
 
-
-
+    // -----------------------------------------------------------------
+    #endregion 
 
     IEnumerator CreateNote(float Atime, string key, bool needshift, int convertKey)
     {
@@ -901,7 +906,8 @@ public class ReadFile : MonoBehaviour
     }
     // tuong tu enlarge object but se tao ra cac time delay de bam
 
-
+    // create Log base on result
+    #region
     void LogResultClick (float timeelapsed, int convertKey)
     {
 
@@ -979,6 +985,7 @@ public class ReadFile : MonoBehaviour
             MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 255);
             StartCoroutine(FadeOutText(MissText, 2f));
         }
+
     }
 
     IEnumerator FadeOutText(Transform textTransform, float duration)
@@ -997,7 +1004,7 @@ public class ReadFile : MonoBehaviour
             yield return null;
         }
     }
-
+    #endregion
 
 
     IEnumerator FadeOutCamera()
