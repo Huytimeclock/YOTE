@@ -1,19 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GamePause : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public Button continueButton;
-    public Button quitButton;
+    public GameObject pauseOverlay;
+    public GameObject pauseButton;
+
 
     private bool isPaused = false;
 
     private void Start()
     {
-        continueButton.onClick.AddListener(ResumeGame);
-        quitButton.onClick.AddListener(QuitGame);
-        pauseMenu.SetActive(false);
+
+        pauseOverlay.SetActive(false);
+        pauseButton.SetActive(false);
     }
 
     private void Update()
@@ -22,33 +23,35 @@ public class GamePause : MonoBehaviour
         {
             if (isPaused)
             {
-                ResumeGame();
+                //ResumeGame();
             }
             else
             {
                 PauseGame();
             }
         }
-    }
 
-    private void PauseGame()
-    {
-        isPaused = true;
-        Time.timeScale = 0f;  // Set the time scale to 0 to freeze time
-        pauseMenu.SetActive(true);
-        // Add any additional code you want to run when the game is paused
     }
-
-    private void ResumeGame()
+    public void PauseGame()
     {
+        pauseOverlay.SetActive(true);
+        pauseButton.SetActive(true);
+        AudioListener.pause = true;
+        Time.timeScale = 0.0f;
+        isPaused=true;
+
+    }
+    public void ResumeGame()
+    {
+        pauseOverlay.SetActive(false);
+        pauseButton.SetActive(false);
+        AudioListener.pause = false;
+        Time.timeScale = 1.0f;
         isPaused = false;
-        Time.timeScale = 1f;  // Set the time scale back to 1 to resume time
-        pauseMenu.SetActive(false);
-        // Add any additional code you want to run when the game is resumed
     }
-
-    private void QuitGame()
+    public void GoToMainMenu()
     {
-        // Add code here to quit the game, e.g., Application.Quit()
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(1);
     }
 }
