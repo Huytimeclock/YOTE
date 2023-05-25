@@ -54,4 +54,8 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
+    public void Retry()
+    {
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
