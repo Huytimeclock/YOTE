@@ -20,6 +20,7 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] TextMeshProUGUI CreatorText;
     [SerializeField] AudioClip EntrySound;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] TextMeshProUGUI SongPathName;
 
 
     public Image imageTitle;
@@ -29,6 +30,7 @@ public class LoadBeatmapList : MonoBehaviour
     private string infoPath = "";
     private string songPath = "";
     private string BPMValue = "";
+
 
 
     public Animator transitionAnim;
@@ -107,13 +109,16 @@ public class LoadBeatmapList : MonoBehaviour
                     }
                 }
             }
-
-            Title_Song.text = songName;
+            string ID = "";
+            string actuallySongName = "";
+            ReturnNameSong(songName, out actuallySongName,out ID);
+            
+            Title_Song.text = actuallySongName;
             Artist.text = artistName;
             DiffText.text=difficulty.ToString();
             BPM1.text = "BPM: " + BPM.ToString();
             CreatorText.text = Creator;
-
+            SongPathName.text = songName;
             Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
            
             if (textureSmallImage != null) // image for song-bg (400x400)
@@ -158,7 +163,7 @@ public class LoadBeatmapList : MonoBehaviour
         Debug.Log("parent object: " + parentObject);
 
         // Get the song name from the title text component on the parent object
-        string songName = parentObject.transform.Find("Song_title").GetComponent<TextMeshProUGUI>().text;
+        string songName = parentObject.transform.Find("SongPathName").GetComponent<TextMeshProUGUI>().text;
         BPMValue = parentObject.transform.Find("BPM").GetComponent<TextMeshProUGUI>().text;
         Debug.Log("songName " + songName);
         // Get the path to the selected song data
@@ -314,6 +319,22 @@ public class LoadBeatmapList : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+    }
+
+    void ReturnNameSong (string SongNameWithID, out string Songname, out string ID)
+    {
+        // Find the index of the first space
+        int firstSpaceIndex = SongNameWithID.IndexOf(' ');
+
+        // Find the index of the last space
+        int lastSpaceIndex = SongNameWithID.LastIndexOf(' ');
+
+        // Extract the ID (remove leading/trailing whitespace if any)
+        ID = SongNameWithID.Substring(0, firstSpaceIndex).Trim();
+
+        // Extract the name (remove leading/trailing whitespace if any)
+        Songname = SongNameWithID.Substring(lastSpaceIndex + 1).Trim();
+
     }
 
 

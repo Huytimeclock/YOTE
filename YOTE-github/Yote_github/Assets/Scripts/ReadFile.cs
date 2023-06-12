@@ -1,14 +1,12 @@
 using UnityEngine;
 using System.IO;
-using JetBrains.Annotations;
+
 using System;
-using System.Diagnostics;
-using System.Xml.Linq;
-using System.Threading;
+
 using System.Collections;
-using Unity.VisualScripting;
+
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -198,11 +196,11 @@ public class ReadFile : MonoBehaviour
         if (!isStarted)
         {
             
-           // UnityEngine.Debug.Log(imagePath);
+            UnityEngine.Debug.Log(imagePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
             beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
-           // UnityEngine.Debug.Log(beatmapName);
+            UnityEngine.Debug.Log(beatmapName);
 
             // Check if the file exists
             if (!File.Exists(filePath))

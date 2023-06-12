@@ -81,7 +81,7 @@ public class ImportSong : MonoBehaviour
 
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.clip = null;
-
+        UnityEngine.Debug.Log("Songpath la: " + songPath);
         StartCoroutine(LoadAudioClip(songPath, clip =>
         {
             audioSource.clip = clip;

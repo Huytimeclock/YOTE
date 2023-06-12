@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager.UI;
+
 
 public class ScoreShowElement : MonoBehaviour
 {

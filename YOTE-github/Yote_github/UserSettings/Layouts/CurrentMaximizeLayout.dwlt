@@ -228,9 +228,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e699ffff
-      m_LastClickedID: -26138
-      m_ExpandedIDs: e699fffff2a6ffffe2abffffd0b0ffff8cb1ffffe0b1ffff0ac2ffff26c3ffff8cccffffb8e2ffff1aecffff22fbffff1c9400005294000092940000
+      m_SelectedIDs: 585f0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 7ef0ffffd8f9ffff0afaffff48faffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -563,9 +563,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 84.78987, y: 405.64496, z: 813.8567}
+    m_Target: {x: -1.5595508, y: 0.30507034, z: 361.838}
     speed: 2
-    m_Value: {x: 84.78987, y: 405.64496, z: 813.8567}
+    m_Value: {x: -1.5595508, y: 0.30507034, z: 361.838}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -616,9 +616,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 250.57564
+    m_Target: 3.0994198
     speed: 2
-    m_Value: 250.57564
+    m_Value: 3.0994198
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -930,22 +930,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/MenuScripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/MenuScripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Githublocal\YOTE\YOTE-github\Yote_github
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 69.400024}
-    m_SelectedIDs: 4e600000
-    m_LastClickedID: 24654
-    m_ExpandedIDs: 00000000066000001860000020600000226000006665000000ca9a3bffffff7f
+    m_SelectedIDs: 205f0000
+    m_LastClickedID: 24352
+    m_ExpandedIDs: 00000000145f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -973,7 +973,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000660000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000145f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -998,8 +998,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e699ffff
-    m_LastClickedInstanceID: -26138
+    m_SelectedInstanceIDs: 585f0000
+    m_LastClickedInstanceID: 24408
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ac5f0000d0650000125f00005a73000000000000
     m_RenameOverlay:
