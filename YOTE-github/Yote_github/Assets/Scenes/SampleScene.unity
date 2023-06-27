@@ -1197,7 +1197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169431156}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1667892343}
+        m_TargetAssemblyTypeName: LoginController, Assembly-CSharp
+        m_MethodName: Go_to_regis_from_login
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &169431156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3314,13 +3326,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1667892341}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1667892343}
+        m_TargetAssemblyTypeName: LoginController, Assembly-CSharp
+        m_MethodName: Back_to_login_from_regis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3389,7 +3401,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102426792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3581,7 +3593,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1136095632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1667892343}
+        m_TargetAssemblyTypeName: LoginController, Assembly-CSharp
+        m_MethodName: AppearOrDisappearLoginSection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1136095632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4962,7 +4986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoginSection: {fileID: 1713695754}
-  RegisterSection: {fileID: 0}
+  RegisterSection: {fileID: 1821397515}
+  ErrorMessage: {fileID: 1102426792}
 --- !u!1 &1713695754
 GameObject:
   m_ObjectHideFlags: 0
