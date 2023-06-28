@@ -22,6 +22,7 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] TextMeshProUGUI SongPathName;
 
+   
 
     public Image imageTitle;
     public Image imageComponent;
@@ -84,6 +85,7 @@ public class LoadBeatmapList : MonoBehaviour
             // Parse the info file to get the artist name and difficulty
             string artistName = "";
             int difficulty = -1;
+            float Hp = 0f;
             float BPM = 0f;
             string Creator = "";
             if (File.Exists(infoPath))
@@ -94,6 +96,10 @@ public class LoadBeatmapList : MonoBehaviour
                     if (line.StartsWith("Artist: "))
                     {
                         artistName = line.Substring("Artist: ".Length).Trim();
+                    }
+                    else if (line.StartsWith("Hp: "))
+                    {
+                        float.TryParse(line.Substring("Hp: ".Length).Trim(), out Hp);
                     }
                     else if (line.StartsWith("Diff: "))
                     {

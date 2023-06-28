@@ -81,6 +81,8 @@ public class ReadFile : MonoBehaviour
     private string beatmapName="";
     private string imagePath="";
     private int diff = 0;
+    private string HpString = "";
+    private float HpValue = 0f;
     private string Artist = "";
     private string filePath = "";
     private string songPath = "";
@@ -235,6 +237,16 @@ public class ReadFile : MonoBehaviour
                                 Artist = parts[1].Trim();
                       //          UnityEngine.Debug.Log($"{i} {Artist}");
                             }
+                        if (parts.Length == 2 && parts[0].Trim() == "Hp")
+                        {
+                            HpString = parts[1].Trim();
+                            //          UnityEngine.Debug.Log($"{i} {Artist}");
+                        }
+                        if (float.TryParse(HpString, out float Hp))
+                        {
+                            HpValue = Hp;
+                            UnityEngine.Debug.Log("Hp value: " + HpValue);
+                        }
                         if (parts.Length == 2 && parts[0].Trim() == "BPM")
                         {
                             BPMText = parts[1].Trim();
