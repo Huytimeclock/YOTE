@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "611430611099",
+    "firebase_url": "https://yote-f7edb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "yote-f7edb",
+    "storage_bucket": "yote-f7edb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611430611099:android:aa34d7aa1b6ca2e295ee3e",
+        "android_client_info": {
+          "package_name": "com.Huytimeclock.Yote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611430611099-1bv0gg5qshnfothkcbpo0b9f8berq1vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9hHkEnV_Mr21OTmMz_oZWHJNMNPet3VQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611430611099-1bv0gg5qshnfothkcbpo0b9f8berq1vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
