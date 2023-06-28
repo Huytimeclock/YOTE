@@ -9,9 +9,7 @@ using System.Collections.Generic;
 
 using TMPro;
 using UnityEngine.SceneManagement;
-
-
-
+using UnityEngine.UI;
 
 public class ReadFile : MonoBehaviour
 {
@@ -91,14 +89,19 @@ public class ReadFile : MonoBehaviour
 
 
     public Animator transitionAnim2;
-    
+
+    public Image hpBarImage;
+    private float originalWidth;
+    float reductionSpeed = 10f;
 
     void Start()
     {
         // related to EnlargeObject
         enlargeRate = 100 / enlargeTime;
+        originalWidth = hpBarImage.rectTransform.sizeDelta.x; // defaultsize of hpbar
 
-        
+
+
         transitionAnim2.SetBool("isFadeIn", false);
         
 
@@ -262,6 +265,8 @@ public class ReadFile : MonoBehaviour
                         break;
                     }
                 }
+
+            StartCoroutine(StartHpBarReduction(HpValue));
 
             // Read map data
             for (int x = 0; x < lines.Length; x++)
@@ -804,6 +809,42 @@ public class ReadFile : MonoBehaviour
      //   UnityEngine.Debug.Log("So luong great la: " + greatCount + "\nSo luong good la: " + goodCount + "\nSo luong perfect la: " + perfectCount + "\nSo luong CP la: " + CPCount + "\nPercentage la: " + percentage);
      //   UnityEngine.Debug.Log("Huy rat chi la cute");
     }
+
+
+    private IEnumerator StartHpBarReduction(float hpValue)
+    {
+        Debug.Log("Start HP bar reduction coroutine");
+        Debug.Log("HPVALUE LA: " + hpValue);
+
+        yield return new WaitForSeconds(timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4);
+
+        Debug.Log("HP bar reduction started");
+
+        float initialWidth = hpBarImage.rectTransform.sizeDelta.x;
+
+        while (hpValue > 0f)
+        {
+            float targetWidth = 0;
+            float currentWidth = hpBarImage.rectTransform.sizeDelta.x;
+
+            if (currentWidth > targetWidth)
+            {
+                float reductionAmount = HpValue * 10 * Time.deltaTime;
+                float newWidth = Mathf.Max(targetWidth, currentWidth - reductionAmount);
+                hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
+            }
+
+            Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
+
+            yield return null;
+        }
+
+        Debug.Log("HP bar reduction completed");
+
+        // HP bar reached minimum size, trigger lose notification here
+        // ...
+    }
+
 
 
 

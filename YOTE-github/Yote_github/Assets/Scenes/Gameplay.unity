@@ -2885,6 +2885,7 @@ MonoBehaviour:
   - {fileID: 1458790387}
   - {fileID: 1605796584}
   transitionAnim2: {fileID: 109933682}
+  hpBarImage: {fileID: 1706821400}
 --- !u!1 &1024229518
 GameObject:
   m_ObjectHideFlags: 0
