@@ -97,7 +97,7 @@ public class ReadFile : MonoBehaviour
     void Start()
     {
         // related to EnlargeObject
-        enlargeRate = 100 / enlargeTime;
+        enlargeRate = 1 / enlargeTime;
         originalWidth = hpBarImage.rectTransform.sizeDelta.x; // defaultsize of hpbar
 
 
@@ -742,47 +742,58 @@ public class ReadFile : MonoBehaviour
 
     IEnumerator EnlargeObject(float triggerTime, int convertKey, bool isAir)
     {
-        GameObject EnlargeObject = buttonaaa[convertKey];
-        Transform EnlargeGroundObject = EnlargeObject.transform.Find("SquareInput");
-        Transform EnlargeAirObject = EnlargeObject.transform.Find("SquareAir");
-
+        GameObject originalObject = buttonaaa[convertKey];
+        Transform originalGroundObject = originalObject.transform.Find("SquareInput");
+        Transform originalAirObject = originalObject.transform.Find("SquareAir");
 
         while (Time.time < triggerTime)
         {
             yield return null;
         }
-        float startTime = triggerTime;
-        // UnityEngine.Debug.Log("start time la: " + startTime);
 
+        float startTime = triggerTime;
         float endTime = triggerTime + enlargeTime;
-        //  UnityEngine.Debug.Log("enlarge time la: " + enlargeTime);
-        //  UnityEngine.Debug.Log("end time la: " + endTime);
+
         if (isAir == false)
         {
+            Transform clonedGroundObject = Instantiate(originalGroundObject, originalObject.transform);
+            Debug.Log("Cloned Object: " + clonedGroundObject.name);
             while (Time.time < endTime)
             {
-
                 float timeElapsed = Time.time - startTime;
                 float scale = timeElapsed * enlargeRate;
-                EnlargeGroundObject.transform.localScale = new Vector3(scale, scale, scale);
+                clonedGroundObject.localScale = new Vector3(scale, scale, scale);
                 yield return null;
             }
+
+            Destroy(clonedGroundObject.gameObject);
         }
+
         if (isAir == true)
         {
+            Transform clonedAirObject = Instantiate(originalAirObject, originalObject.transform);
+            Debug.Log("Cloned Object: " + clonedAirObject.name);
             while (Time.time < endTime)
             {
-
                 float timeElapsed = Time.time - startTime;
                 float scale = timeElapsed * enlargeRate;
-                EnlargeAirObject.transform.localScale = new Vector3(scale, scale, scale);
+                clonedAirObject.localScale = new Vector3(scale, scale, scale);
                 yield return null;
             }
+
+            Destroy(clonedAirObject.gameObject);
         }
-        // UnityEngine.Debug.Log(Time.time + " Da hoan thanh xong ");
-        EnlargeGroundObject.transform.localScale = new Vector3(0f, 0f, 0f);
-        EnlargeAirObject.transform.localScale = new Vector3(0f, 0f, 0f);
+
+        //originalGroundObject.transform.localScale = new Vector3(0f, 0f, 0f);
+        //originalAirObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
+
+
+
+
+
+
+
 
     IEnumerator ListNote(List<Note> notes)
     {
@@ -811,6 +822,11 @@ public class ReadFile : MonoBehaviour
     }
 
 
+    // HP BAR METHOD
+    #region
+    //------------------------------------------------------------------
+
+
     private IEnumerator StartHpBarReduction(float hpValue)
     {
         Debug.Log("Start HP bar reduction coroutine");
@@ -834,7 +850,7 @@ public class ReadFile : MonoBehaviour
                 hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
             }
 
-            Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
+         //   Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
 
             yield return null;
         }
@@ -844,7 +860,6 @@ public class ReadFile : MonoBehaviour
         // HP bar reached minimum size, trigger lose notification here
         // ...
     }
-
     private void PlusHpBar(float hpValue, int type) //type 0 = perfect + cP , 1 = great, 2 = good
     {
 
@@ -875,8 +890,11 @@ public class ReadFile : MonoBehaviour
 
     }
 
+    //------------------------------------------------------------------
+    #endregion
 
-    // lower the volumn of the song
+
+    // LOWER VOLUMN OF THE SONG
     #region
     // -----------------------------------------------------------------
 
@@ -905,6 +923,7 @@ public class ReadFile : MonoBehaviour
 
     // -----------------------------------------------------------------
     #endregion 
+
 
     IEnumerator CreateNote(float Atime, string key, bool needshift, int convertKey)
     {
