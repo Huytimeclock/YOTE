@@ -102,8 +102,8 @@ public class ReadFile : MonoBehaviour
 
     void Start()
     {
-        // related to EnlargeObject
-        enlargeRate = 1 / ARValueSetting;
+        
+        
         originalWidth = hpBarImage.rectTransform.sizeDelta.x; // defaultsize of hpbar
 
 
@@ -168,6 +168,11 @@ public class ReadFile : MonoBehaviour
         ARValueSetting = readFile.GetAr();
         BGOpacitySetting=readFile.GetBGopacity();
 
+        UnityEngine.Debug.Log("Offset: " + OffsetValueSetting);
+        UnityEngine.Debug.Log("Ar: " + ARValueSetting);
+
+        // related to EnlargeObject
+        enlargeRate = 1 / ARValueSetting;
 
         SceneManager.UnloadSceneAsync("MainLevelScene");
 
