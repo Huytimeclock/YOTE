@@ -9,7 +9,7 @@ using System.IO;
 
 public class ScoreShowElement : MonoBehaviour
 {
-    public string encryptionKey = "MyEncryptionKey"; // Custom encryption key
+    private string encryptionKey = "g#Jf8Yb@5x3&oL$Z"; // Custom encryption key
 
     [SerializeField] TextMeshProUGUI CPCount;
     [SerializeField] TextMeshProUGUI PerfectCount;
@@ -92,6 +92,7 @@ public class ScoreShowElement : MonoBehaviour
         GoodCount.text =  readFile.GetGoodCount().ToString();
         MissCount.text =  readFile.GetMissCount().ToString();
         PercentageValue.text = readFile.GetPercentage().ToString("F2");
+        UnityEngine.Debug.Log("% la : " + PercentageValue.text);
         Title_Song.text=readFile.GetMapName().ToString();
         imagePath = readFile.GetImagePath().ToString();
         DiffText.text = readFile.GetDiff().ToString();
@@ -115,6 +116,11 @@ public class ScoreShowElement : MonoBehaviour
             imageColor.a = 0.2f; // Set alpha value to 20%
             imageComponent.color = imageColor;
         }
+
+        string oldscorecrypted = File.ReadAllText(scorePath);
+        string oldscoredecrypted = Decrypt(oldscorecrypted);
+        UnityEngine.Debug.Log("% la : " + oldscoredecrypted);
+
         SaveScore(PercentageValue.text, scorePath);
 
         SceneManager.UnloadSceneAsync("Gameplay");
@@ -212,11 +218,13 @@ public class ScoreShowElement : MonoBehaviour
     {
         string encryptedScore = Encrypt(score);
 
-        
-        StreamWriter writer = new StreamWriter(path);
-        writer.WriteLine(encryptedScore);
-        writer.Close();
+        using (StreamWriter writer = new StreamWriter(path, false))
+        {
+            writer.WriteLine(encryptedScore);
+        }
     }
+
+
 
     private string Encrypt(string input)
     {
@@ -229,6 +237,15 @@ public class ScoreShowElement : MonoBehaviour
         return encryptedText;
     }
 
-
+    private string Decrypt(string input)
+    {
+        string decryptedText = "";
+        for (int i = 0; i < input.Length; i++)
+        {
+            char decryptedChar = (char)(input[i] ^ encryptionKey[i % encryptionKey.Length]);
+            decryptedText += decryptedChar;
+        }
+        return decryptedText;
+    }
 
 }
