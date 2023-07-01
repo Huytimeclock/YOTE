@@ -233,18 +233,18 @@ MonoBehaviour:
       m_ExpandedIDs: 2adcfdff44edfdffeef0fdffb6fafdff1005feff8807feff7c11feffaa1ffeffc224feff2425feff8625feff302ffeffb275fefffe77feff8a81fefff895feffc89ffeffa8b3feff74bdfeff3ad5feff3ee0feffb8eefeff08effeff62effeff64fafeff1a0dffff2418ffff542bffff4c63ffffa863ffff0664ffff0a78ffffb88affff04a0ffffbcacffff16adffffc6bfffffd0caffff12daffffc8ecffff2afbffff928e0000b68e00003c8f0000c8b700004ed40000cad40000b2d80000d6d800002ed9000064de0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Button-H(Clone)
-        m_OriginalName: Button-H(Clone)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -138906
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -945,7 +945,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 19}
     m_SelectedIDs: dc600000
     m_LastClickedID: 24796
-    m_ExpandedIDs: 00000000c6600000ce60000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000c660000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -973,7 +973,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c6600000
+    m_ExpandedIDs: 00000000c660000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000ac5f0000125f00005a73000000000000d0650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

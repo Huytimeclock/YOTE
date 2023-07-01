@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor.Experimental.GraphView;
 
 public class ReadFile : MonoBehaviour
 {
@@ -922,7 +923,7 @@ public class ReadFile : MonoBehaviour
     }
 
     // -----------------------------------------------------------------
-    #endregion 
+    #endregion
 
 
     IEnumerator CreateNote(float Atime, string key, bool needshift, int convertKey)
@@ -942,7 +943,6 @@ public class ReadFile : MonoBehaviour
         //  UnityEngine.Debug.Log("start time create note la: " + startTime);
         float endtime = Atime + 0.2f;
         //   UnityEngine.Debug.Log("start time end note la: " + endtime);
-
 
         if (needshift == false)
         {
