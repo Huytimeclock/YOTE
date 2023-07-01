@@ -42,9 +42,11 @@ public class ReadFile : MonoBehaviour
 
     #region EnlargeVariable
     // those variable will affect the enlarge of custom box creating
-    [SerializeField] float enlargeTime;
+    //[SerializeField] float enlargeTime;
     protected float enlargeRate; // Rate of enlargement per second
     #endregion
+
+
     #region Variable
     //variable that will define each object for each box
     //Fuck
@@ -88,6 +90,9 @@ public class ReadFile : MonoBehaviour
     private string BPMText = "";
     private float BPMValue = 0;
 
+    private float OffsetValueSetting = 0f;
+    private float ARValueSetting = 0f;
+    private int BGOpacitySetting = 0;
 
     public Animator transitionAnim2;
 
@@ -98,7 +103,7 @@ public class ReadFile : MonoBehaviour
     void Start()
     {
         // related to EnlargeObject
-        enlargeRate = 1 / enlargeTime;
+        enlargeRate = 1 / ARValueSetting;
         originalWidth = hpBarImage.rectTransform.sizeDelta.x; // defaultsize of hpbar
 
 
@@ -157,6 +162,12 @@ public class ReadFile : MonoBehaviour
         filePath = readFile.getMapPath1().ToString();
         imagePath = readFile.getImagePath1().ToString();
         songPath = readFile.GetSongPath1().ToString();
+
+
+        OffsetValueSetting = readFile.GetOffset();
+        ARValueSetting = readFile.GetAr();
+        BGOpacitySetting=readFile.GetBGopacity();
+
 
         SceneManager.UnloadSceneAsync("MainLevelScene");
 
@@ -315,7 +326,7 @@ public class ReadFile : MonoBehaviour
 
 
 
-                                        StartCoroutine(EnlargeObject(logTime - enlargeTime + timedelaybeforetractstart + 0.36f + (60 / BPMValue) * 4, convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
+                                        StartCoroutine(EnlargeObject(logTime - ARValueSetting + timedelaybeforetractstart + 0.36f + (60 / BPMValue) * 4 + OffsetValueSetting, convertKey, isAir)); // bat dau enlarge object vs 1 chut offset ( logtime - enlargetime )
                                         if (getkey.Length == 1)
                                         {
                                             int needshiftnum = 0;
@@ -357,7 +368,7 @@ public class ReadFile : MonoBehaviour
 
 
                                         //UnityEngine.Debug.Log("log time la: " + logTime);
-                                        StartCoroutine(EnlargeObject(logTime - enlargeTime + timedelaybeforetractstart + 0.36f + (60 / BPMValue) * 4, convertKey, isAir));
+                                        StartCoroutine(EnlargeObject(logTime - ARValueSetting + timedelaybeforetractstart + 0.36f + (60 / BPMValue) * 4 + OffsetValueSetting, convertKey, isAir));
                                         int needshiftnum = 0;
                                         if (getkey.Length == 1 && char.IsUpper(getkey[0]))
                                         {
@@ -753,7 +764,7 @@ public class ReadFile : MonoBehaviour
         }
 
         float startTime = triggerTime;
-        float endTime = triggerTime + enlargeTime;
+        float endTime = triggerTime + ARValueSetting;
 
         if (isAir == false)
         {
@@ -807,7 +818,7 @@ public class ReadFile : MonoBehaviour
             bool isAir = false; //not need
             returnButtonType(note.key, out convertKey, out isAir);
 
-            yield return StartCoroutine(CreateNote(note.time + timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4, note.key, note.NeedShift, convertKey));
+            yield return StartCoroutine(CreateNote(note.time + timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4 + OffsetValueSetting, note.key, note.NeedShift, convertKey));
         }
 
         EndNoteTime = notes[notes.Count - 1].time;
@@ -833,7 +844,7 @@ public class ReadFile : MonoBehaviour
         Debug.Log("Start HP bar reduction coroutine");
         Debug.Log("HPVALUE LA: " + hpValue);
 
-        yield return new WaitForSeconds(timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4);
+        yield return new WaitForSeconds(timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4 + OffsetValueSetting);
 
         Debug.Log("HP bar reduction started");
 
