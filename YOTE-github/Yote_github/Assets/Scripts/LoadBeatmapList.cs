@@ -28,7 +28,10 @@ public class LoadBeatmapList : MonoBehaviour
     public TMP_InputField Offset;
     public TMP_InputField AR;
     public TMP_InputField BG_Opacity;
-
+    public GameObject SettingCanvas;
+    private float OffsetValue = 0f;
+    private float ARValue = 0f;
+    private int BgOpacityValue = 0;
 
     public Image imageTitle;
     public Image imageComponent;
@@ -59,6 +62,7 @@ public class LoadBeatmapList : MonoBehaviour
     {
         pathSetting = Application.dataPath + "\\Game_data\\settings.txt";
         LoadSettings();
+        SettingCanvas.SetActive(false);
         transitionAnim.SetBool("FadeOutOnly", false);
         circle1.SetBool("fadeintrue", false);
         circle2.SetBool("fadeintrue", false);
@@ -213,6 +217,7 @@ public class LoadBeatmapList : MonoBehaviour
 
         // Close the file
         writer.Close();
+        SettingCanvas.SetActive(false);
     }
 
     private void LoadSettings()
@@ -228,14 +233,18 @@ public class LoadBeatmapList : MonoBehaviour
             string bgOpacitySetting = reader.ReadLine();
 
             // Extract the values from the settings strings
-            string offsetValue = offsetSetting.Substring(offsetSetting.IndexOf(":") + 1).Trim();
-            string arValue = arSetting.Substring(arSetting.IndexOf(":") + 1).Trim();
-            string bgOpacityValue = bgOpacitySetting.Substring(bgOpacitySetting.IndexOf(":") + 1).Trim();
+            string offsetValueText = offsetSetting.Substring(offsetSetting.IndexOf(":") + 1).Trim();
+            string arValueText = arSetting.Substring(arSetting.IndexOf(":") + 1).Trim();
+            string bgOpacityValueText = bgOpacitySetting.Substring(bgOpacitySetting.IndexOf(":") + 1).Trim();
 
             // Apply the values to the TextMeshPro text objects
-            Offset.text = offsetValue;
-            AR.text = arValue;
-            BG_Opacity.text = bgOpacityValue;
+            Offset.text = offsetValueText;
+            AR.text = arValueText;
+            BG_Opacity.text = bgOpacityValueText;
+
+            OffsetValue=float.Parse(offsetValueText);
+            ARValue=float.Parse(arValueText);
+            BgOpacityValue=int.Parse(bgOpacityValueText);
 
             // Close the file
             reader.Close();
@@ -272,7 +281,25 @@ public class LoadBeatmapList : MonoBehaviour
         return bpmString;
     }
 
+    public float GetOffset()
+    {
+        return OffsetValue;
+    }
 
+    public float GetAr()
+    {
+        return ARValue;
+    }
+
+    public int GetBGopacity()
+    {
+        return BgOpacityValue;
+    }
+
+    public void OpenSettingCanvas()
+    {
+        SettingCanvas.SetActive(true);
+    }
 
     Texture2D LoadTextureFromPath(string path, int maxWidth, int maxHeight)
     {
