@@ -22,7 +22,13 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] TextMeshProUGUI SongPathName;
 
-   
+
+
+    private string pathSetting = "";
+    public TMP_InputField Offset;
+    public TMP_InputField AR;
+    public TMP_InputField BG_Opacity;
+
 
     public Image imageTitle;
     public Image imageComponent;
@@ -51,6 +57,8 @@ public class LoadBeatmapList : MonoBehaviour
 
     void Start()
     {
+        pathSetting = Application.dataPath + "\\Game_data\\settings.txt";
+        LoadSettings();
         transitionAnim.SetBool("FadeOutOnly", false);
         circle1.SetBool("fadeintrue", false);
         circle2.SetBool("fadeintrue", false);
@@ -64,6 +72,8 @@ public class LoadBeatmapList : MonoBehaviour
 
         Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));
         StartCoroutine(FadeOutDisable());
+
+
         path = Application.dataPath + "\\Game_data\\Beatmaps";
         string[] folderPaths = Directory.GetDirectories(path);
 
@@ -189,6 +199,56 @@ public class LoadBeatmapList : MonoBehaviour
         StartCoroutine(LoadScene());
 
     }
+
+
+    public void SaveSettings()
+    {
+        // Open the file for writing
+        StreamWriter writer = new StreamWriter(pathSetting);
+
+        // Write the modified settings to the file
+        writer.WriteLine("Offset: " + Offset.text);
+        writer.WriteLine("AR: " + AR.text);
+        writer.WriteLine("BG Opacity: " + BG_Opacity.text);
+
+        // Close the file
+        writer.Close();
+    }
+
+    private void LoadSettings()
+    {
+        if (File.Exists(pathSetting))
+        {
+            // Open the file for reading
+            StreamReader reader = new StreamReader(pathSetting);
+
+            // Read the settings from the file
+            string offsetSetting = reader.ReadLine();
+            string arSetting = reader.ReadLine();
+            string bgOpacitySetting = reader.ReadLine();
+
+            // Extract the values from the settings strings
+            string offsetValue = offsetSetting.Substring(offsetSetting.IndexOf(":") + 1).Trim();
+            string arValue = arSetting.Substring(arSetting.IndexOf(":") + 1).Trim();
+            string bgOpacityValue = bgOpacitySetting.Substring(bgOpacitySetting.IndexOf(":") + 1).Trim();
+
+            // Apply the values to the TextMeshPro text objects
+            Offset.text = offsetValue;
+            AR.text = arValue;
+            BG_Opacity.text = bgOpacityValue;
+
+            // Close the file
+            reader.Close();
+        }
+        else
+        {
+            // Set default values if the file doesn't exist
+            Offset.text = "0";
+            AR.text = "6";
+            BG_Opacity.text = "100";
+        }
+    }
+
 
 
     public string getImagePath1()
