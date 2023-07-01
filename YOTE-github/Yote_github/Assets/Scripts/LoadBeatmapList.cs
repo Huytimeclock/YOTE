@@ -40,7 +40,7 @@ public class LoadBeatmapList : MonoBehaviour
     private string infoPath = "";
     private string songPath = "";
     private string BPMValue = "";
-
+    private string scorePath = "";
 
 
     public Animator transitionAnim;
@@ -95,6 +95,9 @@ public class LoadBeatmapList : MonoBehaviour
 
             // Get the path to the info file
             string infoPath = Path.Combine(folderPath, "map.txt");
+
+            // Get the path to the score file
+            string scorePath = Path.Combine(folderPath, "score.txt");
 
             // Parse the info file to get the artist name and difficulty
             string artistName = "";
@@ -191,7 +194,7 @@ public class LoadBeatmapList : MonoBehaviour
         imagePath = Path.Combine(folderPath, "bg.jpg");
         infoPath = Path.Combine(folderPath, "map.txt");
         songPath = Path.Combine(folderPath, "audio.mp3");
-
+        scorePath = Path.Combine(folderPath, "score.txt");
 
         circle01.SetActive(true);
         circle02.SetActive(true);
@@ -258,7 +261,10 @@ public class LoadBeatmapList : MonoBehaviour
         }
     }
 
-
+    public string getScorePath1()
+    {
+        return scorePath;
+    }
 
     public string getImagePath1()
     {

@@ -9,6 +9,8 @@ using System.IO;
 
 public class ScoreShowElement : MonoBehaviour
 {
+    public string encryptionKey = "MyEncryptionKey"; // Custom encryption key
+
     [SerializeField] TextMeshProUGUI CPCount;
     [SerializeField] TextMeshProUGUI PerfectCount;
     [SerializeField] TextMeshProUGUI GreatCount;
@@ -24,6 +26,7 @@ public class ScoreShowElement : MonoBehaviour
     private string imagePath;
     public Image imageComponent;
     public Image imageTitle;
+    private string scorePath = "";
 
     private void Start()
     {
@@ -93,6 +96,7 @@ public class ScoreShowElement : MonoBehaviour
         imagePath = readFile.GetImagePath().ToString();
         DiffText.text = readFile.GetDiff().ToString();
         Artist.text = readFile.GetArtistText().ToString();
+        scorePath = readFile.getScorePath().ToString();
 
         Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
         Texture2D textureLargeImage = LoadTextureFromPath(imagePath, 1920, 1080);
@@ -111,7 +115,7 @@ public class ScoreShowElement : MonoBehaviour
             imageColor.a = 0.2f; // Set alpha value to 20%
             imageComponent.color = imageColor;
         }
-
+        SaveScore(PercentageValue.text, scorePath);
 
         SceneManager.UnloadSceneAsync("Gameplay");
     }
@@ -204,7 +208,26 @@ public class ScoreShowElement : MonoBehaviour
     }
 
 
+    public void SaveScore(string score, string path)
+    {
+        string encryptedScore = Encrypt(score);
 
+        
+        StreamWriter writer = new StreamWriter(path);
+        writer.WriteLine(encryptedScore);
+        writer.Close();
+    }
+
+    private string Encrypt(string input)
+    {
+        string encryptedText = "";
+        for (int i = 0; i < input.Length; i++)
+        {
+            char encryptedChar = (char)(input[i] ^ encryptionKey[i % encryptionKey.Length]);
+            encryptedText += encryptedChar;
+        }
+        return encryptedText;
+    }
 
 
 

@@ -86,6 +86,7 @@ public class ReadFile : MonoBehaviour
     private float HpValue = 0f;
     private string Artist = "";
     private string filePath = "";
+    private string scorePath = "";
     private string songPath = "";
     private string BPMText = "";
     private float BPMValue = 0;
@@ -99,6 +100,7 @@ public class ReadFile : MonoBehaviour
     public Image hpBarImage;
     private float originalWidth;
     float reductionSpeed = 10f;
+
 
     void Start()
     {
@@ -160,9 +162,11 @@ public class ReadFile : MonoBehaviour
         }
 
         filePath = readFile.getMapPath1().ToString();
+        scorePath = readFile.getScorePath1().ToString();
+
         imagePath = readFile.getImagePath1().ToString();
         songPath = readFile.GetSongPath1().ToString();
-
+        
 
         OffsetValueSetting = readFile.GetOffset();
         ARValueSetting = readFile.GetAr();
@@ -221,6 +225,7 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log(imagePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
+ 
             beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
             UnityEngine.Debug.Log(beatmapName);
 
@@ -1180,7 +1185,10 @@ public class ReadFile : MonoBehaviour
     {
         return beatmapName;
     }
-
+    public string getScorePath()
+    {
+        return scorePath;
+    }
     public string GetImagePath()
     {
         return imagePath;
@@ -1201,4 +1209,8 @@ public class ReadFile : MonoBehaviour
 
 
 }
+
+
+
+
 
