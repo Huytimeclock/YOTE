@@ -4938,6 +4938,7 @@ MonoBehaviour:
   emailInputField: {fileID: 157927727}
   passwordInputField: {fileID: 631117136}
   usernameText: {fileID: 706367863}
+  LoginSection: {fileID: 1713695754}
 --- !u!1 &1603582371
 GameObject:
   m_ObjectHideFlags: 0

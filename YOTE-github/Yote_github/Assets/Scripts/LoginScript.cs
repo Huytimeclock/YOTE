@@ -15,8 +15,13 @@ public class LoginScript : MonoBehaviour
     public TMP_InputField passwordInputField;
     public TextMeshProUGUI usernameText;
 
+    public GameObject LoginSection;
+
     private string email;
     private string password;
+
+    private string usernameNow;
+    private string UIDNow;
 
     private FirebaseAuth auth;
     private DatabaseReference databaseRef;
@@ -46,8 +51,12 @@ public class LoginScript : MonoBehaviour
             Debug.Log("User signed in successfully: " + user.DisplayName);
 
             // Retrieve the username from the database based on the user's UID
-            GetUsername(user.UserId);
-            Debug.Log(user.UserId);
+            await GetUsername(user.UserId);
+            UIDNow = user.UserId;
+            LoginSection.SetActive(false);
+
+            Debug.Log("username la: " + usernameNow);
+            Debug.Log("UID la: " + UIDNow);
         }
         catch (FirebaseException exception)
         {
@@ -56,7 +65,7 @@ public class LoginScript : MonoBehaviour
         }
     }
 
-    private async void GetUsername(string uid)
+    private async Task GetUsername(string uid)
     {
         // Get a reference to the user's data in the database
         var userRef = databaseRef.Child("users").Child(uid).Child("username");
@@ -68,14 +77,23 @@ public class LoginScript : MonoBehaviour
         if (dataSnapshot.Exists)
         {
             // Get the username value
-            string username = dataSnapshot.Value.ToString();
+            usernameNow = dataSnapshot.Value.ToString();
 
             // Set the username text in the UI
-            usernameText.text = username;
+            usernameText.text = usernameNow;
         }
         else
         {
             Debug.LogWarning("Username not found in the database");
         }
+    }
+
+    public string getUsername()
+    {
+        return usernameNow;
+    }
+    public string getUID()
+    {
+        return UIDNow;
     }
 }
