@@ -2,6 +2,7 @@
 Diff: 7
 Artist: Ponkichi
 BPM: 152
+Hp: 7
 Creator: Huytimeclock
 
 [MAP DATA]

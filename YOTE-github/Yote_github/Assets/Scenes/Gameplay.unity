@@ -2856,7 +2856,6 @@ MonoBehaviour:
   fadeTime: 3
   mainCamera: {fileID: 787670438}
   timedelaybeforetractstart: 2
-  enlargeTime: 0.6
   buttonaaa:
   - {fileID: 390409385}
   - {fileID: 1522170373}
@@ -4811,7 +4810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1671956252
 MonoBehaviour:
   m_ObjectHideFlags: 0

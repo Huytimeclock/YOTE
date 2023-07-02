@@ -2,6 +2,7 @@
 Diff: 6
 Artist: Mitsuyoshi Takenobu no Ani
 BPM: 185
+Hp: 7
 Creator: Huytimeclock
 
 [MAP DATA]

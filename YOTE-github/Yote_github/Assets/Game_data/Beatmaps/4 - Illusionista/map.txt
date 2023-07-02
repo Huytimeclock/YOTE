@@ -2,6 +2,7 @@
 Diff: 5
 Artist: Odd Hastur
 BPM: 115
+Hp: 7
 Creator: Mabyo
 
 [MAP DATA]
