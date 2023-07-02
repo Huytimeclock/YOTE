@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GamePause : MonoBehaviour
 {
@@ -52,7 +53,19 @@ public class GamePause : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadMainMenu());
+    }
+
+    private IEnumerator LoadMainMenu()
+    {
+        // Load the MainLevelScene
+        SceneManager.LoadScene("MainLevelScene");
+
+        // Wait for a short delay
+        yield return new WaitForSeconds(0.1f);
+
+        // Unload the current scene "Gameplay"
+        SceneManager.UnloadSceneAsync("Gameplay");
     }
     public void Retry()
     {

@@ -61,6 +61,7 @@ public class LoadBeatmapList : MonoBehaviour
 
     void Start()
     {
+        
         pathSetting = Application.dataPath + "\\Game_data\\settings.txt";
         LoadSettings();
         SettingCanvas.SetActive(false);
