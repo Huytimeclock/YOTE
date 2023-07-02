@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
+
 
 public class ReadFile : MonoBehaviour
 {
@@ -98,15 +98,15 @@ public class ReadFile : MonoBehaviour
     public Animator transitionAnim2;
 
     public Image hpBarImage;
-    private float originalWidth;
-    float reductionSpeed = 10f;
+
+
 
 
     void Start()
     {
         
         
-        originalWidth = hpBarImage.rectTransform.sizeDelta.x; // defaultsize of hpbar
+
 
 
 
