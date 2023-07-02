@@ -57,6 +57,7 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] GameObject circle03;
     [SerializeField] GameObject circle04;
 
+    public TextMeshProUGUI FolderSongPath;
 
     void Start()
     {
@@ -79,6 +80,7 @@ public class LoadBeatmapList : MonoBehaviour
 
 
         path = Application.dataPath + "\\Game_data\\Beatmaps";
+        FolderSongPath.text = path;
         string[] folderPaths = Directory.GetDirectories(path);
 
         foreach (string folderPath in folderPaths)
