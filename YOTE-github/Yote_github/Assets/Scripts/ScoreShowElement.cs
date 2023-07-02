@@ -27,11 +27,13 @@ public class ScoreShowElement : MonoBehaviour
     public Image imageComponent;
     public Image imageTitle;
     private string scorePath = "";
+    public TextMeshProUGUI NewRecord;
+    public TextMeshProUGUI OldRecord;
 
     private void Start()
     {
         
-
+        NewRecord.gameObject.SetActive(false);
         // Find the ReadFile game object in Scene 1
         GameObject readFileObj = GameObject.Find("ReadFile");
 
@@ -117,11 +119,30 @@ public class ScoreShowElement : MonoBehaviour
             imageComponent.color = imageColor;
         }
 
-        string oldscorecrypted = File.ReadAllText(scorePath);
-        string oldscoredecrypted = Decrypt(oldscorecrypted);
-        UnityEngine.Debug.Log("% la : " + oldscoredecrypted);
+        string oldscorecrypted = string.Empty;
 
-        SaveScore(PercentageValue.text, scorePath);
+        using (StreamReader reader = new StreamReader(scorePath))
+        {
+            if (!reader.EndOfStream)
+            {
+                oldscorecrypted = reader.ReadLine();
+            }
+        }
+
+        string oldscoredecrypted = Decrypt(oldscorecrypted);
+
+        float oldscorevalue = float.Parse(oldscoredecrypted);
+        float newscorevalue = float.Parse(PercentageValue.text);
+
+        UnityEngine.Debug.Log("% la : " + oldscoredecrypted);
+        OldRecord.text= oldscoredecrypted.ToString();
+        if (newscorevalue>oldscorevalue)
+        {
+            SaveScore(PercentageValue.text, scorePath);
+            NewRecord.gameObject.SetActive(true);
+        }
+
+        
 
         SceneManager.UnloadSceneAsync("Gameplay");
     }
@@ -240,11 +261,15 @@ public class ScoreShowElement : MonoBehaviour
     private string Decrypt(string input)
     {
         string decryptedText = "";
+        decryptedText=decryptedText.Trim();
+
         for (int i = 0; i < input.Length; i++)
         {
             char decryptedChar = (char)(input[i] ^ encryptionKey[i % encryptionKey.Length]);
             decryptedText += decryptedChar;
         }
+        if (decryptedText.Length == 0)
+            return "0";
         return decryptedText;
     }
 
