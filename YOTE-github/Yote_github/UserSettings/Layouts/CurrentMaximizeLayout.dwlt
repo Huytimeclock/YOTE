@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 289.6
     height: 372.8
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -228,9 +228,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1ac2ffff
-      m_LastClickedID: -15846
-      m_ExpandedIDs: 3abeffff40beffff1ac2ffff56c2ffff32ccffffbcccffff2ceeffff7eeeffffdceeffff42efffff0af9ffff66f9ffffc2f9ffff2afbffff
+      m_SelectedIDs: 4c620000
+      m_LastClickedID: 0
+      m_ExpandedIDs: c2dfffff0ee0ffff52e0ffffa8e0ffff4ce3ffff3aeeffffa4eeffff3ef2ffff2cf9ffff86f9ffffeef9ffff24fbffff528200007a82000094820000c08e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -563,9 +563,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.1994891, y: -0.17801905, z: -9.932421}
+    m_Target: {x: -0.5901334, y: 1.7984941, z: -9.945423}
     speed: 2
-    m_Value: {x: -1.1994891, y: -0.17801905, z: -9.932421}
+    m_Value: {x: -0.5901334, y: 1.7984941, z: -9.945423}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -616,9 +616,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.3670583
+    m_Target: 3.9816902
     speed: 2
-    m_Value: 3.3670583
+    m_Value: 3.9816902
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -930,22 +930,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TextMesh Pro/Resources/Fonts & Materials
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/TextMesh Pro/Resources/Fonts & Materials
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Githublocal\YOTE\YOTE-github\Yote_github
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 243}
-    m_SelectedIDs: 4a730000
-    m_LastClickedID: 29514
-    m_ExpandedIDs: 00000000fe600000066100000a6100000c61000012610000166100001a610000c46e000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 115}
+    m_SelectedIDs: 06620000
+    m_LastClickedID: 25094
+    m_ExpandedIDs: 00000000d8610000da610000dc610000de610000e0610000f261000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -973,7 +973,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe600000066100000a6100000c610000126100001661000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000d8610000da610000dc610000de610000e0610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -998,9 +998,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1ac2ffff
-    m_LastClickedInstanceID: -15846
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 4c620000
+    m_LastClickedInstanceID: 25164
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ac5f0000125f00005a73000000000000d0650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1077,8 +1077,8 @@ MonoBehaviour:
     y: 0
     width: 472.80005
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -1120,7 +1120,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 49.600037
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

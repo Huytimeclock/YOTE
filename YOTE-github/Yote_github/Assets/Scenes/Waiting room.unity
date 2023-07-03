@@ -763,6 +763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 809532837}
   scrollViewContent: {fileID: 1979595514}
+  playerNameText: {fileID: 0}
+  RoomText: {fileID: 1979875770}
 --- !u!4 &1319696964
 Transform:
   m_ObjectHideFlags: 0
