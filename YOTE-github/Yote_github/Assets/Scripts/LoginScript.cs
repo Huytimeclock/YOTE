@@ -20,6 +20,8 @@ public class LoginScript : MonoBehaviour
     private string email;
     private string password;
 
+    private bool isLogin = false;
+
     private string usernameNow;
     private string UIDNow;
 
@@ -28,6 +30,7 @@ public class LoginScript : MonoBehaviour
 
     private void Start()
     {
+
         // Initialize Firebase Auth
         auth = FirebaseAuth.DefaultInstance;
 
@@ -55,6 +58,8 @@ public class LoginScript : MonoBehaviour
             UIDNow = user.UserId;
             LoginSection.SetActive(false);
 
+            isLogin = true;
+            Debug.Log("islogin =: " + isLogin);
             Debug.Log("username la: " + usernameNow);
             Debug.Log("UID la: " + UIDNow);
         }
@@ -96,4 +101,6 @@ public class LoginScript : MonoBehaviour
     {
         return UIDNow;
     }
+    public bool getisLogin()
+    { return isLogin; }
 }

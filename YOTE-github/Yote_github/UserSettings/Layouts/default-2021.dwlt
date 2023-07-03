@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 35
+  controlID: 8514
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 41
+  controlID: 8567
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 20
+  controlID: 8520
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,9 +404,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: d0610000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2afbffff
+      m_ExpandedIDs: 924effffc653ffff0055ffff8c56ffff5e60ffffa260fffff260ffff4861ffffb261ffff1262ffffde6bffff5a74ffffa277ffffe877ffff627affff747affff7c7affffae7affff4884ffff6e84ffff9284fffff68affff488bffff9c8bffff048dffff588dffff2297ffffbc98ffff169dffff76a2ffff1ea4ffff88a4ffffd6a4ffff1aa5ffffbeacffff70aeffffd0aeffffeeafffff58b0ffff78b1ffff3abeffff40beffff1ac2ffff56c2ffff32ccffffbcccffff2ceeffff7eeeffffdceeffff42efffff0af9ffff66f9ffffc2f9ffff2afbffffd6b000001eb40000c4bb0000a4c00000ded90000e2d90000ecd9000000da00001ada000022da00003cda0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -711,9 +711,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.491623, y: 1.4005045, z: -9.986997}
+    m_Target: {x: -1.7822084, y: 1.3241372, z: 265.2902}
     speed: 2
-    m_Value: {x: 1.491623, y: 1.4005045, z: -9.986997}
+    m_Value: {x: -1.6943345, y: 1.4287491, z: 277.28046}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -764,9 +764,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.699772
+    m_Target: 5.1759977
     speed: 2
-    m_Value: 8.699772
+    m_Value: 5.419893
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1051,22 +1051,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Githublocal\YOTE\YOTE-github\Yote_github
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 20610000
-    m_LastClickedID: 24864
-    m_ExpandedIDs: 00000000fe60000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 115}
+    m_SelectedIDs: 14610000
+    m_LastClickedID: 24852
+    m_ExpandedIDs: 00000000fe600000066100000a6100000c61000012610000166100001a610000c46e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1094,7 +1094,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe600000
+    m_ExpandedIDs: 00000000fe600000066100000a6100000c610000126100001661000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ac5f0000125f00005a73000000000000d0650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
