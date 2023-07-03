@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScoreShow.unity
     guid: 2e0235f552331bc4083571c79fe9aa84
+  - enabled: 1
+    path: Assets/Scenes/Loading_to_waitingroom.unity
+    guid: 6a452f56c824edf4e86ef6aaa1b7ae80
+  - enabled: 1
+    path: Assets/Scenes/Room_input.unity
+    guid: e2c95f6396601f84291c49f768cfe6fc
+  - enabled: 1
+    path: Assets/Scenes/Waiting room.unity
+    guid: f6c2d12f475bab146b929b3d87dfe20e
   m_configObjects: {}
