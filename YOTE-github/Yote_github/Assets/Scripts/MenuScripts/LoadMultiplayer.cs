@@ -7,7 +7,10 @@ public class LoadMultiplayer : MonoBehaviour
 {
     public GameObject checkAuth;
     private LoginScript loginScript;
+
     bool isLoginstatus=false;
+    private string UID;
+    private string username;
 
     public void loadMultiRoom()
     {
@@ -18,6 +21,8 @@ public class LoadMultiplayer : MonoBehaviour
         {
             isLoginstatus = loginScript.getisLogin();
             // Use the isLoginstatus as needed
+            UID= loginScript.getUID();
+            username= loginScript.getUsername();
         }
         else
         {
@@ -30,9 +35,18 @@ public class LoadMultiplayer : MonoBehaviour
         }
         if(isLoginstatus ==true)
         {
-            SceneManager.LoadScene("Loading_to_waitingroom");
+            SceneManager.LoadScene("Loading_to_waitingroom", LoadSceneMode.Additive);
         }
         
     }
 
+    public string getUID()
+    {
+        return UID;
+    }
+
+    public string getUsername()
+    {
+        return username;
+    }
 }
