@@ -103,7 +103,7 @@ public class ReadFile : MonoBehaviour
 
     public Image hpBarImage;
 
-
+    public Image backgroundImage;
 
 
     void Start()
@@ -179,9 +179,12 @@ public class ReadFile : MonoBehaviour
 
         UnityEngine.Debug.Log("Offset: " + OffsetValueSetting);
         UnityEngine.Debug.Log("Ar: " + ARValueSetting);
+        UnityEngine.Debug.Log("Image path: " + imagePath);
 
         // related to EnlargeObject
         enlargeRate = 1 / ARValueSetting;
+        LoadImageFromFile(imagePath);
+
 
         SceneManager.UnloadSceneAsync("MainLevelScene");
 
@@ -815,13 +818,6 @@ public class ReadFile : MonoBehaviour
         //originalAirObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
-
-
-
-
-
-
-
     IEnumerator ListNote(List<Note> notes)
     {
 
@@ -847,7 +843,6 @@ public class ReadFile : MonoBehaviour
         //   UnityEngine.Debug.Log("So luong great la: " + greatCount + "\nSo luong good la: " + goodCount + "\nSo luong perfect la: " + perfectCount + "\nSo luong CP la: " + CPCount + "\nPercentage la: " + percentage);
         //   UnityEngine.Debug.Log("Huy rat chi la cute");
     }
-
 
     // HP BAR METHOD
     #region
@@ -1225,7 +1220,20 @@ public class ReadFile : MonoBehaviour
     }
     // create many object at the sameplace
 
+    private void LoadImageFromFile(string path)
+    {
+        // Load the image file as bytes
+        byte[] imageData = System.IO.File.ReadAllBytes(path);
 
+        // Create a new Texture2D
+        Texture2D texture = new Texture2D(2, 2);
+
+        // Load the image data into the Texture2D
+        texture.LoadImage(imageData);
+
+        // Set the Texture2D as the sprite of the Image component
+        backgroundImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+    }
 
 
 }
