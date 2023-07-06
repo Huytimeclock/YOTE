@@ -10,7 +10,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-
+        PhotonNetwork.NickName = LoadMultiplayer.username; 
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -20,15 +20,14 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     }
 
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-    }
+    
 
-    public override void OnJoinedLobby()
+    public override void OnConnectedToMaster()
     {
         SceneManager.LoadScene("Room_input");
     }
+
+
 
 
 }

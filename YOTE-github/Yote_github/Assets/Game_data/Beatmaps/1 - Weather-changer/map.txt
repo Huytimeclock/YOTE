@@ -8,6 +8,6 @@ Creator: Huytimeclock
 [MAP DATA]
 [0.643][t]
 [1.335][y]
-[2][a,b,c,d,e,f,g,h,i,k,l,m,n,o,r,w,q]
-[4][a,s,d,f,g,h,j,k,l]
+[2][r]
+[4][v]
 
