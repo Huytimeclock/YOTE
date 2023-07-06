@@ -74,6 +74,7 @@ public class SpawnPlayers : MonoBehaviour
         foreach (KeyValuePair<int, Player>player in PhotonNetwork.CurrentRoom.Players)
         {
            Playeritem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            newPlayerItem.SetPlayerInfo(player.Value);
             playerItemsList.Add(newPlayerItem);
         }
     }
