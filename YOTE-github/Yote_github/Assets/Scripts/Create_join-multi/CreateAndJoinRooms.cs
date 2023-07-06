@@ -83,5 +83,9 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
-
+    public void DisconnectAndGoBack()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("SampleScene");
+    }
 }

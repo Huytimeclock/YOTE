@@ -27,7 +27,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Room_input");
     }
 
-
+    
 
 
 }
