@@ -108,6 +108,7 @@ public class EnterPlayTab : MonoBehaviour
     public void LoadSingleScene()
     {
         isClickedTab = 0;
+        EnterLogo.isclickedenterlogo = 0;
         SceneManager.LoadScene("MainLevelScene");
     }
 }

@@ -19,6 +19,7 @@ public class LoadMultiplayer : MonoBehaviour
 
     public void loadMultiRoom()
     {
+        EnterLogo.isclickedenterlogo = 0;
         EnterPlayTab.isClickedTab = 0;
         // Get the Loginscript component from the checkAuth GameObject
         loginScript = checkAuth.GetComponent<LoginScript>();

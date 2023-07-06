@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EnterLogo : MonoBehaviour
 {
+
+    public static int isclickedenterlogo = 0;
     [SerializeField] GameObject Button1;
     [SerializeField] GameObject Button2;
     [SerializeField] GameObject Button3;
@@ -24,12 +26,13 @@ public class EnterLogo : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        while (onenter==false)  // move bar
+        while (onenter == false && isclickedenterlogo == 0)  // move bar
         {
             Button1.SetActive(true);
             Button2.SetActive(true);
             Button3.SetActive(true);
             Button4.SetActive(true);
+            isclickedenterlogo = 1;
             StartCoroutine(MoveButtonsOverTime(0.2f));
             onenter = true;
         }
