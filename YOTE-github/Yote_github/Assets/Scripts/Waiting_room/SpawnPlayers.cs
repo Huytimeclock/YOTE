@@ -2,6 +2,9 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Photon.Realtime;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SpawnPlayers : MonoBehaviour
 {
@@ -40,4 +43,11 @@ public class SpawnPlayers : MonoBehaviour
 
         // Customize the properties of the new object if needed
     }
+
+    public void OnClickLeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("Room_input");
+    }
+
 }

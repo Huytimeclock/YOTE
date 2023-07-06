@@ -569,7 +569,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 143688542}
   m_HandleRect: {fileID: 143688541}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -661,8 +661,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 380, y: 1050}
+  m_AnchoredPosition: {x: 0, y: -0.94}
+  m_SizeDelta: {x: 380, y: 893.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295697227
 MonoBehaviour:
@@ -814,12 +814,12 @@ RectTransform:
   m_Children:
   - {fileID: 2083616091}
   m_Father: {fileID: 1510828118}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1173, y: 147}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -740, y: -459}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389187242
 MonoBehaviour:
@@ -865,9 +865,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389187245}
-        m_TargetAssemblyTypeName: AddObjectToScrollView, Assembly-CSharp
-        m_MethodName: AddObject
+      - m_Target: {fileID: 1319696963}
+        m_TargetAssemblyTypeName: SpawnPlayers, Assembly-CSharp
+        m_MethodName: OnClickLeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -897,8 +897,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 1b5efcdd4e91ddd4495d2e0d23ff3c67, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1093,8 +1093,8 @@ RectTransform:
   - {fileID: 241336896}
   - {fileID: 1979875769}
   - {fileID: 529781149}
-  - {fileID: 1801771597}
   - {fileID: 1389187241}
+  - {fileID: 1801771597}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1219,12 +1219,12 @@ RectTransform:
   m_Children:
   - {fileID: 1295697226}
   m_Father: {fileID: 1510828118}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -749.99994, y: 0}
-  m_SizeDelta: {x: -1500, y: 0}
+  m_AnchoredPosition: {x: -749.99994, y: 74.49997}
+  m_SizeDelta: {x: -1500, y: -149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801771598
 MonoBehaviour:
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
