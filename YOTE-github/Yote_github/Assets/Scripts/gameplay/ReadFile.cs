@@ -80,14 +80,14 @@ public class ReadFile : MonoBehaviour
     private Color transparentColorCP;
 
     private string beatmapName = "";
-    private string imagePath = "";
+    private static string imagePath ;
     private int diff = 0;
     private string HpString = "";
     private float HpValue = 0f;
     private string Artist = "";
-    private string filePath = "";
-    private string scorePath = "";
-    private string songPath = "";
+    private static string filePath ;
+    private static string scorePath ;
+    private static string songPath ;
     private string BPMText = "";
     private float BPMValue = 0;
 
