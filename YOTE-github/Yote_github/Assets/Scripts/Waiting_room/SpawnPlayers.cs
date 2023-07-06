@@ -20,7 +20,13 @@ public class SpawnPlayers : MonoBehaviour
 
         // Get the TMP_Text component in the spawned prefab
         TMP_Text spawnedPlayerNameText = newObj.GetComponentInChildren<TMP_Text>();
-        RoomText.text = CreateAndJoinRooms.roomName;
+        RoomText.text = RoomItem.RoomNameForJoin;
+        
+
+        if(RoomItem.RoomNameForJoin.Length==0)
+        {
+            RoomText.text = CreateAndJoinRooms.roomName;
+        }
 
         if (spawnedPlayerNameText != null)
         {

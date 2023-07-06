@@ -132,10 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2694995414898471984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8f9f92ccd721049b9cd5991a0bf809, type: 3}
+  m_Script: {fileID: 11500000, guid: 18b072ce022bd2f4c86186f9955ef73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomText: {fileID: 2694995415345755086}
+  roomText: {fileID: 0}
 --- !u!1 &2694995415345755080
 GameObject:
   m_ObjectHideFlags: 0

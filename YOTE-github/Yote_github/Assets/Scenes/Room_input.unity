@@ -2655,6 +2655,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_button
       objectReference: {fileID: 0}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2694995414663384710}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoomItem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694995414898471990, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2694995414898471991, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2739,7 +2767,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7413806220619045748, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 65e06c37ab30460449f901b06e026a4c, type: 3}
 --- !u!114 &2694995414663384708 stripped
 MonoBehaviour:
