@@ -13,16 +13,34 @@ public class SpawnPlayers : MonoBehaviour
     public TMP_Text playerNameText;
     public TMP_Text RoomText;
 
+    public List<Playeritem> playerItemsList = new List<Playeritem>();
+    public Playeritem playerItemPrefab;
+    public Transform playerItemParent;
 
+    private float timer = 2f; // Timer interval in seconds
+    private float elapsedTime = 0f; // Elapsed time since last function call
 
+    private void Update()
+    {
+        // Increment the elapsed time
+        elapsedTime += Time.deltaTime;
+
+        // Check if the timer interval has elapsed
+        if (elapsedTime >= timer)
+        {
+            // Call the function
+            UpdatePlayerList();
+
+            // Reset the elapsed time
+            elapsedTime = 0f;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        GameObject newObj = PhotonNetwork.Instantiate(objectPrefab.name, Vector3.zero, Quaternion.identity);
-        newObj.transform.SetParent(scrollViewContent.transform, false);
+        UpdatePlayerList();
 
-        // Get the TMP_Text component in the spawned prefab
-        TMP_Text spawnedPlayerNameText = newObj.GetComponentInChildren<TMP_Text>();
+        
         RoomText.text = RoomItem.RoomNameForJoin;
         
 
@@ -31,23 +49,33 @@ public class SpawnPlayers : MonoBehaviour
             RoomText.text = CreateAndJoinRooms.roomName;
         }
 
-        if (spawnedPlayerNameText != null)
-        {
-            // Access and change the name of the TMP_Text component using the player name variable
-            spawnedPlayerNameText.text = LoadMultiplayer.username;
-        }
-        else
-        {
-            Debug.LogWarning("TMP_Text component not found in the spawned prefab.");
-        }
-
-        // Customize the properties of the new object if needed
+        
     }
 
     public void OnClickLeaveRoom()
     {
+        
         PhotonNetwork.LeaveRoom();
+        UpdatePlayerList();
         SceneManager.LoadScene("Room_input");
+    }
+
+    void UpdatePlayerList()
+    {
+        foreach (Playeritem item in playerItemsList)
+        {
+            Destroy(item.gameObject);
+        }
+        playerItemsList.Clear();
+
+        if (PhotonNetwork.CurrentRoom == null)
+        { return; }
+
+        foreach (KeyValuePair<int, Player>player in PhotonNetwork.CurrentRoom.Players)
+        {
+           Playeritem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            playerItemsList.Add(newPlayerItem);
+        }
     }
 
 }

@@ -765,6 +765,9 @@ MonoBehaviour:
   scrollViewContent: {fileID: 1979595514}
   playerNameText: {fileID: 0}
   RoomText: {fileID: 1979875770}
+  playerItemsList: []
+  playerItemPrefab: {fileID: 106844032872680917, guid: de2e4721e7f4d84429f69300f26963ed, type: 3}
+  playerItemParent: {fileID: 1979595515}
 --- !u!4 &1319696964
 Transform:
   m_ObjectHideFlags: 0
