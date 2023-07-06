@@ -878,7 +878,7 @@ public class ReadFile : MonoBehaviour
             }
             if (currentWidth==targetWidth)
             {
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
                 AudioListener.pause = true;
                 FailCanvas.SetActive(true);
                 FailButton.SetActive(true);
