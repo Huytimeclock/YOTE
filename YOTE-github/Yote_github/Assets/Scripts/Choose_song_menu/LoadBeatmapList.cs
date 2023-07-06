@@ -63,6 +63,7 @@ public class LoadBeatmapList : MonoBehaviour
     {
         
         pathSetting = Application.dataPath + "\\Game_data\\settings.txt";
+        
         LoadSettings();
         SettingCanvas.SetActive(false);
         transitionAnim.SetBool("FadeOutOnly", false);
@@ -166,7 +167,7 @@ public class LoadBeatmapList : MonoBehaviour
             entry.eventID = EventTriggerType.PointerClick;
             entry.callback.AddListener((data) => OnPointerClick((PointerEventData)data));
             eventTrigger.triggers.Add(entry);
-
+            UnityEngine.Debug.Log("wtf is going on ?");
         }
     }
 
@@ -219,10 +220,10 @@ public class LoadBeatmapList : MonoBehaviour
         // Write the modified settings to the file
         writer.WriteLine("Offset: " + Offset.text);
         writer.WriteLine("AR: " + AR.text);
-        writer.WriteLine("BG Opacity: " + BG_Opacity.text);
-
+        writer.WriteLine("BG Opacity: " + BG_Opacity.text);   
         // Close the file
         writer.Close();
+        LoadSettings();
         SettingCanvas.SetActive(false);
     }
 
@@ -242,6 +243,10 @@ public class LoadBeatmapList : MonoBehaviour
             string offsetValueText = offsetSetting.Substring(offsetSetting.IndexOf(":") + 1).Trim();
             string arValueText = arSetting.Substring(arSetting.IndexOf(":") + 1).Trim();
             string bgOpacityValueText = bgOpacitySetting.Substring(bgOpacitySetting.IndexOf(":") + 1).Trim();
+
+            UnityEngine.Debug.Log("offsetvalue la: " + offsetValueText);
+            UnityEngine.Debug.Log("arValueText la: " + arValueText);
+            UnityEngine.Debug.Log("bgOpacityValueText la: " + bgOpacityValueText);
 
             // Apply the values to the TextMeshPro text objects
             Offset.text = offsetValueText;

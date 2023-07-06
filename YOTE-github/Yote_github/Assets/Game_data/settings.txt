@@ -1,3 +1,3 @@
 Offset: 0
-AR: 0.6
+AR: 2
 BG Opacity: 100
