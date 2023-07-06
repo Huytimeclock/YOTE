@@ -53,19 +53,19 @@ public class GamePause : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1.0f;
-        StartCoroutine(LoadMainMenu());
+        LoadMainMenu();
     }
 
-    private IEnumerator LoadMainMenu()
+    private void LoadMainMenu()
     {
-        // Load the MainLevelScene
+        Time.timeScale = 1.0f;
+        AudioListener.pause = false;
         SceneManager.LoadScene("MainLevelScene");
 
-        // Wait for a short delay
-        yield return new WaitForSeconds(0.1f);
+
 
         // Unload the current scene "Gameplay"
-        SceneManager.UnloadSceneAsync("Gameplay");
+        //SceneManager.UnloadSceneAsync("Gameplay");
     }
     public void Retry()
     {
