@@ -34,6 +34,10 @@ public class ReadFile : MonoBehaviour
     int CPCount = 0;
     int missCount = 0;
 
+    public GameObject FailCanvas;
+    public GameObject FailButton;
+
+
     public float fadeTime = 3f;
 
     public Camera mainCamera;
@@ -106,7 +110,8 @@ public class ReadFile : MonoBehaviour
     {
         
         
-
+        FailButton.SetActive(false);
+        FailCanvas.SetActive(false);
 
 
 
@@ -871,11 +876,20 @@ public class ReadFile : MonoBehaviour
                 float newWidth = Mathf.Max(targetWidth, currentWidth - reductionAmount);
                 hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
             }
-
-         //   Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
-
+            if (currentWidth==targetWidth)
+            {
+                Time.timeScale = 0f;
+                AudioListener.pause = true;
+                FailCanvas.SetActive(true);
+                FailButton.SetActive(true);
+            }
+            Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
             yield return null;
+            
         }
+
+
+
 
         Debug.Log("HP bar reduction completed");
 
@@ -907,7 +921,12 @@ public class ReadFile : MonoBehaviour
             float newWidth = currentWidth + plusAmount;
             hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
         }
-
+        if (type == 3)
+        {
+            plusAmount = (11 - hpValue) * -5;
+            float newWidth = currentWidth + plusAmount;
+            hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
+        }
         Debug.Log("plusAmount: " + plusAmount + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x);
 
     }
@@ -1109,6 +1128,7 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("Miss");
             missCount++;
             MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 255);
+            PlusHpBar(HpValue, 3);
             StartCoroutine(FadeOutText(MissText, 2f));
         }
 
