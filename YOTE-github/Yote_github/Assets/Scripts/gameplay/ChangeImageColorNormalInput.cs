@@ -7,7 +7,9 @@ public class ChangeImageColorNormalInput : MonoBehaviour
     public Image targetImage;
     public Color targetColor = Color.red;
     public Color targetAirColor = Color.green;
+
     bool isShiftPressed = false;
+
 
 
     private Color _startColor;
@@ -27,7 +29,7 @@ public class ChangeImageColorNormalInput : MonoBehaviour
         }
 
         // Check if the "H" key is pressed down
-        if (Input.GetKey(keytopress) && isShiftPressed==false)
+        if (Input.GetKey(keytopress) && isShiftPressed == false)
         {
             // Calculate the new color for the image
             Color newColor = targetColor;
@@ -35,7 +37,7 @@ public class ChangeImageColorNormalInput : MonoBehaviour
             // Set the new color for the image
             targetImage.color = newColor;
         }
-       else if (Input.GetKey(keytopress) && isShiftPressed)
+        else if (Input.GetKey(keytopress) && isShiftPressed)
         {
 
             Color newColor = targetAirColor;
@@ -48,7 +50,7 @@ public class ChangeImageColorNormalInput : MonoBehaviour
         else
         {
             targetImage.color = _startColor;
-            isShiftPressed=false;
+            isShiftPressed = false;
         }
 
 
