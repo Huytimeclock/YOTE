@@ -16,46 +16,24 @@ public class ImportSong : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Find the ReadFile game object in Scene 1
-        GameObject readFileObj = GameObject.Find("ScriptHandleLoadSong");
 
-        if (readFileObj == null)
-        {
-            UnityEngine.Debug.LogError("ScriptHandleLoadSong object not found");
-            return;
-        }
 
-        // Get the ReadFile script from the game object
-        LoadBeatmapList readFile = readFileObj.GetComponent<LoadBeatmapList>();
 
-        if (readFile == null)
-        {
-            UnityEngine.Debug.LogError("LoadBeatmapList script not found");
-            return;
-        }
 
-        GameObject readTimeStamp = GameObject.Find("TrackTime");
+       // GameObject readTimeStamp = GameObject.Find("TrackTime");
 
-        if (readFileObj == null)
-        {
-            UnityEngine.Debug.LogError("TrackTime object not found");
-            return;
-        }
+
 
         // Get the ReadFile script from the game object
-        TrackTimeSong ReadTime = readTimeStamp.GetComponent<TrackTimeSong>();
-
-        if (readFile == null)
-        {
-            UnityEngine.Debug.LogError("TrackTimeSong script not found");
-            return;
-        }
+      //  TrackTimeSong ReadTime = readTimeStamp.GetComponent<TrackTimeSong>();
 
 
-        songPath = readFile.GetSongPath1().ToString();
+
+
+        songPath = LoadBeatmapList.songPath;
 
         // Get the BPM value from the text file
-        string bpmString = readFile.GetBPMValue().Trim();
+        string bpmString = LoadBeatmapList.BPMValue.Trim();
         Debug.Log("BPM string value: " + bpmString);
 
         if (float.TryParse(bpmString, out float result))

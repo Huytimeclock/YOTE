@@ -95,11 +95,11 @@ public class ScoreShowElement : MonoBehaviour
         MissCount.text =  readFile.GetMissCount().ToString();
         PercentageValue.text = readFile.GetPercentage().ToString("F2");
         UnityEngine.Debug.Log("% la : " + PercentageValue.text);
-        Title_Song.text=readFile.GetMapName().ToString();
-        imagePath = readFile.GetImagePath().ToString();
-        DiffText.text = readFile.GetDiff().ToString();
-        Artist.text = readFile.GetArtistText().ToString();
-        scorePath = readFile.getScorePath().ToString();
+        Title_Song.text = LoadBeatmapList.ActuallySongName;
+        imagePath = LoadBeatmapList.imagePath;
+        DiffText.text = LoadBeatmapList.difficultymap.ToString();
+        Artist.text = LoadBeatmapList.artistmap.ToString();
+        scorePath = LoadBeatmapList.scorePath.ToString();
 
         Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
         Texture2D textureLargeImage = LoadTextureFromPath(imagePath, 1920, 1080);

@@ -1,12 +1,8 @@
 using UnityEngine;
 using System.IO;
-
 using System;
-
 using System.Collections;
-
 using System.Collections.Generic;
-
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -84,14 +80,14 @@ public class ReadFile : MonoBehaviour
     private Color transparentColorCP;
 
     private string beatmapName = "";
-    private static string imagePath ;
+    private string imagePath ;
     private int diff = 0;
     private string HpString = "";
     private float HpValue = 0f;
     private string Artist = "";
-    private static string filePath ;
-    private static string scorePath ;
-    private static string songPath ;
+    private string filePath ;
+    private string scorePath ;
+    private string songPath ;
     private string BPMText = "";
     private float BPMValue = 0;
 
@@ -143,39 +139,14 @@ public class ReadFile : MonoBehaviour
         startTime = Time.time;
         isStarted = false;
 
-
-
-
-
-        // Find the ReadFile game object in Scene 1
-        GameObject readFileObj = GameObject.Find("ScriptHandleLoadSong");
-
-
-        if (readFileObj == null)
-        {
-            //UnityEngine.Debug.LogError("LoadBeatmapList object not found");
-            return;
-        }
-
-        // Get the ReadFile script from the game object
-        LoadBeatmapList readFile = readFileObj.GetComponent<LoadBeatmapList>();
-
-        if (readFile == null)
-        {
-            //UnityEngine.Debug.LogError("LoadBeatmapList script not found");
-            return;
-        }
-
-        filePath = readFile.getMapPath1().ToString();
-        scorePath = readFile.getScorePath1().ToString();
-
-        imagePath = readFile.getImagePath1().ToString();
-        songPath = readFile.GetSongPath1().ToString();
-        
-
-        OffsetValueSetting = readFile.GetOffset();
-        ARValueSetting = readFile.GetAr();
-        BGOpacitySetting=readFile.GetBGopacity();
+        //Load info of beatmap
+        filePath = LoadBeatmapList.infoPath;
+        scorePath = LoadBeatmapList.scorePath;
+        imagePath = LoadBeatmapList.imagePath;
+        songPath = LoadBeatmapList.songPath;
+        OffsetValueSetting = LoadBeatmapList.OffsetValue;
+        ARValueSetting = LoadBeatmapList.ARValue;
+        BGOpacitySetting = LoadBeatmapList.BgOpacityValue;
 
         UnityEngine.Debug.Log("Offset: " + OffsetValueSetting);
         UnityEngine.Debug.Log("Ar: " + ARValueSetting);
@@ -184,15 +155,6 @@ public class ReadFile : MonoBehaviour
         // related to EnlargeObject
         enlargeRate = 1 / ARValueSetting;
         LoadImageFromFile(imagePath);
-
-
-        SceneManager.UnloadSceneAsync("MainLevelScene");
-
-
-
-
-
-
 
     }
 
@@ -1196,28 +1158,7 @@ public class ReadFile : MonoBehaviour
         return percentage;
     }
 
-    public string GetMapName()
-    {
-        return beatmapName;
-    }
-    public string getScorePath()
-    {
-        return scorePath;
-    }
-    public string GetImagePath()
-    {
-        return imagePath;
-    }
 
-    public int GetDiff()
-    {
-        return diff;
-    }
-
-    public string GetArtistText()
-    {
-        return Artist;
-    }
     // create many object at the sameplace
 
     private void LoadImageFromFile(string path)

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
+using ExitGames.Client.Photon;
 
 public class LoadBeatmapList : MonoBehaviour
 {
@@ -29,19 +29,24 @@ public class LoadBeatmapList : MonoBehaviour
     public TMP_InputField AR;
     public TMP_InputField BG_Opacity;
     public GameObject SettingCanvas;
-    private float OffsetValue = 0f;
-    private float ARValue = 0f;
-    private int BgOpacityValue = 0;
+
 
     public Image imageTitle;
     public Image imageComponent;
     private GameObject parentContainer;
-    private string imagePath = "";
-    private string infoPath = "";
-    private string songPath = "";
-    private string BPMValue = "";
-    private string scorePath = "";
 
+    public static string imagePath = "";
+    public static string infoPath = "";
+    public static string songPath = "";
+    public static string BPMValue = "";
+    public static string scorePath = "";
+    public static int difficultymap = 0;
+    public static string artistmap = "";
+    public static float OffsetValue = 0f;
+    public static float ARValue = 0f;
+    public static int BgOpacityValue = 0;
+    public static string IDSong = "";
+    public static string ActuallySongName = "";
 
     public Animator transitionAnim;
     public Animator circle1;
@@ -61,10 +66,11 @@ public class LoadBeatmapList : MonoBehaviour
 
     void Start()
     {
-        
+        //Load file setting
         pathSetting = Application.dataPath + "\\Game_data\\settings.txt";
-        
         LoadSettings();
+
+
         SettingCanvas.SetActive(false);
         transitionAnim.SetBool("FadeOutOnly", false);
         circle1.SetBool("fadeintrue", false);
@@ -75,15 +81,18 @@ public class LoadBeatmapList : MonoBehaviour
         circle02.SetActive(false);
         circle03.SetActive(false);
         circle04.SetActive(false);
-
-
         Debug.Log("FadeOutOnly parameter value: " + transitionAnim.GetBool("FadeOutOnly"));
         StartCoroutine(FadeOutDisable());
 
+        
 
+        //get path
         path = Application.dataPath + "\\Game_data\\Beatmaps";
-        FolderSongPath.text = path;
         string[] folderPaths = Directory.GetDirectories(path);
+
+        //song path tip
+        FolderSongPath.text = path;
+
 
         foreach (string folderPath in folderPaths)
         {
@@ -143,7 +152,7 @@ public class LoadBeatmapList : MonoBehaviour
             Title_Song.text = actuallySongName;
             Artist.text = artistName;
             DiffText.text=difficulty.ToString();
-            BPM1.text = "BPM: " + BPM.ToString();
+            BPM1.text = BPM.ToString();
             CreatorText.text = Creator;
             SongPathName.text = songName;
             Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
@@ -191,14 +200,18 @@ public class LoadBeatmapList : MonoBehaviour
 
         // Get the song name from the title text component on the parent object
         string songName = parentObject.transform.Find("SongPathName").GetComponent<TextMeshProUGUI>().text;
-        BPMValue = parentObject.transform.Find("BPM").GetComponent<TextMeshProUGUI>().text;
-        Debug.Log("songName " + songName);
-        // Get the path to the selected song data
+        BPMValue= parentObject.transform.Find("BPM").GetComponent<TextMeshProUGUI>().text;
         string folderPath = Path.Combine(path, songName);
+        difficultymap = int.Parse(parentObject.transform.Find("Difficulty").GetComponent<TextMeshProUGUI>().text);
+        artistmap = parentObject.transform.Find("Artist_name").GetComponent<TextMeshProUGUI>().text;
         imagePath = Path.Combine(folderPath, "bg.jpg");
         infoPath = Path.Combine(folderPath, "map.txt");
         songPath = Path.Combine(folderPath, "audio.mp3");
         scorePath = Path.Combine(folderPath, "score.txt");
+
+        ReturnNameSong(songName, out ActuallySongName, out IDSong);
+        UnityEngine.Debug.Log("ACtually song name: " + ActuallySongName);
+        UnityEngine.Debug.Log("Idsong la: " + IDSong);
 
         circle01.SetActive(true);
         circle02.SetActive(true);
@@ -269,46 +282,13 @@ public class LoadBeatmapList : MonoBehaviour
         }
     }
 
-    public string getScorePath1()
-    {
-        return scorePath;
-    }
 
-    public string getImagePath1()
+    public string GetBPMValue(string bpmtext)
     {
-        return imagePath;
-    }
-
-    public string getMapPath1()
-    {
-        return infoPath;
-    }
-
-    public string GetSongPath1()
-    {
-        return songPath;
-    }
-
-    public string GetBPMValue()
-    {
-        string bpmString = BPMValue.Replace("BPM: ", ""); // remove the "BPM: " prefix
+        string bpmString = bpmtext.Replace("BPM: ", ""); // remove the "BPM: " prefix
         return bpmString;
     }
 
-    public float GetOffset()
-    {
-        return OffsetValue;
-    }
-
-    public float GetAr()
-    {
-        return ARValue;
-    }
-
-    public int GetBGopacity()
-    {
-        return BgOpacityValue;
-    }
 
     public void OpenSettingCanvas()
     {
@@ -425,7 +405,7 @@ public class LoadBeatmapList : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(SceneName);
     }
 
     void ReturnNameSong (string SongNameWithID, out string Songname, out string ID)
