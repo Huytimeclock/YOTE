@@ -833,7 +833,7 @@ public class ReadFile : MonoBehaviour
                 float newWidth = Mathf.Max(targetWidth, currentWidth - reductionAmount);
                 hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
             }
-            if (currentWidth==targetWidth)
+            if (currentWidth<=targetWidth)
             {
                 //Time.timeScale = 0f;
                 AudioListener.pause = true;

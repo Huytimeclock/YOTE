@@ -16,6 +16,7 @@ public class die : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1.0f;
+        AudioListener.pause = false;
         LoadMainMenu();
     }
 
