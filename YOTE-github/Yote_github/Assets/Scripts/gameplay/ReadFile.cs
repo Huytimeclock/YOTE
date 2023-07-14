@@ -102,11 +102,14 @@ public class ReadFile : MonoBehaviour
     public Image backgroundImage;
 
     public TextMeshProUGUI ScoreNow;
+    public TextMeshProUGUI ComboNow;
+    int combo = 0;
 
     void Start()
     {
-        
-        
+
+        combo = 0;
+        ComboNow.text=combo.ToString();
         FailButton.SetActive(false);
         FailCanvas.SetActive(false);
 
@@ -1022,6 +1025,8 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("Good");
             percentage += goodPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text=combo.ToString();
             goodCount++;
             GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
             PlusHpBar(HpValue, 2);
@@ -1033,6 +1038,8 @@ public class ReadFile : MonoBehaviour
             //   UnityEngine.Debug.Log("Great");
             percentage += greatPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text = combo.ToString();
             greatCount++;
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
             PlusHpBar(HpValue, 1);
@@ -1043,6 +1050,8 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("Perfect");
             percentage += perfectPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text = combo.ToString();
             perfectCount++;
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
             PlusHpBar(HpValue, 0);
@@ -1053,6 +1062,8 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("CriticalPerfect");
             percentage += perfectPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text = combo.ToString();
             CPCount++;
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 255);
             PlusHpBar(HpValue, 0);
@@ -1063,6 +1074,8 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("Perfect");
             percentage += perfectPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text = combo.ToString();
             perfectCount++;
             PerfectText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 232, 57, 255);
             PlusHpBar(HpValue, 0);
@@ -1073,6 +1086,8 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("Great");
             percentage += greatPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text = combo.ToString();
             greatCount++;
             GreatText.GetComponent<TextMeshProUGUI>().color = new Color32(255, 120, 110, 255);
             PlusHpBar(HpValue, 1);
@@ -1083,6 +1098,8 @@ public class ReadFile : MonoBehaviour
             UnityEngine.Debug.Log("Good");
             percentage += goodPercentageValue;
             ScoreNow.text = percentage.ToString();
+            combo++;
+            ComboNow.text = combo.ToString();
             goodCount++;
             GoodText.GetComponent<TextMeshProUGUI>().color = new Color32(167, 239, 62, 255);
             PlusHpBar(HpValue, 2);
@@ -1092,6 +1109,8 @@ public class ReadFile : MonoBehaviour
         {
             UnityEngine.Debug.Log("Miss");
             missCount++;
+            combo=0;
+            ComboNow.text = combo.ToString();
             MissText.GetComponent<TextMeshProUGUI>().color = new Color32(93, 88, 89, 255);
             PlusHpBar(HpValue, 3);
             StartCoroutine(FadeOutText(MissText, 2f));
