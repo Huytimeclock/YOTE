@@ -22,7 +22,7 @@ public class LoadBeatmapList : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] TextMeshProUGUI SongPathName;
 
-
+    public static bool isMulti=false;
 
     private string pathSetting = "";
     public TMP_InputField Offset;
@@ -64,8 +64,22 @@ public class LoadBeatmapList : MonoBehaviour
 
     public TextMeshProUGUI FolderSongPath;
 
+    public GameObject BackToMenu;
+    public GameObject BackToLobby;
+
     void Start()
     {
+        if (isMulti==false)
+        {
+            BackToLobby.SetActive(false);
+            BackToMenu.SetActive(true);
+        }
+        if(isMulti==true)
+        {
+            BackToLobby.SetActive(true);
+            BackToMenu.SetActive(false);
+        }
+
         //Load file setting
         pathSetting = Application.dataPath + "\\Game_data\\settings.txt";
         LoadSettings();

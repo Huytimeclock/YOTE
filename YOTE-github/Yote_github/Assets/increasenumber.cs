@@ -3,6 +3,8 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using Mono.Cecil;
+using UnityEngine.SceneManagement;
 
 public class increasenumber : MonoBehaviourPunCallbacks
 {
@@ -36,6 +38,13 @@ public class increasenumber : MonoBehaviourPunCallbacks
         RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
 
         PhotonNetwork.RaiseEvent(eventCode, eventData, options, SendOptions.SendReliable);
+    }
+
+    public void OnSwitChSceneClick()
+    {
+        byte eventCode = 10;
+        LoadBeatmapList.isMulti = true;
+        SceneManager.LoadScene("MainLevelScene", LoadSceneMode.Additive);
     }
 
     private void OnCustomEvent(EventData eventData)
