@@ -7,8 +7,10 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using ExitGames.Client.Photon;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class LoadBeatmapList : MonoBehaviour
+public class LoadBeatmapList : MonoBehaviourPunCallbacks
 {
     public GameObject parentObject;
     public RectTransform scrollViewContent;
@@ -42,6 +44,7 @@ public class LoadBeatmapList : MonoBehaviour
     public static string scorePath = "";
     public static int difficultymap = 0;
     public static string artistmap = "";
+    public static string creatormap = "";
     public static float OffsetValue = 0f;
     public static float ARValue = 0f;
     public static int BgOpacityValue = 0;
@@ -78,6 +81,7 @@ public class LoadBeatmapList : MonoBehaviour
         {
             BackToLobby.SetActive(true);
             BackToMenu.SetActive(false);
+
         }
 
         //Load file setting
@@ -201,7 +205,7 @@ public class LoadBeatmapList : MonoBehaviour
     public void OnPointerClick(PointerEventData eventData)
     {
 
-        audioSource.PlayOneShot(EntrySound);
+        
         Debug.Log("Selected object: " + eventData.pointerCurrentRaycast.gameObject.name);
 
         // Get the selected song
@@ -222,19 +226,27 @@ public class LoadBeatmapList : MonoBehaviour
         infoPath = Path.Combine(folderPath, "map.txt");
         songPath = Path.Combine(folderPath, "audio.mp3");
         scorePath = Path.Combine(folderPath, "score.txt");
+        creatormap = parentObject.transform.Find("Creator").GetComponent<TextMeshProUGUI>().text;
 
         ReturnNameSong(songName, out ActuallySongName, out IDSong);
         UnityEngine.Debug.Log("ACtually song name: " + ActuallySongName);
         UnityEngine.Debug.Log("Idsong la: " + IDSong);
 
-        circle01.SetActive(true);
-        circle02.SetActive(true);
-        circle03.SetActive(true);
-        circle04.SetActive(true);
-        // Load the data in your ReadFile.cs script and pass it to the scene that needs it
+        if (isMulti==false)
+        {
+            audioSource.PlayOneShot(EntrySound);
+            circle01.SetActive(true);
+            circle02.SetActive(true);
+            circle03.SetActive(true);
+            circle04.SetActive(true);
+            // Load the data in your ReadFile.cs script and pass it to the scene that needs it
+            // Load the new scene
+            StartCoroutine(LoadScene());
+        }
+        if (isMulti == true)
+        {
 
-        // Load the new scene
-        StartCoroutine(LoadScene());
+        }
 
     }
 
