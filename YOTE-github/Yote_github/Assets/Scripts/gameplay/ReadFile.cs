@@ -7,6 +7,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 
 public class ReadFile : MonoBehaviourPunCallbacks
@@ -21,7 +23,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
     //for score variable
     int numOfNotes = 0;
-    float percentage = 0f;
+    public static float percentage = 0f;
     float goodPercentageValue = 0f;
     float greatPercentageValue = 0f;
     float perfectPercentageValue = 0f;
@@ -87,7 +89,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
     private float HpValue = 0f;
     private string Artist = "";
     private string filePath ;
-    private string scorePath ;
+    public static string scorePath ;
     public static string songPath ;
     private string BPMText = "";
     private float BPMValue = 0;
@@ -1195,9 +1197,18 @@ public class ReadFile : MonoBehaviourPunCallbacks
         UnityEngine.Debug.Log("isFadeIn parameter value: " + transitionAnim2.GetBool("isFadeIn"));
         transitionAnim2.SetTrigger("FadeOut");
 
+
+        if(isMulti==true)
+        {
+            
+        }
+
         // Load the new scene
         yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene("ScoreShow", LoadSceneMode.Additive);
+        
+            SceneManager.LoadScene("ScoreShow", LoadSceneMode.Additive);
+        
+        
 
 
 

@@ -40,21 +40,21 @@ public class SpawnPlayers : MonoBehaviour
     {
         UpdatePlayerList();
 
-        
-        RoomText.text = RoomItem.RoomNameForJoin;
-        
 
-        if(RoomItem.RoomNameForJoin.Length==0)
+        RoomText.text = RoomItem.RoomNameForJoin;
+
+
+        if (RoomItem.RoomNameForJoin.Length == 0)
         {
             RoomText.text = CreateAndJoinRooms.roomName;
         }
 
-        
+
     }
 
     public void OnClickLeaveRoom()
     {
-        
+
         PhotonNetwork.LeaveRoom();
         UpdatePlayerList();
         SceneManager.LoadScene("Room_input");
@@ -71,9 +71,9 @@ public class SpawnPlayers : MonoBehaviour
         if (PhotonNetwork.CurrentRoom == null)
         { return; }
 
-        foreach (KeyValuePair<int, Player>player in PhotonNetwork.CurrentRoom.Players)
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
-           Playeritem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            Playeritem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
             newPlayerItem.SetPlayerInfo(player.Value);
             playerItemsList.Add(newPlayerItem);
         }

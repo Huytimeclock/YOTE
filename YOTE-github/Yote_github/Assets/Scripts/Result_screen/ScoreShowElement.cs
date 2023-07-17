@@ -8,6 +8,7 @@ using System.IO;
 using Photon.Pun;
 
 
+
 public class ScoreShowElement : MonoBehaviourPunCallbacks
 {
     private string encryptionKey = "g#Jf8Yb@5x3&oL$Z"; // Custom encryption key
@@ -102,7 +103,7 @@ public class ScoreShowElement : MonoBehaviourPunCallbacks
         imagePath = LoadBeatmapList.imagePath;
         DiffText.text = LoadBeatmapList.difficultymap.ToString();
         Artist.text = LoadBeatmapList.artistmap.ToString();
-        scorePath = LoadBeatmapList.scorePath.ToString();
+        scorePath = ReadFile.scorePath.ToString();
 
         Texture2D textureSmallImage = LoadTextureFromPath(imagePath, 400, 400);
         Texture2D textureLargeImage = LoadTextureFromPath(imagePath, 1920, 1080);
