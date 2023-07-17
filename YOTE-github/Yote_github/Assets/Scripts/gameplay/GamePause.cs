@@ -20,17 +20,21 @@ public class GamePause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)&&ReadFile.isMulti==false)
+        if(ReadFile.isMulti==false)
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape) && ReadFile.isMulti == false)
             {
-                //ResumeGame();
-            }
-            else
-            {
-                PauseGame();
+                if (isPaused)
+                {
+                    //ResumeGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
             }
         }
+
 
     }
     public void PauseGame()

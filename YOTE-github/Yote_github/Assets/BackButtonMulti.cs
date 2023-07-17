@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BackButton1 : MonoBehaviour
+public class BackButtonMulti : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("MainLevelScene");
+        SceneManager.LoadScene("Waiting room");
     }
-    
 }

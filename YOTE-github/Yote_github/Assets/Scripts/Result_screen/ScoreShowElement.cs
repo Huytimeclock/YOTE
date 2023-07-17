@@ -33,10 +33,22 @@ public class ScoreShowElement : MonoBehaviourPunCallbacks
     public TextMeshProUGUI OldRecord;
 
     public static bool isMulti=false;
+    public GameObject Leaderboard;
+
+    public GameObject NormalBackButton;
+    public GameObject MultiBackButton;
 
     private void Start()
     {
-        
+        if(ReadFile.isMulti==false)
+        {
+            Leaderboard.SetActive(false);
+            MultiBackButton.SetActive(false);
+        }
+        if(ReadFile.isMulti==true)
+        {
+            NormalBackButton.SetActive(false);
+        }
         NewRecord.gameObject.SetActive(false);
         // Find the ReadFile game object in Scene 1
         GameObject readFileObj = GameObject.Find("ReadFile");
