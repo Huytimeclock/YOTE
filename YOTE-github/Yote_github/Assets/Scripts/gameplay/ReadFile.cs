@@ -175,7 +175,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
     private void Awake()
     {
 
-
+        percentage = 0f;
         if (isMulti == true) //because multi use sync for data song so we can't just use directory from another user
         {
             Debug.Log("huy ultra cute, the ismulti is true");
