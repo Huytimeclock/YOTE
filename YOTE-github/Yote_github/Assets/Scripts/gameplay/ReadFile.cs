@@ -892,11 +892,13 @@ public class ReadFile : MonoBehaviourPunCallbacks
             }
             if (currentWidth<=targetWidth)
             {
-                
-                //Time.timeScale = 0f;
-                AudioListener.pause = true;
-                FailCanvas.SetActive(true);
-                FailButton.SetActive(true);
+                if(ReadFile.isMulti==false)
+                {
+                    //Time.timeScale = 0f;
+                    AudioListener.pause = true;
+                    FailCanvas.SetActive(true);
+                    FailButton.SetActive(true);
+                }
             }
             //Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
             yield return null;
