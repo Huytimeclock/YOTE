@@ -97,6 +97,7 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
         }
         if (eventData.Code == 20)
         {
+            ReadFile.isMulti = true;
             // All players received the custom network event, switch scenes
             PhotonNetwork.LoadLevel("Gameplay");
         }

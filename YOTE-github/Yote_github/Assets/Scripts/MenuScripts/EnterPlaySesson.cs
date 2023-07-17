@@ -14,6 +14,7 @@ public class EnterPlaySesson : MonoBehaviour
 
     private void OnMouseDown()
     {
+        ReadFile.isMulti = false;
         SceneManager.LoadScene("MainLevelScene");
     }
 

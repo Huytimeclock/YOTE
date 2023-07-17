@@ -110,7 +110,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
     int combo = 0;
 
 
-    public static bool isMulti=false;
+    public static bool isMulti;
     string idForMulti = "";
 
     void Start()
@@ -178,6 +178,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
         if (isMulti == true) //because multi use sync for data song so we can't just use directory from another user
         {
+            Debug.Log("huy ultra cute, the ismulti is true");
             string pathforMulti = Application.dataPath + "\\Game_data\\Beatmaps";
             idForMulti = LoadBeatmapList.IDSong;
             string folderName = GetFolderNameByID(idForMulti);
@@ -240,6 +241,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
 
             UnityEngine.Debug.Log(imagePath);
+            UnityEngine.Debug.Log(filePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
  
