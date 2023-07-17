@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Pun;
 
 
-public class ReadFile : MonoBehaviour
+public class ReadFile : MonoBehaviourPunCallbacks
 {
     private float startTime; // time when the script starts
     private bool isStarted; // whether the script has started reading the file
@@ -104,6 +105,10 @@ public class ReadFile : MonoBehaviour
     public TextMeshProUGUI ScoreNow;
     public TextMeshProUGUI ComboNow;
     int combo = 0;
+
+
+    public static bool isMulti=false;
+
 
     void Start()
     {

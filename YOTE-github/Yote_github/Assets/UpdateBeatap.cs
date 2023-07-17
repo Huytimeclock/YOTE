@@ -52,7 +52,11 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
     }
 
 
-
+public void OnLoadGame()
+    {
+        ReadFile.isMulti = true;
+        PhotonNetwork.LoadLevel("Gameplay");
+    }
 
 
 
