@@ -52,13 +52,12 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
     }
 
 
-public void OnLoadGame()
+    public void OnLoadGame()
     {
         ReadFile.isMulti = true;
-        PhotonNetwork.LoadLevel("Gameplay");
+        // Raise a custom network event to notify all players to switch scenes
+        PhotonNetwork.RaiseEvent(20, null, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
     }
-
-
 
 
     public void OnUpdateBeatmap(object[] data)
@@ -95,6 +94,11 @@ public void OnLoadGame()
 
             // Call the method to update the UI or perform any other necessary actions
             OnUpdateBeatmap(data);
+        }
+        if (eventData.Code == 20)
+        {
+            // All players received the custom network event, switch scenes
+            PhotonNetwork.LoadLevel("Gameplay");
         }
     }
 
