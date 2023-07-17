@@ -245,9 +245,32 @@ public class LoadBeatmapList : MonoBehaviourPunCallbacks
         }
         if (isMulti == true)
         {
+            // Create an array of data to be sent with the event
+            object[] eventData2 = new object[]
+            {
+            LoadBeatmapList.ActuallySongName,
+            LoadBeatmapList.BPMValue,
+            LoadBeatmapList.difficultymap,
+            LoadBeatmapList.artistmap,
+            LoadBeatmapList.imagePath,
+            LoadBeatmapList.creatormap
+            };
 
+            // Raise the update beatmap event
+            PhotonNetworkingMessages.SendUpdateBeatmapEvent(eventData2);
+            SceneManager.UnloadSceneAsync("MainLevelScene");
         }
 
+    }
+
+    public class PhotonNetworkingMessages
+    {
+        public const byte UpdateBeatmapEventCode = 10;
+
+        public static void SendUpdateBeatmapEvent(object[] data)
+        {
+            PhotonNetwork.RaiseEvent(UpdateBeatmapEventCode, data, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
+        }
     }
 
 

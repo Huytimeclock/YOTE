@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
 using System.Diagnostics.Tracing;
+using static LoadBeatmapList;
 
 public class UpdateBeatap : MonoBehaviourPunCallbacks
 {
@@ -52,21 +53,12 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
 
 
 
-  //  public void OnClickUpdateBeatmap()
-  //  {
-  //      byte eventCode = 10;
-  //      object[] eventData = new object[] { LoadBeatmapList.ActuallySongName, LoadBeatmapList.artistmap, LoadBeatmapList.difficultymap.ToString(), LoadBeatmapList.BPMValue, LoadBeatmapList.creatormap, LoadBeatmapList.imagePath };
-  //      RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All }; // Send the event to all users
-  //
-  //      PhotonNetwork.RaiseEvent(eventCode, eventData, options, SendOptions.SendReliable);
-  //  }
+
 
 
 
     public void OnUpdateBeatmap(object[] data)
     {
-        
-
         Title_Song.text = LoadBeatmapList.ActuallySongName;
         Artist.text = LoadBeatmapList.artistmap;
         DiffText.text = LoadBeatmapList.difficultymap.ToString();
@@ -74,19 +66,32 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
         CreatorText.text = LoadBeatmapList.creatormap;
         textureSmallImage = LoadTextureFromPath(LoadBeatmapList.imagePath, 400, 400);
 
-        if (textureSmallImage != null) // image for song-bg (400x400)
+        if (textureSmallImage != null)
         {
             Sprite sprite = Sprite.Create(textureSmallImage, new Rect(0, 0, textureSmallImage.width, textureSmallImage.height), Vector2.zero);
             imageTitle.sprite = sprite;
         }
-
     }
 
     private void OnCustomEvent(EventData eventData)
     {
+        if (eventData.Code == PhotonNetworkingMessages.UpdateBeatmapEventCode)
+        {
+            object[] data = (object[])eventData.CustomData;
 
+            // Update the static variables with the received data
+            LoadBeatmapList.ActuallySongName = (string)data[0];
+            LoadBeatmapList.BPMValue = (string)data[1];
+            LoadBeatmapList.difficultymap = (int)data[2];
+            LoadBeatmapList.artistmap = (string)data[3];
+            LoadBeatmapList.imagePath = (string)data[4];
+            LoadBeatmapList.creatormap = (string)data[5];
 
+            // Call the method to update the UI or perform any other necessary actions
+            OnUpdateBeatmap(data);
+        }
     }
+
 
 
 
