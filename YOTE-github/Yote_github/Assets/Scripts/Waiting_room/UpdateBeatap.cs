@@ -91,6 +91,8 @@ public void OnLoadGame()
             LoadBeatmapList.imagePath = (string)data[4];
             LoadBeatmapList.creatormap = (string)data[5];
 
+            LoadBeatmapList.IDSong= (string)data[6];
+
             // Call the method to update the UI or perform any other necessary actions
             OnUpdateBeatmap(data);
         }

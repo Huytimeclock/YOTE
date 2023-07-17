@@ -30,7 +30,7 @@ public class ImportSong : MonoBehaviour
 
 
 
-        songPath = LoadBeatmapList.songPath;
+        songPath = ReadFile.songPath;
 
         // Get the BPM value from the text file
         string bpmString = LoadBeatmapList.BPMValue.Trim();

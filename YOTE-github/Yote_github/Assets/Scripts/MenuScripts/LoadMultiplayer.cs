@@ -36,16 +36,14 @@ public class LoadMultiplayer : MonoBehaviour
             Debug.LogWarning("Loginscript component not found on checkAuth GameObject.");
         }
 
-        if (isLoginstatus == false)
-        {
-            Debug.Log("u suck");
-        }
-        if (isLoginstatus == true)
-        {
-
-
+        //if (isLoginstatus == false)
+        //{
+        //    Debug.Log("u suck");
+        //}
+        //if (isLoginstatus == true)
+        //{
             SceneManager.LoadScene("Loading_to_waitingroom");
-        }
+        //}
     }
 
 

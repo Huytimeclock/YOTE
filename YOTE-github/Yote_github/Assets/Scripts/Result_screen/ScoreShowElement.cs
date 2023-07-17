@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using Photon.Pun;
 
 
-public class ScoreShowElement : MonoBehaviour
+public class ScoreShowElement : MonoBehaviourPunCallbacks
 {
     private string encryptionKey = "g#Jf8Yb@5x3&oL$Z"; // Custom encryption key
 
@@ -29,6 +30,8 @@ public class ScoreShowElement : MonoBehaviour
     private string scorePath = "";
     public TextMeshProUGUI NewRecord;
     public TextMeshProUGUI OldRecord;
+
+    public static bool isMulti=false;
 
     private void Start()
     {

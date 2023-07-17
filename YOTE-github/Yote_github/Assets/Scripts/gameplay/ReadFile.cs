@@ -88,7 +88,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
     private string Artist = "";
     private string filePath ;
     private string scorePath ;
-    private string songPath ;
+    public static string songPath ;
     private string BPMText = "";
     private float BPMValue = 0;
 
@@ -108,7 +108,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
 
     public static bool isMulti=false;
-
+    string idForMulti = "";
 
     void Start()
     {
@@ -118,6 +118,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         FailButton.SetActive(false);
         FailCanvas.SetActive(false);
 
+ 
 
 
         transitionAnim2.SetBool("isFadeIn", false);
@@ -148,14 +149,12 @@ public class ReadFile : MonoBehaviourPunCallbacks
         startTime = Time.time;
         isStarted = false;
 
-        //Load info of beatmap
-        filePath = LoadBeatmapList.infoPath;
-        scorePath = LoadBeatmapList.scorePath;
-        imagePath = LoadBeatmapList.imagePath;
-        songPath = LoadBeatmapList.songPath;
+
+
         OffsetValueSetting = LoadBeatmapList.OffsetValue;
         ARValueSetting = LoadBeatmapList.ARValue;
         BGOpacitySetting = LoadBeatmapList.BgOpacityValue;
+        Debug.Log("ar value setting la: " + ARValueSetting);
 
         UnityEngine.Debug.Log("Offset: " + OffsetValueSetting);
         UnityEngine.Debug.Log("Ar: " + ARValueSetting);
@@ -172,7 +171,41 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        if (isMulti == true) //because multi use sync for data song so we can't just use directory from another user
+        {
+            string pathforMulti = Application.dataPath + "\\Game_data\\Beatmaps";
+            idForMulti = LoadBeatmapList.IDSong;
+            string folderName = GetFolderNameByID(idForMulti);
+            if (!string.IsNullOrEmpty(folderName))
+            {
+                Debug.Log("Folder with ID " + idForMulti + ": " + folderName);
+            }
+            else
+            {
+                Debug.Log("Folder with ID " + idForMulti + " not found.");
+            }
 
+            string folderPathForMulti = Path.Combine(pathforMulti, folderName);
+            filePath = Path.Combine(folderPathForMulti, "map.txt");
+            scorePath = Path.Combine(folderPathForMulti, "score.txt");
+            imagePath = Path.Combine(folderPathForMulti, "bg.jpg");
+            songPath = Path.Combine(folderPathForMulti, "audio.mp3");
+
+            Debug.Log("filepath multi la: " + filePath);
+            Debug.Log("scorepath multi la: " + scorePath);
+            Debug.Log("imagepath multi la: " + imagePath);
+            Debug.Log("songpath multi la: " + songPath);
+
+        }
+        if (isMulti == false)
+        {
+            //Load info of beatmap
+            filePath = LoadBeatmapList.infoPath;
+            scorePath = LoadBeatmapList.scorePath;
+            imagePath = LoadBeatmapList.imagePath;
+            songPath = LoadBeatmapList.songPath;
+
+        }
         for (int i = 0; i <= 25; i++)
         {
             GameObject ForWordObject = buttonaaa[i];
@@ -746,9 +779,10 @@ public class ReadFile : MonoBehaviourPunCallbacks
         GameObject originalObject = buttonaaa[convertKey];
         Transform originalGroundObject = originalObject.transform.Find("SquareInput");
         Transform originalAirObject = originalObject.transform.Find("SquareAir");
-
+        Debug.Log("EnlargeObject coroutine started.");
         while (Time.time < triggerTime)
         {
+            //Debug.Log("Waiting for trigger time. Current time: " + Time.time + ", Trigger time: " + triggerTime);
             yield return null;
         }
 
@@ -764,7 +798,11 @@ public class ReadFile : MonoBehaviourPunCallbacks
                 float timeElapsed = Time.time - startTime;
                 float scale = timeElapsed * enlargeRate;
                 clonedGroundObject.localScale = new Vector3(scale, scale, scale);
+                Debug.Log("Cloned Ground Object Position: " + clonedGroundObject.position);
+                Debug.Log("Cloned Ground Object Local Scale: " + clonedGroundObject.localScale);
                 yield return null;
+
+
             }
 
             Destroy(clonedGroundObject.gameObject);
@@ -781,6 +819,8 @@ public class ReadFile : MonoBehaviourPunCallbacks
                 clonedAirObject.localScale = new Vector3(scale, scale, scale);
                 yield return null;
             }
+
+
 
             Destroy(clonedAirObject.gameObject);
         }
@@ -849,7 +889,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
                 FailCanvas.SetActive(true);
                 FailButton.SetActive(true);
             }
-            Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
+            //Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
             yield return null;
             
         }
@@ -1208,7 +1248,29 @@ public class ReadFile : MonoBehaviourPunCallbacks
         backgroundImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
     }
 
+    public string GetFolderNameByID(string id)
+    {
+        string[] folders = Directory.GetDirectories(Application.dataPath + "\\Game_data\\Beatmaps");
 
+        foreach (string folderPath in folders)
+        {
+            string folderName = Path.GetFileName(folderPath);
+            string[] nameParts = folderName.Split('-');
+
+            if (nameParts.Length >= 2)
+            {
+                string folderID = nameParts[0].Trim();
+                string folderTitle = string.Join("-", nameParts, 1, nameParts.Length - 1).Trim();
+
+                if (folderID == id)
+                {
+                    return folderName;
+                }
+            }
+        }
+
+        return string.Empty; // If folder with the specified ID is not found
+    }
 }
 
 

@@ -253,7 +253,9 @@ public class LoadBeatmapList : MonoBehaviourPunCallbacks
             LoadBeatmapList.difficultymap,
             LoadBeatmapList.artistmap,
             LoadBeatmapList.imagePath,
-            LoadBeatmapList.creatormap
+            LoadBeatmapList.creatormap,
+
+            LoadBeatmapList.IDSong
             };
 
             // Raise the update beatmap event
@@ -473,6 +475,7 @@ public class LoadBeatmapList : MonoBehaviourPunCallbacks
 
     }
 
+   
 
     IEnumerator FadeOutDisable()
     {
