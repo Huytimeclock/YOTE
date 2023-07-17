@@ -99,6 +99,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
     public Animator transitionAnim2;
 
     public Image hpBarImage;
+    private bool stopHpBarReduction = false;
 
     public Image backgroundImage;
 
@@ -171,6 +172,8 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+
+
         if (isMulti == true) //because multi use sync for data song so we can't just use directory from another user
         {
             string pathforMulti = Application.dataPath + "\\Game_data\\Beatmaps";
@@ -845,7 +848,8 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
         EndNoteTime = notes[notes.Count - 1].time;
 
-
+        // Stop the HP bar reduction coroutine
+        stopHpBarReduction = true;
 
         // UnityEngine.Debug.Log("end node time la: " + EndNoteTime);
         Invoke("LowerVolumeAndEndDelayed", 3f);
@@ -871,7 +875,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
         float initialWidth = hpBarImage.rectTransform.sizeDelta.x;
 
-        while (hpValue > 0f)
+        while (hpValue > 0f && !stopHpBarReduction)
         {
             float targetWidth = 0;
             float currentWidth = hpBarImage.rectTransform.sizeDelta.x;
@@ -884,6 +888,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
             }
             if (currentWidth<=targetWidth)
             {
+                
                 //Time.timeScale = 0f;
                 AudioListener.pause = true;
                 FailCanvas.SetActive(true);
@@ -891,7 +896,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
             }
             //Debug.Log("HP value: " + hpValue + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x + ", Target width: " + targetWidth);
             yield return null;
-            
+
         }
 
 
