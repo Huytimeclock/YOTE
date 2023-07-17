@@ -22,6 +22,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
  
 
     public static string roomName;
+    public static bool isHost;
 
 
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {   
         if(CreateRoomtext.text.Length>=1)
         {
+            isHost = true;
             roomName = CreateRoomtext.text;
             PhotonNetwork.CreateRoom(CreateRoomtext.text, new RoomOptions() { MaxPlayers=3});
 
@@ -46,6 +48,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (JoinRoomtext.text.Length >= 1)
         {
+            isHost= false;
             roomName = JoinRoomtext.text;
             PhotonNetwork.JoinRoom(JoinRoomtext.text);
         }
