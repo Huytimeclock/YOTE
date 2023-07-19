@@ -186,7 +186,8 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-
+        Time.timeScale = 1;
+        AudioListener.pause = false;
         percentage = 0f;
         if (isMulti == true) //because multi use sync for data song so we can't just use directory from another user
         {
@@ -997,7 +998,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
             {
                 if(ReadFile.isMulti==false)
                 {
-                    //Time.timeScale = 0f;
+                    Time.timeScale = 0f;
                     AudioListener.pause = true;
                     FailCanvas.SetActive(true);
                     FailButton.SetActive(true);

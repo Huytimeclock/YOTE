@@ -70,6 +70,12 @@ public class LoadBeatmapList : MonoBehaviourPunCallbacks
     public GameObject BackToMenu;
     public GameObject BackToLobby;
 
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+    }
+
     void Start()
     {
         if (isMulti==false)
