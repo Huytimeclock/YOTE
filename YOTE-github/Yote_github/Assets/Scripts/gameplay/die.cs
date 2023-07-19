@@ -15,17 +15,13 @@ public class die : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 1.0f;
-        AudioListener.pause = false;
+ 
         LoadMainMenu();
     }
 
     private void LoadMainMenu()
     {
-        Time.timeScale = 1.0f;
-        Debug.Log ("time.timescale la: " + Time.timeScale);
-        AudioListener.pause = false;
-        Debug.Log("audiolisterner la: " + AudioListener.pause);
+
         SceneManager.LoadScene("MainLevelScene");
 
 
@@ -35,8 +31,7 @@ public class die : MonoBehaviour
     }
     public void Retry()
     {
-        Time.timeScale = 1.0f;
-        AudioListener.pause = false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

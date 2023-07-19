@@ -1023,23 +1023,30 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
         float currentWidth = hpBarImage.rectTransform.sizeDelta.x;
         float plusAmount = 0;
+        float maxhp = 1000;
 
         if (type == 0)
         {
             plusAmount = (11 - hpValue) * 10;
             float newWidth = currentWidth + plusAmount;
+            if (newWidth > maxhp)
+                newWidth = 1000;
             hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
         }
         if (type == 1)
         {
             plusAmount = (11 - hpValue) * 5;
             float newWidth = currentWidth + plusAmount;
+            if (newWidth > maxhp)
+                newWidth = 1000;
             hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
         }
         if (type == 2)
         {
             plusAmount = (11 - hpValue) * 3;
             float newWidth = currentWidth + plusAmount;
+            if (newWidth > maxhp)
+                newWidth = 1000;
             hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
         }
         if (type == 3)
