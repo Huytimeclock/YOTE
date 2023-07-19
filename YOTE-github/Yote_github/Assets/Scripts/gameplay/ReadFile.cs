@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEditor.Experimental.GraphView;
 
 
 public class ReadFile : MonoBehaviourPunCallbacks
@@ -68,6 +69,17 @@ public class ReadFile : MonoBehaviourPunCallbacks
     }
 
     List<Note> notes = new List<Note>();
+
+    private struct Visual
+    {
+        public float time;
+        public float r;
+        public float g;
+        public float b;
+        public float o;
+    }
+
+    List<Visual> visuals = new List<Visual>();
 
     private Renderer rendererGood;
     private Renderer rendererGreat;
@@ -142,10 +154,10 @@ public class ReadFile : MonoBehaviourPunCallbacks
             CPText.GetComponent<TextMeshProUGUI>().color = new Color32(253, 138, 51, 0);
             MissText.GetComponent<TextMeshProUGUI>().color = new Color32(149, 140, 142, 0);
 
-            UnityEngine.Debug.Log("GoodText: " + GoodText);
-            UnityEngine.Debug.Log("GreatText: " + GreatText);
-            UnityEngine.Debug.Log("PerfectText: " + PerfectText);
-            UnityEngine.Debug.Log("CPText: " + CPText);
+            //UnityEngine.Debug.Log("GoodText: " + GoodText);
+            //UnityEngine.Debug.Log("GreatText: " + GreatText);
+            //UnityEngine.Debug.Log("PerfectText: " + PerfectText);
+            //UnityEngine.Debug.Log("CPText: " + CPText);
         }
 
         UnityEngine.Debug.ClearDeveloperConsole();
@@ -159,9 +171,9 @@ public class ReadFile : MonoBehaviourPunCallbacks
         BGOpacitySetting = LoadBeatmapList.BgOpacityValue;
         Debug.Log("ar value setting la: " + ARValueSetting);
 
-        UnityEngine.Debug.Log("Offset: " + OffsetValueSetting);
-        UnityEngine.Debug.Log("Ar: " + ARValueSetting);
-        UnityEngine.Debug.Log("Image path: " + imagePath);
+        //UnityEngine.Debug.Log("Offset: " + OffsetValueSetting);
+        //UnityEngine.Debug.Log("Ar: " + ARValueSetting);
+        //UnityEngine.Debug.Log("Image path: " + imagePath);
 
         // related to EnlargeObject
         enlargeRate = 1 / ARValueSetting;
@@ -178,17 +190,17 @@ public class ReadFile : MonoBehaviourPunCallbacks
         percentage = 0f;
         if (isMulti == true) //because multi use sync for data song so we can't just use directory from another user
         {
-            Debug.Log("huy ultra cute, the ismulti is true");
+            //Debug.Log("huy ultra cute, the ismulti is true");
             string pathforMulti = Application.dataPath + "\\Game_data\\Beatmaps";
             idForMulti = LoadBeatmapList.IDSong;
             string folderName = GetFolderNameByID(idForMulti);
             if (!string.IsNullOrEmpty(folderName))
             {
-                Debug.Log("Folder with ID " + idForMulti + ": " + folderName);
+                //Debug.Log("Folder with ID " + idForMulti + ": " + folderName);
             }
             else
             {
-                Debug.Log("Folder with ID " + idForMulti + " not found.");
+                //Debug.Log("Folder with ID " + idForMulti + " not found.");
             }
 
             string folderPathForMulti = Path.Combine(pathforMulti, folderName);
@@ -197,10 +209,10 @@ public class ReadFile : MonoBehaviourPunCallbacks
             imagePath = Path.Combine(folderPathForMulti, "bg.jpg");
             songPath = Path.Combine(folderPathForMulti, "audio.mp3");
 
-            Debug.Log("filepath multi la: " + filePath);
-            Debug.Log("scorepath multi la: " + scorePath);
-            Debug.Log("imagepath multi la: " + imagePath);
-            Debug.Log("songpath multi la: " + songPath);
+            //Debug.Log("filepath multi la: " + filePath);
+            //Debug.Log("scorepath multi la: " + scorePath);
+            //Debug.Log("imagepath multi la: " + imagePath);
+            //Debug.Log("songpath multi la: " + songPath);
 
         }
         if (isMulti == false)
@@ -240,13 +252,13 @@ public class ReadFile : MonoBehaviourPunCallbacks
         if (!isStarted)
         {
 
-            UnityEngine.Debug.Log(imagePath);
-            UnityEngine.Debug.Log(filePath);
+            //UnityEngine.Debug.Log(imagePath);
+            //UnityEngine.Debug.Log(filePath);
 
             string beatmapDirectory = Path.GetDirectoryName(filePath); // gets the directory path of the beatmap
  
             beatmapName = new DirectoryInfo(beatmapDirectory).Name; // gets the name of the beatmap directory
-            UnityEngine.Debug.Log(beatmapName);
+            //UnityEngine.Debug.Log(beatmapName);
 
             // Check if the file exists
             if (!File.Exists(filePath))
@@ -289,7 +301,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
                         if (float.TryParse(HpString, out float Hp))
                         {
                             HpValue = Hp;
-                            UnityEngine.Debug.Log("Hp value: " + HpValue);
+                            //UnityEngine.Debug.Log("Hp value: " + HpValue);
                         }
                         if (parts.Length == 2 && parts[0].Trim() == "BPM")
                         {
@@ -299,7 +311,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
                         if (float.TryParse(BPMText, out float result))
                         {
                             BPMValue = result;
-                            UnityEngine.Debug.Log("BPM value: " + BPMValue);
+                            //UnityEngine.Debug.Log("BPM value: " + BPMValue);
                         }
                         i++;
                     }
@@ -309,13 +321,72 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
             StartCoroutine(StartHpBarReduction(HpValue));
 
+            // Read map visual
+            for (int x = 0; x < lines.Length; x++)
+            {
+                string line = lines[x];
+                
+
+
+                // Check if the line starts with "[MAP VISUAL]"
+                if (line.StartsWith("[MAP VISUAL]"))
+                {
+                    Debug.Log("map visual detected");
+                    x++; // Move to the next line                   
+                    Debug.Log("line length la: " + lines.Length + " x la: " + x);
+                    while (x < lines.Length && lines[x].StartsWith("["))
+                    {
+
+
+                        
+                        string[] splitLine = lines[x].Substring(1, lines[x].Length - 2).Split(new[] { "][" }, StringSplitOptions.None);
+
+
+                        Debug.Log("split line 0: " + splitLine[0]);
+                        Debug.Log("split line 1: " + splitLine[1]);
+                        Debug.Log("split line length : " + splitLine.Length);
+
+
+                        if (splitLine.Length >= 2)
+                        {
+                            Debug.Log("lets go");
+                            float time;
+                            float.TryParse(splitLine[0], out time);
+
+
+
+                            string[] colorValues = splitLine[1].Split(',');
+                            float r, g, b, o;
+                            float.TryParse(colorValues[0], out r);
+                            float.TryParse(colorValues[1], out g);
+                            float.TryParse(colorValues[2], out b);
+                            float.TryParse(colorValues[3], out o);
+
+                            Debug.Log(time + " " + r + " " + g + " " + b + " " + o);
+                            // Trigger the color change at the specified time
+                            visuals.Add(new Visual { time = time, r=r, b=b, g=g, o=o});
+                            
+                        }
+
+                        x++; // Move to the next line
+                    }
+
+                    break;
+                }
+            }
+
+
             // Read map data
             for (int x = 0; x < lines.Length; x++)
             {
                 string line = lines[x];
                 if (line.StartsWith("[MAP DATA]"))
                 {
-                    x++;
+                                                                                                            if (line.StartsWith("[MAP VISUAL]"))
+                                                                                                            {
+                                                                                                                  break;
+                                                                                                            }
+                        x++;
                     while (x < lines.Length && lines[x].StartsWith("["))
                     {
 
@@ -436,11 +507,18 @@ public class ReadFile : MonoBehaviourPunCallbacks
                     break;
                 }
             }
+
+
+
+
+
+
+
             perfectPercentageValue = 100f / numOfNotes;
             greatPercentageValue = 0.75f * perfectPercentageValue;
             goodPercentageValue = 0.5f * perfectPercentageValue;
 
-
+            StartCoroutine(ListVisual(visuals));
             StartCoroutine(ListNote(notes));
 
         }
@@ -786,7 +864,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         GameObject originalObject = buttonaaa[convertKey];
         Transform originalGroundObject = originalObject.transform.Find("SquareInput");
         Transform originalAirObject = originalObject.transform.Find("SquareAir");
-        Debug.Log("EnlargeObject coroutine started.");
+        //Debug.Log("EnlargeObject coroutine started.");
         while (Time.time < triggerTime)
         {
             //Debug.Log("Waiting for trigger time. Current time: " + Time.time + ", Trigger time: " + triggerTime);
@@ -799,14 +877,14 @@ public class ReadFile : MonoBehaviourPunCallbacks
         if (isAir == false)
         {
             Transform clonedGroundObject = Instantiate(originalGroundObject, originalObject.transform);
-            Debug.Log("Cloned Object: " + clonedGroundObject.name);
+            //Debug.Log("Cloned Object: " + clonedGroundObject.name);
             while (Time.time < endTime)
             {
                 float timeElapsed = Time.time - startTime;
                 float scale = timeElapsed * enlargeRate;
                 clonedGroundObject.localScale = new Vector3(scale, scale, scale);
-                Debug.Log("Cloned Ground Object Position: " + clonedGroundObject.position);
-                Debug.Log("Cloned Ground Object Local Scale: " + clonedGroundObject.localScale);
+                //Debug.Log("Cloned Ground Object Position: " + clonedGroundObject.position);
+                //Debug.Log("Cloned Ground Object Local Scale: " + clonedGroundObject.localScale);
                 yield return null;
 
 
@@ -818,7 +896,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         if (isAir == true)
         {
             Transform clonedAirObject = Instantiate(originalAirObject, originalObject.transform);
-            Debug.Log("Cloned Object: " + clonedAirObject.name);
+            //Debug.Log("Cloned Object: " + clonedAirObject.name);
             while (Time.time < endTime)
             {
                 float timeElapsed = Time.time - startTime;
@@ -836,6 +914,30 @@ public class ReadFile : MonoBehaviourPunCallbacks
         //originalAirObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
+    IEnumerator ListVisual(List<Visual> visualtrigger)
+    {
+        int countgo = 0;
+        float beforetime = 0;
+        foreach (Visual visual in visualtrigger)
+        {
+            float triggerTime = visual.time;
+            if (countgo==0)
+            {
+                beforetime= triggerTime;
+                yield return new WaitForSeconds(triggerTime + timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4 + OffsetValueSetting);
+                countgo++;
+            }
+            if(countgo>=1)
+            {
+                yield return new WaitForSeconds(triggerTime-beforetime);
+                beforetime = triggerTime;
+            }
+            
+            
+            StartCoroutine(TriggerColorChange(visual.r, visual.g, visual.b, visual.o));
+        }
+    }
+
     IEnumerator ListNote(List<Note> notes)
     {
 
@@ -846,6 +948,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
             int convertKey;
             bool isAir = false; //not need
             returnButtonType(note.key, out convertKey, out isAir);
+
 
             yield return StartCoroutine(CreateNote(note.time + timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4 + OffsetValueSetting, note.key, note.NeedShift, convertKey));
         }
@@ -870,8 +973,8 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
     private IEnumerator StartHpBarReduction(float hpValue)
     {
-        Debug.Log("Start HP bar reduction coroutine");
-        Debug.Log("HPVALUE LA: " + hpValue);
+        //Debug.Log("Start HP bar reduction coroutine");
+        //Debug.Log("HPVALUE LA: " + hpValue);
 
         yield return new WaitForSeconds(timedelaybeforetractstart + 0.26f + (60 / BPMValue) * 4 + OffsetValueSetting);
 
@@ -944,7 +1047,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
             float newWidth = currentWidth + plusAmount;
             hpBarImage.rectTransform.sizeDelta = new Vector2(newWidth, hpBarImage.rectTransform.sizeDelta.y);
         }
-        Debug.Log("plusAmount: " + plusAmount + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x);
+        //Debug.Log("plusAmount: " + plusAmount + ", Current width: " + hpBarImage.rectTransform.sizeDelta.x);
 
     }
 
@@ -1059,6 +1162,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
 
     }
+
     // tuong tu enlarge object but se tao ra cac time delay de bam
 
     // create Log base on result
@@ -1291,6 +1395,25 @@ public class ReadFile : MonoBehaviourPunCallbacks
 
         return string.Empty; // If folder with the specified ID is not found
     }
+
+
+    IEnumerator TriggerColorChange(float r, float g, float b, float o)
+    {
+        Debug.Log("Triggering color change at: " + Time.time);
+        yield return StartCoroutine(ChangeColorBackground(r, g, b, o));
+    }
+
+    IEnumerator ChangeColorBackground(float r, float g, float b, float o)
+    {
+        Debug.Log("start changing color at: " + Time.time);
+        // Create a new color with the desired RGB values
+        Color newColor = new Color(r, g, b, o); // Example: set the color to orange (RGB: 255, 128, 0)
+
+        // Assign the new color to the image
+        backgroundImage.color = newColor;
+        yield return null;
+    }
+
 }
 
 
