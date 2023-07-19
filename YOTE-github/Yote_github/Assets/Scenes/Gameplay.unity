@@ -2473,6 +2473,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1739888967}
     m_Modifications:
+    - target: {fileID: 279160644764062061, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459131282218390981, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921800090457372983, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047714527549749083, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764597737453105514, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6011433377228926502, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_text
       value: '>.<'
@@ -7203,6 +7223,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1739888967}
     m_Modifications:
+    - target: {fileID: 279160644764062061, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459131282218390981, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921800090457372983, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047714527549749083, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764597737453105514, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6011433377228926502, guid: e79ea8fed46fc1f4a857524aabb03197, type: 3}
       propertyPath: m_text
       value: YO TE

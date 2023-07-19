@@ -67,7 +67,7 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
         DiffText.text = LoadBeatmapList.difficultymap.ToString();
         BPM1.text = LoadBeatmapList.BPMValue;
         CreatorText.text = LoadBeatmapList.creatormap;
-        textureSmallImage = LoadTextureFromPath(LoadBeatmapList.imagePath, 400, 400);
+        textureSmallImage = LoadTextureFromPath(ReturnImagePathFromID(LoadBeatmapList.IDSong), 400, 400);
 
         if (textureSmallImage != null)
         {
@@ -106,7 +106,51 @@ public class UpdateBeatap : MonoBehaviourPunCallbacks
 
 
 
+    private string ReturnImagePathFromID(string id)
+    {
+        string pathforMulti = Application.dataPath + "\\Game_data\\Beatmaps";
+        
+        string folderName = GetFolderNameByID(id);
+        if (!string.IsNullOrEmpty(folderName))
+        {
+            //Debug.Log("Folder with ID " + idForMulti + ": " + folderName);
+        }
+        else
+        {
+            //Debug.Log("Folder with ID " + idForMulti + " not found.");
+        }
 
+        string folderPathForMulti = Path.Combine(pathforMulti, folderName);
+        
+        
+        imagePath = Path.Combine(folderPathForMulti, "bg.jpg");
+        return imagePath;
+        
+    }
+
+    public string GetFolderNameByID(string id)
+    {
+        string[] folders = Directory.GetDirectories(Application.dataPath + "\\Game_data\\Beatmaps");
+
+        foreach (string folderPath in folders)
+        {
+            string folderName = Path.GetFileName(folderPath);
+            string[] nameParts = folderName.Split('-');
+
+            if (nameParts.Length >= 2)
+            {
+                string folderID = nameParts[0].Trim();
+                string folderTitle = string.Join("-", nameParts, 1, nameParts.Length - 1).Trim();
+
+                if (folderID == id)
+                {
+                    return folderName;
+                }
+            }
+        }
+
+        return string.Empty; // If folder with the specified ID is not found
+    }
 
     Texture2D LoadTextureFromPath(string path, int maxWidth, int maxHeight)
     {
