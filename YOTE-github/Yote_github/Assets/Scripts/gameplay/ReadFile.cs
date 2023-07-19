@@ -1184,7 +1184,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             UnityEngine.Debug.Log("Good");
             percentage += goodPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text=combo.ToString();
             goodCount++;
@@ -1197,7 +1197,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             //   UnityEngine.Debug.Log("Great");
             percentage += greatPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text = combo.ToString();
             greatCount++;
@@ -1209,7 +1209,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             UnityEngine.Debug.Log("Perfect");
             percentage += perfectPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text = combo.ToString();
             perfectCount++;
@@ -1221,7 +1221,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             UnityEngine.Debug.Log("CriticalPerfect");
             percentage += perfectPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text = combo.ToString();
             CPCount++;
@@ -1233,7 +1233,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             UnityEngine.Debug.Log("Perfect");
             percentage += perfectPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text = combo.ToString();
             perfectCount++;
@@ -1245,7 +1245,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             UnityEngine.Debug.Log("Great");
             percentage += greatPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text = combo.ToString();
             greatCount++;
@@ -1257,7 +1257,7 @@ public class ReadFile : MonoBehaviourPunCallbacks
         {
             UnityEngine.Debug.Log("Good");
             percentage += goodPercentageValue;
-            ScoreNow.text = percentage.ToString();
+            ScoreNow.text = percentage.ToString("F2");
             combo++;
             ComboNow.text = combo.ToString();
             goodCount++;
